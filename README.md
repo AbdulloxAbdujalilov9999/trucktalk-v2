@@ -6,6 +6,8 @@ This is a rebuild of the current TruckTalk (`truck-talk-webapp`), made to compar
 
 ## Try it in one minute (no accounts, no keys)
 
+Needs [Node.js](https://nodejs.org) 22 or newer, on Windows, macOS or Linux.
+
 ```bash
 npm install
 npm run dev          # http://localhost:3000  (demo mode: pretend sign-in and payments, data in .data/)
@@ -37,7 +39,8 @@ npm test               # 43 unit and integration tests (node:test), incl. the re
 npm run check          # content files up to date, offline list complete, no inline scripts, every UI string translated
 npm run e2e            # phone-size browser walkthrough with screenshots (needs Playwright; see e2e/run.mjs)
 npm run build:content  # rebuild content/ and public/data/ from sources/ (course, grammar, 50 video scripts)
-npm run marketing      # video descriptions with lesson links for all 50 videos (APP_URL=...)
+npm run marketing      # video descriptions with lesson links for all 50 videos (reads APP_URL from .env)
+npm run secret         # prints a random value for SESSION_SECRET or TELEGRAM_WEBHOOK_SECRET
 ```
 
 CI (`.github/workflows/ci.yml`) runs check, tests and the browser walkthrough on every push and pull request.
@@ -49,7 +52,7 @@ Vercel (recommended, free plan is enough to start) or Render. Step by step, with
 1. A new Firebase project: Google + email-link sign-in, a Realtime Database, deploy `database.rules.json` (denies all browser access; the server is the only client).
 2. Set the environment variables from `.env.example` in Vercel.
 3. Optional services, each switched on by its keys: Whop (payments), Anthropic (AI teacher), ElevenLabs (natural voice and voice teacher), Telegram (bot).
-4. `node scripts/telegram-setup.mjs` once to connect the bot.
+4. `npm run telegram:setup` once to connect the bot (it reads `.env`).
 
 ## How it's built
 

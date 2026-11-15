@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Writes ready-to-paste video descriptions for all 50 lessons, with links that open that exact lesson in the app.
- *   APP_URL=https://your-domain TELEGRAM_BOT_USERNAME=YourBot npm run marketing            (links work for any channel)
- *   APP_URL=https://your-domain npm run marketing -- --src yt                              (links remember "YouTube, lesson N")
+ *   npm run marketing                  (links work for any channel; APP_URL and TELEGRAM_BOT_USERNAME from .env or the shell)
+ *   npm run marketing -- --src yt      (links remember "YouTube, lesson N")
  * Output (marketing/):
  *   captions.md       one block per lesson: title, lesson link, Telegram link, caption text to copy
  *   links.csv         lesson number, titles, app link, Telegram link (for spreadsheets / schedulers)
@@ -12,6 +12,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+try { process.loadEnvFile(path.join(ROOT, ".env")); } catch { /* no .env: the shell's variables */ }
 const OUT = path.join(ROOT, "marketing");
 const args = process.argv.slice(2);
 const srcArg = args.includes("--src") ? args[args.indexOf("--src") + 1] : "";

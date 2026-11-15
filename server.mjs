@@ -11,6 +11,7 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(ROOT, "public");
 const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8"));
 const PORT = Number(process.env.PORT) || 3000;
+if (process.argv.includes("--demo")) process.env.DEMO_MODE = "1";   // npm run dev: same on Windows, macOS and Linux
 if (process.env.DEMO_MODE === "1" && !process.env.DEMO_DB_FILE) process.env.DEMO_DB_FILE = path.join(ROOT, ".data", "demo-db.json");
 
 const TYPES = {

@@ -38,7 +38,7 @@ add a rewrite in `vercel.json` from `/__/auth/:path*` to `https://<project-id>.f
    | Variable | Value |
    |---|---|
    | `APP_URL` | `https://your-domain` (no trailing slash) |
-   | `SESSION_SECRET` | 32+ random characters: `openssl rand -hex 32` |
+   | `SESSION_SECRET` | 32+ random characters: `npm run secret` prints one |
    | `FIREBASE_SERVICE_ACCOUNT` | step 1.6 |
    | `FIREBASE_DATABASE_URL` | step 1.8 |
    | `FIREBASE_WEB_CONFIG` | step 1.7 |
@@ -86,10 +86,11 @@ How it behaves: a payment adds its days after any time already paid; a refund, d
 ## 7. Telegram bot
 
 1. [@BotFather](https://t.me/BotFather) → `/newbot` → token → `TELEGRAM_BOT_TOKEN`, username → `TELEGRAM_BOT_USERNAME`.
-2. `TELEGRAM_WEBHOOK_SECRET`: `openssl rand -hex 32`.
-3. Redeploy, then connect the webhook once from your computer:
+2. `TELEGRAM_WEBHOOK_SECRET`: `npm run secret` prints one.
+3. Redeploy, then connect the webhook once from your computer. Put `TELEGRAM_BOT_TOKEN`, `TELEGRAM_WEBHOOK_SECRET` and
+   `APP_URL` in a file named `.env` in the project folder (a copy of `.env.example`; it is never committed), then run:
    ```bash
-   TELEGRAM_BOT_TOKEN=... TELEGRAM_WEBHOOK_SECRET=... APP_URL=https://your-domain node scripts/telegram-setup.mjs
+   npm run telegram:setup
    ```
 4. Try it: send `/start`, `12`, `TRUCK` and `/login` to the bot.
 
@@ -97,8 +98,10 @@ What the bot does: `t.me/<bot>?start=v12` (or just "12") sends lesson 12's key p
 
 ## 8. Marketing links for the 50 videos
 
+With `APP_URL` and `TELEGRAM_BOT_USERNAME` in `.env`:
+
 ```bash
-APP_URL=https://your-domain TELEGRAM_BOT_USERNAME=YourBot npm run marketing -- --src yt
+npm run marketing -- --src yt
 ```
 
 writes `marketing/captions.md` (a ready description per video, with the lesson link and the bot link), `links.csv` and

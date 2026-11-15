@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /* Connects the Telegram bot to the deployed app (run once after deploying, and again if APP_URL changes).
- *   TELEGRAM_BOT_TOKEN=... TELEGRAM_WEBHOOK_SECRET=... APP_URL=https://your-domain node scripts/telegram-setup.mjs
- *   ... node scripts/telegram-setup.mjs --info      (only show what Telegram has now)
+ *   npm run telegram:setup              (reads TELEGRAM_BOT_TOKEN, TELEGRAM_WEBHOOK_SECRET and APP_URL from .env or the shell)
+ *   npm run telegram:setup -- --info    (only show what Telegram has now)
  * It sets the webhook to <APP_URL>/api/webhooks?src=telegram with the secret Telegram sends back on every update (the
  * server refuses updates without it), asks only for the update types the bot handles, and sets the bot's menu commands.
- * Use the same TELEGRAM_WEBHOOK_SECRET as in the server's environment: 32+ random letters/digits (openssl rand -hex 32). */
+ * Use the same TELEGRAM_WEBHOOK_SECRET as in the server's environment: 32+ random letters/digits (npm run secret prints one). */
+import { fileURLToPath } from "node:url";
+
+try { process.loadEnvFile(fileURLToPath(new URL("../.env", import.meta.url))); } catch { /* no .env: the shell's variables */ }
 const token = process.env.TELEGRAM_BOT_TOKEN || "";
 const secret = process.env.TELEGRAM_WEBHOOK_SECRET || "";
 const base = (process.env.APP_URL || "").replace(/\/+$/, "");
@@ -26,7 +29,7 @@ try {
   console.log(`bot: @${me.username} (set TELEGRAM_BOT_USERNAME=${me.username} on the server)`);
   if (!infoOnly) {
     if (!/^https:\/\//.test(base) || /localhost|127\.0\.0\.1/.test(base)) throw new Error("APP_URL must be the public https:// address of the deployed app");
-    if (!/^[A-Za-z0-9_-]{32,256}$/.test(secret)) throw new Error("TELEGRAM_WEBHOOK_SECRET must be 32-256 letters, digits, _ or - (openssl rand -hex 32)");
+    if (!/^[A-Za-z0-9_-]{32,256}$/.test(secret)) throw new Error("TELEGRAM_WEBHOOK_SECRET must be 32-256 letters, digits, _ or - (npm run secret prints one)");
     await tg("setWebhook", {
       url: base + "/api/webhooks?src=telegram",
       secret_token: secret,

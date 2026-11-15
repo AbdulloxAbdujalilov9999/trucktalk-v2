@@ -104,6 +104,6 @@ Say which of these you want and they can be added to v2:
 
 ## Comparing them yourself
 
-- v2: `npm install && npm run dev`, then open http://localhost:3000 and use the demo sign-in buttons (student, teacher,
+- v2: `npm install`, then `npm run dev`, then open http://localhost:3000 and use the demo sign-in buttons (student, teacher,
   admin). Or look at the phone screenshots from the browser walkthrough in `e2e/screenshots/`.
 - Current app: trucktalk.courses.
