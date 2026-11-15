@@ -1,0 +1,51 @@
+37 Ish vaqti - 34 soatlik dam va split sleeper
+==============================================
+
+Title (UZ): Ish vaqti: 34 soatlik dam va split sleeper
+Title (EN): Hours of service: 34-hour restart and split sleeper
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Doodle notebook
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Birinchi toʻplamda ish vaqtining asosiy qoidalarini oʻrgandik. Endi murakkabroq soʻzlar.
+
+--- CARDS ---
+02  Voice EN 1 (x2): 34-hour restart
+      UZ: 34 soatlik qayta tiklash
+03  Narrator (UZ): Ketma-ket oʻttiz toʻrt soat dam olsangiz, haftalik soatlar noldan boshlanadi.
+04  Voice EN 1 (x2): 70 hours in 8 days
+      UZ: 8 kunda 70 soat
+05  Narrator (UZ): Sakkiz kun ichida eng koʻpi yetmish soat ishlash mumkin.
+06  Voice EN 1 (x2): Sleeper berth split
+      UZ: dam olishni boʻlish
+07  Narrator (UZ): Oʻn soatlik dam olishni yetti va uch soatga boʻlish mumkin.
+08  Voice EN 1 (x2): Personal conveyance
+      UZ: shaxsiy harakat
+09  Narrator (UZ): Yuk ishisiz, shaxsiy maqsadda qisqa masofaga yurish. ELDda alohida belgilanadi.
+10  Voice EN 1 (x2): Yard move
+      UZ: hovli ichida yurish
+11  Narrator (UZ): Ombor hovlisi ichida trakni joyidan siljitish.
+12  Voice EN 1 (x2): Adverse conditions
+      UZ: noqulay sharoit
+13  Narrator (UZ): Kutilmagan ob-havo sababli ikki soat qoʻshimcha haydash mumkin.
+14  Voice EN 1 (x2): Violation
+      UZ: qoidabuzarlik
+15  Narrator (UZ): Qoidani buzish. Jarima va kompaniya reytingiga taʼsir qiladi.
+16  Voice EN 1 (x2): I'm taking my 34-hour restart.
+      UZ: 34 soatlik dam olishimni olyapman.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Qoidani bilmasangiz, ELD sizni ogohlantiradi, lekin javobgarlik sizda. Keyingi darsda muzlatgichli yuklar.
+
+End card: TruckTalk · Keyingi dars: Reefer yuk
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_37.json

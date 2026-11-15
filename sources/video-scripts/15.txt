@@ -1,0 +1,52 @@
+15 Ogohlantiruvchi sariq belgilar
+=================================
+
+Title (UZ): Ogohlantiruvchi sariq belgilar
+Title (EN): Yellow warning signs
+Bundle 2 - Yo'l belgilari
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Sariq romb belgi oldinda nimadir borligini aytadi. Yettita eng koʻp uchraydigan ogohlantirish.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Curve, 35 MPH
+      UZ: burilish, tavsiya tezligi
+      (spoken as: Curve. Thirty-five miles per hour.)
+03  Narrator (UZ): Burilish. Pastdagi raqam tavsiya etilgan tezlik. Trak uchun undan ham sekinroq yuring.
+04  Voice EN 1 (x2): Merge
+      UZ: qoʻshilish
+05  Narrator (UZ): Yon yoʻldan mashinalar qoʻshiladi. Ularga joy qoldiring.
+06  Voice EN 1 (x2): Lane Ends, Merge Left
+      UZ: yoʻlak tugaydi, chapga oʻting
+07  Narrator (UZ): Oʻng yoʻlak tugaydi. Oldindan chapga oʻting.
+08  Voice EN 1 (x2): Divided Highway Ends
+      UZ: ajratilgan yoʻl tugaydi
+09  Narrator (UZ): Ajratilgan yoʻl tugaydi. Endi qarshi tomondan ham mashinalar keladi.
+10  Voice EN 1 (x2): Two-Way Traffic
+      UZ: ikki tomonlama harakat
+11  Narrator (UZ): Ikki tomonlama harakat. Yoʻlning oʻng tomonida yuring.
+12  Voice EN 1 (x2): Narrow Bridge
+      UZ: tor koʻprik
+13  Narrator (UZ): Tor koʻprik. Qarshidan trak kelsa, kutib turing.
+14  Voice EN 1 (x2): Slippery When Wet
+      UZ: hoʻl boʻlsa sirpanchiq
+15  Narrator (UZ): Yomgʻirda yoʻl sirpanchiq boʻladi. Masofani ikki baravar oshiring.
+16  Voice EN 1 (x2): The right lane ends ahead.
+      UZ: Oldinda oʻng yoʻlak tugaydi.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda yoʻl taʼmiri belgilari.
+
+End card: TruckTalk · Keyingi dars: Yoʻl taʼmiri: toʻq sariq belgilar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs05.json

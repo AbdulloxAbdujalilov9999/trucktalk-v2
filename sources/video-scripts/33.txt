@@ -1,0 +1,52 @@
+33 DOT tibbiy ko'rigi - shifokor savollari
+==========================================
+
+Title (UZ): DOT tibbiy koʻrigi: shifokor savollari
+Title (EN): DOT medical exam: the doctor's questions
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Minimal line art
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Haydovchilik uchun tibbiy karta kerak. Koʻrikda shifokor shunday savollar beradi.
+
+--- DIALOGUE ---
+02  Voice EN 2: Do you take any medication?
+      UZ: Biror dori ichasizmi?
+03  Voice EN 1: No, I don't.
+      UZ: Yoʻq, ichmayman.
+04  Voice EN 2: Do you have high blood pressure or diabetes?
+      UZ: Qon bosimingiz yoki qandli diabetingiz bormi?
+05  Voice EN 1: No. My blood pressure is usually normal.
+      UZ: Yoʻq. Qon bosimim odatda normal.
+06  Voice EN 2: Please read the letters on the wall. Cover your left eye.
+      UZ: Devordagi harflarni oʻqing. Chap koʻzingizni yoping.
+07  Voice EN 2: Now raise your hand when you hear the sound.
+      UZ: Endi tovushni eshitganingizda qoʻlingizni koʻtaring.
+08  Voice EN 2: I also need a urine sample.
+      UZ: Siydik namunasi ham kerak.
+09  Voice EN 2: You passed. Your medical card is good for two years.
+      UZ: Oʻtdingiz. Tibbiy kartangiz ikki yilga amal qiladi.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Do you take any medication?
+      UZ: Biror dori ichasizmi?
+11  Voice EN 1 (x2): Cover your left eye.
+      UZ: Chap koʻzingizni yoping.
+12  Voice EN 1 (x2): Your medical card is good for two years.
+      UZ: Tibbiy kartangiz ikki yilga amal qiladi.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Tibbiy kartaning nusxasini doim kabinada saqlang. Keyingi darsda narkotik va alkogol testi.
+
+End card: TruckTalk · Keyingi dars: Narkotik va alkogol testi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_33.json

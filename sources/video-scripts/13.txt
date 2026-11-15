@@ -1,0 +1,49 @@
+13 Balandlik, og'irlik va tarozi belgilari
+==========================================
+
+Title (UZ): Balandlik, ogʻirlik va tarozi belgilari
+Title (EN): Height, weight and weigh station signs
+Bundle 2 - Yo'l belgilari
+Style: Pixel art
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Koʻprik ostida qolib ketgan traklarni koʻrganmisiz? Mana balandlik, ogʻirlik va tarozi belgilari.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Low Clearance
+      UZ: past koʻprik
+03  Narrator (UZ): Trakingiz balandligi odatda oʻn uch fut olti dyuym. Belgidagi raqam bundan kam boʻlsa, kirmang.
+04  Voice EN 1 (x2): Weight Limit
+      UZ: ogʻirlik cheklovi
+05  Narrator (UZ): Koʻprikning ogʻirlik cheklovi. Trakingiz bundan ogʻir boʻlsa, oʻtmang.
+06  Voice EN 1 (x2): Weigh Station 2 Miles
+      UZ: 2 mildan keyin tarozi
+      (spoken as: Weigh station, two miles)
+07  Narrator (UZ): Ikki mildan keyin tarozi stansiyasi. Oʻng yoʻlakka oʻting.
+08  Voice EN 1 (x2): Weigh Station Open
+      UZ: tarozi ochiq
+09  Narrator (UZ): Ochiq boʻlsa, koʻp shtatlarda traklar kirishi shart.
+10  Voice EN 1 (x2): Weigh Station Closed
+      UZ: tarozi yopiq
+11  Narrator (UZ): Yopiq boʻlsa, toʻgʻri davom etasiz.
+12  Voice EN 1 (x2): All Trucks Must Exit
+      UZ: barcha traklar chiqishi shart
+13  Narrator (UZ): Barcha traklar shu chiqishdan chiqishi shart.
+14  Voice EN 1 (x2): Do I need to pull in to the scale?
+      UZ: Tarozi stansiyasiga kirishim kerakmi?
+
+--- OUTRO + END CARD ---
+15  Narrator (UZ): Keyingi darsda togʻ yoʻllari va qiyalik belgilari.
+
+End card: TruckTalk · Keyingi dars: Togʻ yoʻllari: qiyalik va favqulodda yoʻlak
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs03.json

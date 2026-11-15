@@ -1,0 +1,54 @@
+29 Shipperda BOL muammosi - plomba va soni
+==========================================
+
+Title (UZ): Shipperda BOL muammosi: plomba va soni
+Title (EN): BOL problems at the shipper: seal and count
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: 1930s rubber-hose cartoon
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yukni oldingiz, lekin BOLdagi raqamlar toʻgʻri kelmayapti. Imzolashdan oldin tekshiring.
+
+--- DIALOGUE ---
+02  Voice EN 2: You're all loaded. Sign here, please.
+      UZ: Yuk ortildi. Shu yerga imzo qoʻying, iltimos.
+03  Voice EN 1: Wait. The BOL says twenty-six pallets, but I counted twenty-four.
+      UZ: Kuting. BOLda yigirma olti palet deyilgan, lekin men yigirma toʻrtta sanadim.
+      (spoken as: Wait. The B.O.L. says twenty-six pallets, but I counted twenty-four.)
+04  Voice EN 2: Let me check. You're right, it's twenty-four.
+      UZ: Tekshirib koʻray. Toʻgʻri, yigirma toʻrtta.
+05  Voice EN 1: And the seal number is different from the paper.
+      UZ: Plomba raqami ham qogʻozdagidan boshqacha.
+06  Voice EN 2: I'll print a new BOL with the correct numbers.
+      UZ: Toʻgʻri raqamlar bilan yangi BOL chiqarib beraman.
+      (spoken as: I'll print a new B.O.L. with the correct numbers.)
+07  Voice EN 1: Please write 'shipper load and count' on it.
+      UZ: Iltimos, ustiga 'shipper load and count' deb yozing.
+08  Voice EN 2: Sure. Here you go.
+      UZ: Albatta. Marhamat.
+09  Voice EN 1: Thank you. Now I can sign.
+      UZ: Rahmat. Endi imzo qoʻysam boʻladi.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I counted twenty-four.
+      UZ: Men yigirma toʻrtta sanadim.
+11  Voice EN 1 (x2): The seal number is different.
+      UZ: Plomba raqami boshqacha.
+12  Voice EN 1 (x2): Shipper load and count.
+      UZ: Yukni shipper ortgan va sanagan.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Notoʻgʻri BOLga imzo qoʻysangiz, kamomad uchun siz javob berasiz. Keyingi darsda broker bilan SMS yozishish.
+
+End card: TruckTalk · Keyingi dars: Broker bilan SMS
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_29.json

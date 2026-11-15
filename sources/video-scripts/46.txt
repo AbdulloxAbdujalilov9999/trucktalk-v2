@@ -1,0 +1,52 @@
+46 Drop and hook - treylerni almashtirish
+=========================================
+
+Title (UZ): Drop and hook: treylerni almashtirish
+Title (EN): Drop and hook: swapping trailers
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Origami
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Drop and hook: toʻla treylerni qoldirib, boshqasini olasiz. Hovli xodimi bilan shunday gaplashiladi.
+
+--- DIALOGUE ---
+02  Voice EN 1: Hi, I'm here for a drop and hook.
+      UZ: Salom, men drop and hook uchun keldim.
+03  Voice EN 2: Drop your loaded trailer in row C, spot nine.
+      UZ: Yuklangan treylerni C qatorga, toʻqqizinchi joyga qoʻying.
+04  Voice EN 1: And which empty trailer do I take?
+      UZ: Qaysi boʻsh treylerni olaman?
+05  Voice EN 2: Trailer two-seven-four-zero, row F.
+      UZ: Treyler 2740, F qatori.
+06  Voice EN 1: I'll do a walk-around first. The left side door is damaged.
+      UZ: Avval aylanib tekshiraman. Chap tomon eshigi shikastlangan.
+07  Voice EN 2: Take a picture and I'll note it on the paperwork.
+      UZ: Rasmga oling, men hujjatga yozib qoʻyaman.
+08  Voice EN 1: Thanks. Can I get an out-gate receipt?
+      UZ: Rahmat. Chiqish kvitansiyasini bera olasizmi?
+09  Voice EN 2: Sure, the guard will print it at the exit.
+      UZ: Albatta, qoʻriqchi chiqishda chiqarib beradi.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I'm here for a drop and hook.
+      UZ: Drop and hook uchun keldim.
+11  Voice EN 1 (x2): Which empty trailer do I take?
+      UZ: Qaysi boʻsh treylerni olaman?
+12  Voice EN 1 (x2): I'll do a walk-around first.
+      UZ: Avval aylanib tekshiraman.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Shikastlanishni olishdan oldin yozdiring, aks holda sizga yozilishi mumkin. Keyingi darsda yoʻlda ovqat va mehmonxona.
+
+End card: TruckTalk · Keyingi dars: Ovqat va mehmonxona
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_46.json

@@ -1,0 +1,51 @@
+06 AQSh yo'l belgilari - trakchilar uchun
+=========================================
+
+Title (UZ): AQSh yoʻl belgilari
+Title (EN): US road signs for truckers
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Bu belgilarni bilmaslik trakchiga juda qimmatga tushishi mumkin. Yettita muhim belgi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Weigh Station Open
+      UZ: tarozi stansiyasi ochiq
+03  Narrator (UZ): Tarozi stansiyasi ochiq. Koʻp shtatlarda traklar kirishi shart.
+04  Voice EN 1 (x2): Truck Route
+      UZ: trak yoʻli
+05  Narrator (UZ): Trak yoʻli. Shu yoʻldan yuring.
+06  Voice EN 1 (x2): No Trucks
+      UZ: traklar kirishi taqiqlangan
+07  Narrator (UZ): Traklar kirishi taqiqlangan.
+08  Voice EN 1 (x2): Low Clearance
+      UZ: past koʻprik
+09  Narrator (UZ): Past koʻprik. Trakingiz balandligi odatda oʻn uch fut olti dyuym boʻladi. Belgidagi raqam bundan kam boʻlsa, kirmang.
+10  Voice EN 1 (x2): Steep Grade
+      UZ: keskin qiyalik
+11  Narrator (UZ): Keskin qiyalik. Pastroq uzatmaga oʻting, tormozni qizdirmang.
+12  Voice EN 1 (x2): Runaway Truck Ramp
+      UZ: favqulodda toʻxtash yoʻlagi
+13  Narrator (UZ): Tormozi ishlamay qolgan traklar uchun favqulodda yoʻlak.
+14  Voice EN 1 (x2): Weight Limit
+      UZ: ogʻirlik cheklovi
+15  Narrator (UZ): Ogʻirlik cheklovi. Trakingiz bundan ogʻir boʻlsa, bu koʻprikdan oʻtmang.
+16  Voice EN 1 (x2): The weigh station is open.
+      UZ: Tarozi stansiyasi ochiq.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Qaysi belgini birinchi marta koʻrdingiz? Izohda yozing. Keyingi darsda tarozi stansiyasidagi tekshiruvni koʻramiz.
+
+End card: TruckTalk · Keyingi dars: Tarozi stansiyasida tekshiruv
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v06.json

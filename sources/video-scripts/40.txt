@@ -1,0 +1,53 @@
+40 Jarima qog'ozi - citation va sud
+===================================
+
+Title (UZ): Jarima qogʻozi: citation va sud
+Title (EN): Traffic ticket: citation and court
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Vintage newspaper
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Politsiya sizga jarima qogʻozi berdi. Unda nima yozilgan va nima qilish kerak?
+
+--- DIALOGUE ---
+02  Voice EN 2: I'm writing you a citation for an unsafe lane change.
+      UZ: Xavfli yoʻlak almashtirish uchun jarima qogʻozi yozyapman.
+03  Voice EN 1: Do I need to go to court?
+      UZ: Sudga borishim kerakmi?
+04  Voice EN 2: You can pay the fine online or go to court.
+      UZ: Jarimani internetda toʻlashingiz yoki sudga borishingiz mumkin.
+05  Voice EN 1: When is the court date?
+      UZ: Sud qachon?
+06  Voice EN 2: It's on the citation. Sign here. It's not an admission of guilt.
+      UZ: Qogʻozda yozilgan. Shu yerga imzo qoʻying. Bu aybni tan olish emas.
+07  Voice EN 1: Okay. Will this go on my CDL record?
+      UZ: Yaxshi. Bu CDL tariximga yoziladimi?
+      (spoken as: Okay. Will this go on my C.D.L. record?)
+08  Voice EN 2: Moving violations usually do.
+      UZ: Harakat qoidabuzarliklari odatda yoziladi.
+09  Voice EN 1: Thank you, officer.
+      UZ: Rahmat, ofitser.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I'm writing you a citation.
+      UZ: Sizga jarima qogʻozi yozyapman.
+11  Voice EN 1 (x2): When is the court date?
+      UZ: Sud qachon?
+12  Voice EN 1 (x2): It's not an admission of guilt.
+      UZ: Bu aybni tan olish emas.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): CDL egalari uchun jarimalar jiddiy. Kompaniyangizga darhol xabar bering. Keyingi toʻplamda til koʻnikmalari.
+
+End card: TruckTalk · Keyingi dars: Fonetik alifbo
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_40.json

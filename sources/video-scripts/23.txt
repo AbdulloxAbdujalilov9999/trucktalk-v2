@@ -1,0 +1,54 @@
+23 Lumper - yukni tushirish va to'lov
+=====================================
+
+Title (UZ): Lumper: yukni tushirish va toʻlov
+Title (EN): Lumper: unloading and payment
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Paper cut-out
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Baʼzi omborlarda yukni lumper tushiradi va siz toʻlov qilasiz. Kvitansiyani albatta oling.
+
+--- DIALOGUE ---
+02  Voice EN 2: Are you door fourteen? We'll unload you.
+      UZ: Oʻn toʻrtinchi eshikmisiz? Yukingizni biz tushiramiz.
+03  Voice EN 1: Yes. How much is the lumper fee?
+      UZ: Ha. Lumper toʻlovi qancha?
+04  Voice EN 2: Two hundred twenty dollars. Card or Comchek?
+      UZ: Ikki yuz yigirma dollar. Karta bilanmi yoki Comchek bilan?
+05  Voice EN 1: Comchek. My broker sent me the code.
+      UZ: Comchek. Brokerim kodni yubordi.
+06  Voice EN 2: Okay. It'll take about two hours.
+      UZ: Yaxshi. Taxminan ikki soat oladi.
+07  Voice EN 1: Can I get a receipt, please?
+      UZ: Kvitansiya bera olasizmi, iltimos?
+08  Voice EN 2: Sure. Here's your receipt and the signed BOL.
+      UZ: Albatta. Mana kvitansiya va imzolangan BOL.
+      (spoken as: Sure. Here's your receipt and the signed B.O.L..)
+09  Voice EN 1: Thanks. I'll send them to my broker now.
+      UZ: Rahmat. Hozir brokerimga yuboraman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): How much is the lumper fee?
+      UZ: Lumper toʻlovi qancha?
+11  Voice EN 1 (x2): Can I get a receipt?
+      UZ: Kvitansiya bera olasizmi?
+12  Voice EN 1 (x2): Here's the signed BOL.
+      UZ: Mana imzolangan BOL.
+      (spoken as: Here's the signed B.O.L..)
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Kvitansiya boʻlmasa, broker pulni qaytarmasligi mumkin. Keyingi darsda DOT tekshiruvi.
+
+End card: TruckTalk · Keyingi dars: DOT tekshiruvi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_23.json

@@ -1,0 +1,51 @@
+11 Majburiy belgilar - to'xtash, yo'l berish va boshqalar
+=========================================================
+
+Title (UZ): Majburiy belgilar: toʻxtash, yoʻl berish va boshqalar
+Title (EN): Regulatory signs: Stop, Yield, Do Not Enter
+Bundle 2 - Yo'l belgilari
+Style: Flat vector
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Bu yettita belgini bilmasangiz, Amerikada birinchi kuniyoq jarima olasiz. Tinglang va takrorlang.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Stop
+      UZ: toʻxtang
+03  Narrator (UZ): Toʻxtang. Toʻliq toʻxtab, ikki tomonga qarang, keyin yuring.
+04  Voice EN 1 (x2): Yield
+      UZ: yoʻl bering
+05  Narrator (UZ): Yoʻl bering. Sekinlang, kerak boʻlsa toʻxtang.
+06  Voice EN 1 (x2): Do Not Enter
+      UZ: kirish taqiqlangan
+07  Narrator (UZ): Kirish taqiqlangan. Bu yoʻlga kirmang.
+08  Voice EN 1 (x2): Wrong Way
+      UZ: notoʻgʻri yoʻnalish
+09  Narrator (UZ): Notoʻgʻri yoʻnalish. Qarama-qarshi tomonga ketyapsiz, darhol toʻxtang.
+10  Voice EN 1 (x2): One Way
+      UZ: bir tomonlama yoʻl
+11  Narrator (UZ): Bir tomonlama yoʻl. Faqat strelka tomonga yuriladi.
+12  Voice EN 1 (x2): Truck Speed Limit
+      UZ: traklar uchun tezlik cheklovi
+13  Narrator (UZ): Baʼzi shtatlarda traklar uchun alohida, pastroq tezlik cheklovi bor.
+14  Voice EN 1 (x2): No U-Turn
+      UZ: orqaga burilish taqiqlangan
+15  Narrator (UZ): Orqaga burilish taqiqlangan.
+16  Voice EN 1 (x2): I came to a complete stop.
+      UZ: Toʻliq toʻxtadim.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda faqat traklar uchun boʻlgan belgilarni oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Traklar uchun cheklov belgilari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs01.json

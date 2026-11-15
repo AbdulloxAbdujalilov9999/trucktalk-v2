@@ -1,0 +1,57 @@
+01 Politsiya to'xtatganda - nima deyiladi
+=========================================
+
+Title (UZ): Politsiya toʻxtatdi
+Title (EN): Pulled over
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Stick figures
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Politsiya sizni toʻxtatdi. Xotirjam boʻling, qoʻllaringiz rulda tursin. Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 2: Good evening, driver. Do you know why I pulled you over?
+      UZ: Xayrli kech, haydovchi. Nima uchun sizni toʻxtatganimni bilasizmi?
+03  Voice EN 1: No, officer.
+      UZ: Yoʻq, ofitser.
+04  Voice EN 2: You were going 70 in a 60 zone.
+      UZ: Tezlik 60 boʻlgan joyda 70 bilan ketayotgan edingiz.
+05  Voice EN 1: I'm sorry. I didn't see the sign.
+      UZ: Kechirasiz. Belgini koʻrmay qoldim.
+06  Voice EN 2: License, registration and proof of insurance, please.
+      UZ: Guvohnoma, roʻyxat hujjati va sugʻurtani bering.
+07  Voice EN 1: Here you go. The insurance card is in this folder.
+      UZ: Marhamat. Sugʻurta kartasi shu papkada.
+08  Voice EN 2: Wait here. I'll be right back.
+      UZ: Shu yerda kuting. Hozir qaytaman.
+09  Voice EN 2: I'm giving you a warning this time. Slow down.
+      UZ: Bu safar faqat ogohlantirish beraman. Sekinroq yuring.
+10  Voice EN 1: Thank you, officer. I will.
+      UZ: Rahmat, ofitser. Albatta.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+11  Voice EN 1 (x2): Do you know why I pulled you over?
+      UZ: Nima uchun sizni toʻxtatganimni bilasizmi?
+12  Narrator (UZ): Politsiya koʻpincha shu savol bilan boshlaydi.
+13  Voice EN 1 (x2): License, registration and proof of insurance.
+      UZ: Guvohnoma, roʻyxat hujjati va sugʻurta.
+14  Narrator (UZ): Doim soʻraladigan uchta hujjat. Ularni bitta papkada saqlang.
+15  Voice EN 1 (x2): I'm giving you a warning.
+      UZ: Sizga ogohlantirish beraman.
+16  Narrator (UZ): Bu jarima emas, faqat ogohlantirish.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Kechasi toʻxtatishsa, kabinadagi chiroqni yoqing va qoʻllaringizni koʻrinadigan joyda tuting. Keyingi darsda broker bilan gaplashamiz.
+
+End card: TruckTalk · Keyingi dars: Broker qoʻngʻirogʻi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v01.json

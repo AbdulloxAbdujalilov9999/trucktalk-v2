@@ -1,0 +1,59 @@
+09 Ish vaqti qoidalari va elektron jurnal so'zlari
+==================================================
+
+Title (UZ): Ish vaqti qoidalari va elektron jurnal
+Title (EN): Hours of service & ELD words
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Trakchi kuniga necha soat haydashi mumkin? Ish vaqti qoidalari va elektron jurnal soʻzlari.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Driving
+      UZ: haydash
+03  Narrator (UZ): Haydash.
+04  Voice EN 1 (x2): On duty
+      UZ: ishda, lekin haydamayapsiz
+05  Narrator (UZ): Ishda, lekin haydamayapsiz: yuk ortish, tekshiruv, yoqilgʻi quyish.
+06  Voice EN 1 (x2): Off duty
+      UZ: dam olish
+07  Narrator (UZ): Dam olish.
+08  Voice EN 1 (x2): Sleeper berth
+      UZ: yotoq joyi
+09  Narrator (UZ): Kabinadagi yotoq joyi.
+10  Voice EN 1 (x2): 11-hour driving limit
+      UZ: 11 soat haydash
+      (spoken as: Eleven-hour driving limit.)
+11  Narrator (UZ): Oʻn soat dam olgandan keyin koʻpi bilan oʻn bir soat haydaysiz.
+12  Voice EN 1 (x2): 14-hour window
+      UZ: 14 soatlik oyna
+      (spoken as: Fourteen-hour window.)
+13  Narrator (UZ): Ishni boshlagandan keyin oʻn toʻrt soat ichida haydash tugashi kerak.
+14  Voice EN 1 (x2): 30-minute break
+      UZ: 30 daqiqa tanaffus
+      (spoken as: Thirty-minute break.)
+15  Narrator (UZ): Sakkiz soat haydagandan keyin oʻttiz daqiqa tanaffus qilasiz.
+16  Voice EN 1 (x2): 70 hours in 8 days
+      UZ: 8 kunda 70 soat
+      (spoken as: Seventy hours in eight days.)
+17  Narrator (UZ): Koʻp kompaniyalarda sakkiz kunda koʻpi bilan yetmish soat ishlanadi. Oʻttiz toʻrt soat dam olsangiz, hisob yangidan boshlanadi.
+18  Voice EN 1 (x2): I'm out of hours. I need a 10-hour break.
+      UZ: Soatim tugadi. Oʻn soatlik dam olishim kerak.
+      (spoken as: I'm out of hours. I need a ten-hour break.)
+
+--- OUTRO + END CARD ---
+19  Narrator (UZ): Qoidalarni buzmang: jarima katta. Keyingi darsda yoʻlda buzilib qolsangiz nima deyishni oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Yoʻlda buzilish: yordam chaqirish
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v09.json

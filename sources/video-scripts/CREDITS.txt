@@ -1,0 +1,13 @@
+TruckTalk 3D test – third-party assets
+
+1) Car Kit (police.glb used for the police car)
+   Author:  Kenney (www.kenney.nl)
+   Source:  https://kenney.nl/assets/car-kit
+   License: Creative Commons CC0 1.0 (public domain) – free for commercial use, no attribution required
+   Downloaded: 2026-11-12
+
+Everything else in the scenes (semi-truck, road, guardrail, lights, materials) is built procedurally
+in our own Blender scripts (3D test\blender\police_stop*.py).
+
+
+Voices: ElevenLabs (eleven_v3). Fonts: Inter, Press Start 2P (Google Fonts, OFL). Road signs drawn by us after MUTCD designs.

@@ -1,0 +1,57 @@
+08 Broker bilan - uzoq kutish va kutish haqi
+============================================
+
+Title (UZ): Broker bilan: uzoq kutish va kutish haqi
+Title (EN): Detention pay
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Stick figures
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Receiverda uch soatdan beri kutyapsiz. Brokerga qoʻngʻiroq qilib, kutish haqini soʻraysiz. Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 1: Hi, this is Aziz, the driver on load 4-5-8-7-2.
+      UZ: Salom, men Aziz, 45872-yuk haydovchisiman.
+      (spoken as: Hi, this is Aziz, the driver on load four, five, eight, seven, two.)
+03  Voice EN 2: Hi, Aziz. Is everything okay?
+      UZ: Salom, Aziz. Hammasi joyidami?
+04  Voice EN 1: I've been at the receiver for three hours, and they still haven't unloaded me.
+      UZ: Receiverda uch soatdan beri turibman, hali ham yukimni tushirishmadi.
+05  Voice EN 2: I'm sorry. What time did you check in?
+      UZ: Kechirasiz. Soat nechada roʻyxatdan oʻtgan edingiz?
+06  Voice EN 1: I checked in at 7 a.m. My appointment was at 7.
+      UZ: Ertalab soat 7 da roʻyxatdan oʻtdim. Belgilangan vaqtim ham soat 7 da edi.
+      (spoken as: I checked in at seven a.m. My appointment was at seven.)
+07  Voice EN 2: Okay. Detention starts after two hours. Send me a photo of your check-in time.
+      UZ: Yaxshi. Kutish haqi ikki soatdan keyin boshlanadi. Roʻyxatdan oʻtgan vaqtingiz rasmini yuboring.
+08  Voice EN 1: I'll send it now. Can you also call the receiver?
+      UZ: Hozir yuboraman. Receiverga ham qoʻngʻiroq qila olasizmi?
+09  Voice EN 2: Yes, I'll call them right now.
+      UZ: Ha, hozir ularga qoʻngʻiroq qilaman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I've been waiting for three hours.
+      UZ: Uch soatdan beri kutyapman.
+11  Narrator (UZ): Uzoq kutayotganingizni shunday aytasiz.
+12  Voice EN 1 (x2): Detention
+      UZ: kutish haqi
+13  Narrator (UZ): Belgilangan vaqtdan koʻp kutsangiz toʻlanadigan pul. Koʻpincha ikki soatdan keyin boshlanadi.
+14  Voice EN 1 (x2): What time did you check in?
+      UZ: Soat nechada roʻyxatdan oʻtdingiz?
+15  Narrator (UZ): Kelgan vaqtingizni doim rasmga olib qoʻying, kutish haqi uchun kerak boʻladi.
+
+--- OUTRO + END CARD ---
+16  Narrator (UZ): Har bir broker bilan shartlar har xil boʻlishi mumkin, oldindan soʻrang. Keyingi darsda ish vaqti qoidalarini oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Ish vaqti qoidalari va elektron jurnal
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v08.json

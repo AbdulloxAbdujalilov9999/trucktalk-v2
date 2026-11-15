@@ -1,0 +1,52 @@
+24 DOT tekshiruvi - inspektor bilan suhbat
+==========================================
+
+Title (UZ): DOT tekshiruvi: inspektor bilan suhbat
+Title (EN): DOT inspection: talking to the inspector
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Chalkboard
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Tekshiruv stansiyasida inspektor toʻliq tekshiruv oʻtkazishi mumkin. Xotirjam va aniq javob bering.
+
+--- DIALOGUE ---
+02  Voice EN 2: I'm going to do a Level One inspection today.
+      UZ: Bugun birinchi darajali tekshiruv oʻtkazaman.
+03  Voice EN 1: Okay, officer. What do you need from me?
+      UZ: Yaxshi, ofitser. Mendan nima kerak?
+04  Voice EN 2: Turn on your headlights and your four-way flashers.
+      UZ: Faralar va avariya chiroqlarini yoqing.
+05  Voice EN 1: They're on.
+      UZ: Yoqildi.
+06  Voice EN 2: Now press the brake pedal and hold it.
+      UZ: Endi tormoz pedalini bosib turing.
+07  Voice EN 2: Your left rear marker light is out.
+      UZ: Chap orqa gabarit chirogʻingiz ishlamayapti.
+08  Voice EN 1: I'll fix it right away. I have a spare bulb.
+      UZ: Hozir tuzataman. Zaxira lampochkam bor.
+09  Voice EN 2: Good. Fix it and show me before you leave.
+      UZ: Yaxshi. Tuzating va ketishdan oldin koʻrsating.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Turn on your four-way flashers.
+      UZ: Avariya chiroqlarini yoqing.
+11  Voice EN 1 (x2): Press the brake pedal and hold it.
+      UZ: Tormozni bosib turing.
+12  Voice EN 1 (x2): Your marker light is out.
+      UZ: Gabarit chirogʻingiz ishlamayapti.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Har kuni yoʻlga chiqishdan oldin chiroqlarni tekshiring. Keyingi darsda avariya boʻlganda nima deyiladi.
+
+End card: TruckTalk · Keyingi dars: Avariya boʻlganda
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_24.json

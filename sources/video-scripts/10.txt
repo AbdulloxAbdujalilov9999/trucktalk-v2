@@ -1,0 +1,58 @@
+10 Yo'lda buzilish - yordam chaqirish
+=====================================
+
+Title (UZ): Yoʻlda buzilish: yordam chaqirish
+Title (EN): Breakdown: calling for help
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Flat vector
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yoʻlda gʻildirak yorildi. Yordam xizmatiga qanday tushuntirasiz? Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 1: Hi, my truck broke down. I need roadside assistance.
+      UZ: Salom, trakim buzilib qoldi. Yoʻlda yordam kerak.
+03  Voice EN 2: Okay. What's your location?
+      UZ: Yaxshi. Qayerdasiz?
+04  Voice EN 1: I'm on I-40 westbound, near mile marker 152, in Arkansas.
+      UZ: I-40 yoʻlida, gʻarb tomonga, 152-mil belgisi yonida, Arkanzasda.
+      (spoken as: I'm on I forty westbound, near mile marker one fifty-two, in Arkansas.)
+05  Voice EN 2: What's the problem?
+      UZ: Muammo nima?
+06  Voice EN 1: I have a flat tire on the trailer.
+      UZ: Tirkamaning gʻildiragi yorildi.
+07  Voice EN 2: Are you in a safe spot? Are your triangles out?
+      UZ: Xavfsiz joydamisiz? Uchburchak belgilarni qoʻydingizmi?
+08  Voice EN 1: Yes. I'm on the shoulder with my flashers on, and the triangles are out.
+      UZ: Ha. Yoʻl chetidaman, avariya chiroqlari yoniq, uchburchaklar qoʻyilgan.
+09  Voice EN 2: A tech will be there in about an hour.
+      UZ: Usta taxminan bir soatda yetib keladi.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): My truck broke down.
+      UZ: Trakim buzildi.
+11  Narrator (UZ): Yordam chaqirganda birinchi aytadigan gapingiz.
+12  Voice EN 1 (x2): I'm near mile marker 152.
+      UZ: 152-mil belgisi yonidaman.
+      (spoken as: I'm near mile marker one fifty-two.)
+13  Narrator (UZ): Joyingizni mil belgisi bilan aytasiz.
+14  Voice EN 1 (x2): Westbound / Eastbound
+      UZ: gʻarb tomonga / sharq tomonga
+      (spoken as: Westbound. Eastbound.)
+15  Narrator (UZ): Qaysi yoʻnalishda ekaningizni ham ayting.
+
+--- OUTRO + END CARD ---
+16  Narrator (UZ): Qoidaga koʻra, toʻxtaganingizdan keyin oʻn daqiqa ichida uchta ogohlantiruvchi uchburchak qoʻyasiz. Ehtiyot boʻling!
+
+End card: TruckTalk · 10 ta dars tugadi. Obuna boʻling!
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v10.json

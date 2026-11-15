@@ -1,0 +1,54 @@
+22 Ombor darvozasida - ro'yxatdan o'tish
+========================================
+
+Title (UZ): Ombor darvozasida: roʻyxatdan oʻtish
+Title (EN): Gate check-in at the warehouse
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Comic book
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Katta omborlarga kirishda darvozada qoʻriqchi savol beradi. Javoblarni oldindan tayyorlang.
+
+--- DIALOGUE ---
+02  Voice EN 2: Good morning. Pick up or delivery?
+      UZ: Xayrli tong. Yuk olishmi yoki topshirishmi?
+03  Voice EN 1: Delivery. I have an appointment at eight.
+      UZ: Topshirish. Soat sakkizga uchrashuvim bor.
+04  Voice EN 2: What's your PO number?
+      UZ: PO raqamingiz qanday?
+      (spoken as: What's your P.O. number?)
+05  Voice EN 1: It's four, five, seven, two, nine, one.
+      UZ: Toʻrt, besh, yetti, ikki, toʻqqiz, bir.
+06  Voice EN 2: Trailer number and seal number?
+      UZ: Treyler raqami va plomba raqami?
+07  Voice EN 1: Trailer five-three-one-eight. Seal number is on this paper.
+      UZ: Treyler 5318. Plomba raqami shu qogʻozda.
+08  Voice EN 2: Driver's license, please. Go to door fourteen and wait for a call.
+      UZ: Haydovchilik guvohnomangizni bering. Oʻn toʻrtinchi eshikka boring va qoʻngʻiroqni kuting.
+09  Voice EN 1: Door fourteen. Thank you.
+      UZ: Oʻn toʻrtinchi eshik. Rahmat.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Pick up or delivery?
+      UZ: Yuk olishmi yoki topshirishmi?
+11  Voice EN 1 (x2): What's your PO number?
+      UZ: PO raqamingiz qanday?
+      (spoken as: What's your P.O. number?)
+12  Voice EN 1 (x2): Go to door fourteen.
+      UZ: Oʻn toʻrtinchi eshikka boring.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Raqamlarni bittalab, aniq ayting. Keyingi darsda lumper va tushirish toʻlovi haqida.
+
+End card: TruckTalk · Keyingi dars: Lumper va toʻlov
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_22.json

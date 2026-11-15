@@ -1,0 +1,53 @@
+26 Shina yorildi - yo'lda yordam chaqirish
+==========================================
+
+Title (UZ): Shina yorildi: yoʻlda yordam chaqirish
+Title (EN): Tire blowout: calling road service
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Retro 80s neon
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Kechasi shina yorildi. Yoʻl xizmatiga qoʻngʻiroq qilasiz. Joylashuv va shina oʻlchamini aytish kerak.
+
+--- DIALOGUE ---
+02  Voice EN 2: Road service, how can I help?
+      UZ: Yoʻl xizmati, qanday yordam beray?
+03  Voice EN 1: I had a blowout on my trailer. Right side, rear axle.
+      UZ: Treylerimda shina yorildi. Oʻng tomon, orqa oʻq.
+04  Voice EN 2: Where are you located?
+      UZ: Qayerdasiz?
+05  Voice EN 1: I-40 westbound, mile marker 210, on the shoulder.
+      UZ: I-40, gʻarb tomonga, 210-mil belgisi, yoʻl chetida.
+      (spoken as: I forty westbound, mile marker two ten, on the shoulder.)
+06  Voice EN 2: What's the tire size?
+      UZ: Shina oʻlchami qanday?
+07  Voice EN 1: Two-ninety-five, seventy-five, R twenty-two point five.
+      UZ: 295/75 R22.5.
+08  Voice EN 2: A truck is on the way. About ninety minutes.
+      UZ: Mashina yoʻlga chiqdi. Taxminan toʻqson daqiqa.
+09  Voice EN 1: Okay. I put out my triangles. Please call me when you're close.
+      UZ: Yaxshi. Uchburchaklarni qoʻydim. Yaqinlashganda qoʻngʻiroq qiling.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I had a blowout.
+      UZ: Shinam yorildi.
+11  Voice EN 1 (x2): What's the tire size?
+      UZ: Shina oʻlchami qanday?
+12  Voice EN 1 (x2): I put out my triangles.
+      UZ: Ogohlantiruvchi uchburchaklarni qoʻydim.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Shina oʻlchami shinaning yon tomonida yozilgan. Keyingi darsda ustaxonada muammoni tushuntiramiz.
+
+End card: TruckTalk · Keyingi dars: Ustaxonada
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_26.json

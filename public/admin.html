@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TruckTalk Admin</title>
+<meta name="theme-color" content="#0f2742">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+<link rel="stylesheet" href="/css/app.css">
+<script type="module" src="/js/admin/admin.js"></script>
+</head>
+<body class="admin">
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/admin" data-nav><span class="mark">TT</span><span>Admin</span></a>
+    <nav class="topnav admin-nav" id="nav" aria-label="Admin">
+      <a href="/admin" data-nav data-view="stats">Overview</a>
+      <a href="/admin/users" data-nav data-view="users">Students</a>
+      <a href="/admin/payments" data-nav data-view="payments">Payments</a>
+      <a href="/admin/leads" data-nav data-view="leads">Telegram leads</a>
+      <a href="/admin/audit" data-nav data-view="audit">Audit log</a>
+      <a href="/admin/marketing" data-nav data-view="marketing">Marketing links</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="small" id="who" style="color:#cfe0f2"></span>
+    <a class="btn sm" href="/app">App</a>
+  </div>
+</header>
+<main id="main" class="wrap"><div class="spinner"></div></main>
+</body>
+</html>

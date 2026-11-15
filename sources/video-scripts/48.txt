@@ -1,0 +1,52 @@
+48 Shifokor va dorixona - yo'lda kasal bo'lsangiz
+=================================================
+
+Title (UZ): Shifokor va dorixona: yoʻlda kasal boʻlsangiz
+Title (EN): Doctor and pharmacy on the road
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Woodcut
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yoʻlda kasal boʻlib qoldingiz. Urgent care yoki dorixonada shunday gaplashiladi.
+
+--- DIALOGUE ---
+02  Voice EN 2: What brings you in today?
+      UZ: Bugun nima bilan keldingiz?
+03  Voice EN 1: I have a fever and a bad sore throat.
+      UZ: Isitmam bor va tomogʻim qattiq ogʻriyapti.
+04  Voice EN 2: How long have you had these symptoms?
+      UZ: Bu belgilar qachondan beri bor?
+05  Voice EN 1: Since yesterday. I'm a truck driver. Can I still drive?
+      UZ: Kechadan beri. Men trak haydovchisiman. Haydasam boʻladimi?
+06  Voice EN 2: This medicine may make you drowsy. Don't drive after taking it.
+      UZ: Bu dori uyqu keltirishi mumkin. Ichgandan keyin haydamang.
+07  Voice EN 1: Do you have something that doesn't cause drowsiness?
+      UZ: Uyqu keltirmaydigan dori bormi?
+08  Voice EN 2: Yes, the non-drowsy version. Take one tablet every six hours.
+      UZ: Ha, uyqu keltirmaydigan turi bor. Har olti soatda bitta tabletka iching.
+09  Voice EN 1: Thank you very much.
+      UZ: Katta rahmat.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I have a fever.
+      UZ: Isitmam bor.
+11  Voice EN 1 (x2): Can I still drive?
+      UZ: Haydasam boʻladimi?
+12  Voice EN 1 (x2): Something that doesn't cause drowsiness.
+      UZ: Uyqu keltirmaydigan dori.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Uyqu keltiradigan dori ichib haydash qonunga zid va xavfli. Keyingi darsda pullik yoʻllar.
+
+End card: TruckTalk · Keyingi dars: Pullik yoʻllar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_48.json

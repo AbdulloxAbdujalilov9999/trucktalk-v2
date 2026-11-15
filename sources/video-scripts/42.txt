@@ -1,0 +1,53 @@
+42 Raqamlar, vaqt va manzillar
+==============================
+
+Title (UZ): Raqamlar, vaqt va manzillar
+Title (EN): Numbers, times and addresses
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Map / GPS
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Brokerga manzil, vaqt va raqamlarni toʻgʻri aytish va tushunish juda muhim.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Fifteen vs fifty
+      UZ: oʻn besh va ellik
+      (spoken as: Fifteen versus fifty)
+03  Narrator (UZ): Fifteen: urgʻu oxirida. Fifty: urgʻu boshida. Shubha boʻlsa, raqamlarni bittalab ayting: one, five.
+04  Voice EN 1 (x2): Street address
+      UZ: koʻcha manzili
+05  Narrator (UZ): Avval uy raqami, keyin koʻcha: 1250 Main Street.
+06  Voice EN 1 (x2): Suite
+      UZ: ofis yoki boʻlim raqami
+07  Narrator (UZ): Bino ichidagi boʻlim raqami.
+08  Voice EN 1 (x2): Zip code
+      UZ: pochta indeksi
+09  Narrator (UZ): Besh xonali raqam. Navigatorda toʻgʻri joyni topishga yordam beradi.
+10  Voice EN 1 (x2): AM and PM
+      UZ: tushdan oldin va keyin
+      (spoken as: A.M. and P.M.)
+11  Narrator (UZ): AM yarim tundan peshingacha, PM peshindan yarim tungacha.
+12  Voice EN 1 (x2): Time zone
+      UZ: vaqt mintaqasi
+13  Narrator (UZ): Amerikada toʻrtta asosiy vaqt mintaqasi bor. Uchrashuv vaqti qaysi mintaqada ekanini soʻrang.
+14  Voice EN 1 (x2): Military time
+      UZ: 24 soatlik vaqt
+15  Narrator (UZ): Baʼzi omborlar 1400 deydi: bu soat ikki PM.
+16  Voice EN 1 (x2): Is that Central time or Eastern time?
+      UZ: Bu Central vaqtimi yoki Eastern vaqtimi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Manzilni har doim qaytarib oʻqing va tasdiqlang. Keyingi darsda omborga qoʻngʻiroq qilish.
+
+End card: TruckTalk · Keyingi dars: Omborga qoʻngʻiroq
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_42.json

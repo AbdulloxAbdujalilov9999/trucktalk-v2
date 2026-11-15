@@ -1,0 +1,54 @@
+38 Reefer yuk - harorat va tekshiruv
+====================================
+
+Title (UZ): Reefer yuk: harorat va tekshiruv
+Title (EN): Reefer loads: temperature and checks
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Risograph print
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Muzlatgichli treylerda harorat eng muhim narsa. Shipper bilan shunday gaplashiladi.
+
+--- DIALOGUE ---
+02  Voice EN 2: Set the reefer to thirty-four degrees, continuous.
+      UZ: Muzlatgichni oʻttiz toʻrt darajaga qoʻying, uzluksiz rejimda.
+03  Voice EN 1: Thirty-four, continuous. Should I pre-cool the trailer?
+      UZ: Oʻttiz toʻrt, uzluksiz. Treylerni oldindan sovutaymi?
+04  Voice EN 2: Yes, pre-cool before you back in.
+      UZ: Ha, eshikka orqa bilan kirishdan oldin sovuting.
+05  Voice EN 1: Can I check the product temperature?
+      UZ: Mahsulot haroratini tekshirsam boʻladimi?
+06  Voice EN 2: Sure. Pulp temperature is thirty-five.
+      UZ: Albatta. Mahsulot ichki harorati oʻttiz besh.
+07  Voice EN 1: Please write the temperature on the BOL.
+      UZ: Iltimos, haroratni BOLga yozing.
+      (spoken as: Please write the temperature on the B.O.L..)
+08  Voice EN 2: Done. Don't open the doors until delivery.
+      UZ: Yozdim. Topshirguncha eshiklarni ochmang.
+09  Voice EN 1: Got it. I'll check the reefer every few hours.
+      UZ: Tushundim. Muzlatgichni har necha soatda tekshirib turaman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Set it to thirty-four, continuous.
+      UZ: Oʻttiz toʻrtga qoʻying, uzluksiz.
+11  Voice EN 1 (x2): Should I pre-cool the trailer?
+      UZ: Treylerni oldindan sovutaymi?
+12  Voice EN 1 (x2): Write the temperature on the BOL.
+      UZ: Haroratni BOLga yozing.
+      (spoken as: Write the temperature on the B.O.L..)
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Harorat Farengeytda aytiladi: oʻttiz toʻrt daraja taxminan bir daraja Selsiy. Keyingi darsda flatbed va yuk mahkamlash.
+
+End card: TruckTalk · Keyingi dars: Flatbed: yuk mahkamlash
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_38.json

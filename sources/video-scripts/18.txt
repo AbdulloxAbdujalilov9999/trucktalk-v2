@@ -1,0 +1,53 @@
+18 Temir yo'l kesishmasi - trakchi bilishi shart
+================================================
+
+Title (UZ): Temir yoʻl kesishmasi: trakchi bilishi shart
+Title (EN): Railroad crossing signs
+Bundle 2 - Yo'l belgilari
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Poyezd trakdan yuz baravar ogʻir va toʻxtay olmaydi. Temir yoʻl kesishmasidagi yettita belgi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Railroad Crossing (crossbuck)
+      UZ: temir yoʻl kesishmasi
+      (spoken as: Railroad crossing. Crossbuck.)
+03  Narrator (UZ): Temir yoʻl kesishmasi. Poyezd har doim birinchi oʻtadi.
+04  Voice EN 1 (x2): Railroad Ahead
+      UZ: oldinda temir yoʻl
+05  Narrator (UZ): Oldinda temir yoʻl kesishmasi. Sekinlang va quloq soling.
+06  Voice EN 1 (x2): Flashing lights and gates
+      UZ: chiroq va shlagbaum
+07  Narrator (UZ): Qizil chiroq yonsa yoki shlagbaum tusha boshlasa, albatta toʻxtang.
+08  Voice EN 1 (x2): Do Not Stop on Tracks
+      UZ: relsda toʻxtamang
+09  Narrator (UZ): Trakingiz toʻliq oʻtib keta olishiga ishonchingiz boʻlmasa, kesishmaga kirmang.
+10  Voice EN 1 (x2): Low Ground Clearance
+      UZ: baland kesishma
+11  Narrator (UZ): Kesishma baland. Past treyler relsga ilinib qolishi mumkin.
+12  Voice EN 1 (x2): 2 Tracks
+      UZ: ikkita rels yoʻli
+      (spoken as: Two tracks.)
+13  Narrator (UZ): Bir nechta rels yoʻli bor. Bir poyezd oʻtgach, ikkinchisi ham kelishi mumkin.
+14  Voice EN 1 (x2): Exempt
+      UZ: ozod
+15  Narrator (UZ): Odatda xavfli yuk tashiyotgan traklar kesishmadan oldin toʻxtashi shart. Bu belgi boʻlsa, toʻxtamasa ham boʻladi.
+16  Voice EN 1 (x2): Never stop on the tracks.
+      UZ: Hech qachon relsda toʻxtamang.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda maktab, piyodalar va favqulodda mashinalar.
+
+End card: TruckTalk · Keyingi dars: Maktab, piyodalar va favqulodda mashinalar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs08.json

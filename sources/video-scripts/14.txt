@@ -1,0 +1,51 @@
+14 Tog' yo'llari - qiyalik va favqulodda yo'lak
+===============================================
+
+Title (UZ): Togʻ yoʻllari: qiyalik va favqulodda yoʻlak
+Title (EN): Mountain roads: grades, ramps and chains
+Bundle 2 - Yo'l belgilari
+Style: Flat vector
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Togʻdan tushishda tormoz qizib ketsa nima qilasiz? Togʻ yoʻllaridagi yettita belgi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Steep Grade
+      UZ: keskin qiyalik
+03  Narrator (UZ): Keskin qiyalik. Foiz qancha katta boʻlsa, yoʻl shuncha tik.
+04  Voice EN 1 (x2): Trucks Use Lower Gear
+      UZ: traklar past uzatmada yursin
+05  Narrator (UZ): Tushishdan oldin past uzatmaga oʻting. Faqat tormoz bilan tushmang.
+06  Voice EN 1 (x2): Brake Check Area
+      UZ: tormozni tekshirish joyi
+07  Narrator (UZ): Shu joyda toʻxtab, tormozlaringizni tekshiring.
+08  Voice EN 1 (x2): Runaway Truck Ramp
+      UZ: favqulodda toʻxtash yoʻlagi
+09  Narrator (UZ): Tormoz ishlamay qolsa, shu yoʻlakka kiring. Bu hayotingizni saqlaydi.
+10  Voice EN 1 (x2): Truck Rollover Warning
+      UZ: agʻdarilish xavfi
+11  Narrator (UZ): Burilishda trak agʻdarilishi mumkin. Belgidagi tezlikdan sekinroq yuring.
+12  Voice EN 1 (x2): Winding Road
+      UZ: ilonizi yoʻl
+13  Narrator (UZ): Ketma-ket burilishlar. Sekin va ehtiyot boʻlib yuring.
+14  Voice EN 1 (x2): Chains Required
+      UZ: zanjir majburiy
+15  Narrator (UZ): Qor yoki muzda gʻildiraklarga zanjir taqish majburiy.
+16  Voice EN 1 (x2): I'm using a lower gear on the hill.
+      UZ: Qiyalikda past uzatmada ketyapman.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda sariq ogohlantiruvchi belgilarni oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Ogohlantiruvchi sariq belgilar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs04.json

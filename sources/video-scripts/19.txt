@@ -1,0 +1,51 @@
+19 Maktab, piyodalar va favqulodda mashinalar
+=============================================
+
+Title (UZ): Maktab, piyodalar va favqulodda mashinalar
+Title (EN): School zones, pedestrians and emergency vehicles
+Bundle 2 - Yo'l belgilari
+Style: Stick figures
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Bu belgilar odamlar hayotini saqlaydi, jarimasi ham eng katta. Yettita muhim belgi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): School Zone
+      UZ: maktab zonasi
+03  Narrator (UZ): Maktab zonasi. Chiroq yonib tursa, belgidagi tezlikdan oshmang.
+04  Voice EN 1 (x2): School bus stop arm
+      UZ: maktab avtobusining toʻxtash belgisi
+05  Narrator (UZ): Avtobusning qizil toʻxtash belgisi ochilsa, odatda ikki tomondan ham toʻxtash shart. Ajratilgan yoʻlda qoidalar shtatga qarab farq qiladi.
+06  Voice EN 1 (x2): Pedestrian Crossing
+      UZ: piyodalar oʻtish joyi
+07  Narrator (UZ): Piyodalar oʻtish joyi. Odam oʻtayotgan boʻlsa, toʻxtang.
+08  Voice EN 1 (x2): Move Over
+      UZ: chetga oʻting
+09  Narrator (UZ): Yoʻl chetida chiroqlari yonib turgan politsiya yoki tez yordam boʻlsa, bir yoʻlak chetga oʻting yoki sekinlang. Bu barcha shtatlarda qonun.
+10  Voice EN 1 (x2): Hospital
+      UZ: kasalxona
+11  Narrator (UZ): Kasalxona yaqinda.
+12  Voice EN 1 (x2): Emergency Stopping Only
+      UZ: faqat favqulodda toʻxtash
+13  Narrator (UZ): Yoʻl chetida faqat favqulodda holatda toʻxtash mumkin.
+14  Voice EN 1 (x2): Deer Crossing
+      UZ: kiyik chiqishi mumkin
+15  Narrator (UZ): Yoʻlga kiyik chiqishi mumkin, ayniqsa tong va kechqurun.
+16  Voice EN 1 (x2): I moved over for the police car.
+      UZ: Politsiya mashinasi uchun chetga oʻtdim.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda hammasini takrorlaymiz: yoʻl belgilari viktorinasi.
+
+End card: TruckTalk · Keyingi dars: Yoʻl belgilari viktorinasi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs09.json

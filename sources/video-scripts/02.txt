@@ -1,0 +1,62 @@
+02 Broker qo'ng'irog'i - qayerdasiz va qachon yetasiz
+=====================================================
+
+Title (UZ): Broker qoʻngʻirogʻi
+Title (EN): The broker call
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Flat vector
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Broker yukingiz qayerdaligini soʻrab qoʻngʻiroq qiladi. Broker bilan ingliz tilida gaplashasiz. Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 2: Hi, this is Sarah, the broker on your load to Atlanta.
+      UZ: Salom, men Sara, Atlantaga boradigan yukingizning brokeriman.
+03  Voice EN 1: Hi, Sarah. How can I help you?
+      UZ: Salom, Sara. Qanday yordam bera olaman?
+04  Voice EN 2: Where are you right now?
+      UZ: Hozir qayerdasiz?
+05  Voice EN 1: I'm on I-20 eastbound, about 50 miles from Birmingham.
+      UZ: I-20 yoʻlida, sharq tomonga, Birmingemdan taxminan 50 mil uzoqdaman.
+      (spoken as: I'm on I twenty eastbound, about fifty miles from Birmingham.)
+06  Voice EN 2: What's your ETA to the receiver?
+      UZ: Yuk topshiriladigan joyga qachon yetib borasiz?
+      (spoken as: What's your E.T.A. to the receiver?)
+07  Voice EN 1: My ETA is tomorrow at 6 a.m.
+      UZ: Ertaga ertalab soat 6 da yetib boraman.
+      (spoken as: My E.T.A. is tomorrow at six a.m.)
+08  Voice EN 2: Great. Can you turn on the tracking app, please?
+      UZ: Zoʻr. Kuzatuv ilovasini yoqib qoʻya olasizmi?
+09  Voice EN 1: Sure, I'll turn it on now.
+      UZ: Albatta, hozir yoqaman.
+10  Voice EN 2: Thank you. Call me when you're empty.
+      UZ: Rahmat. Yuk tushirilgach, menga qoʻngʻiroq qiling.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+11  Voice EN 1 (x2): What's your ETA?
+      UZ: Qachon yetib borasiz?
+      (spoken as: What's your E.T.A.?)
+12  Narrator (UZ): Bu taxminiy yetib borish vaqti. Brokerlar eng koʻp soʻraydigan savol.
+13  Voice EN 1 (x2): I'm about 50 miles from Birmingham.
+      UZ: Birmingemdan taxminan 50 mil uzoqdaman.
+      (spoken as: I'm about fifty miles from Birmingham.)
+14  Narrator (UZ): Qayerdaligingizni yaqin shahar va masofa bilan aytasiz.
+15  Voice EN 1 (x2): I'll turn on the tracking app.
+      UZ: Kuzatuv ilovasini yoqaman.
+16  Narrator (UZ): Koʻp brokerlar yukni ilova orqali kuzatadi.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda trakdagi hujjatlarni oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Trakdagi hujjatlar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v02.json

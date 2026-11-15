@@ -1,0 +1,52 @@
+45 Orqaga yurish - spotter bilan gaplashish
+===========================================
+
+Title (UZ): Orqaga yurish: spotter bilan gaplashish
+Title (EN): Backing up: talking with a spotter
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Crayon
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Tor joyda orqaga yurishda boshqa odam yordam beradi. Uning soʻzlarini tushunish kerak.
+
+--- DIALOGUE ---
+02  Voice EN 2: Need a hand backing in?
+      UZ: Orqaga kirishda yordam kerakmi?
+03  Voice EN 1: Yes, please. It's my blind side.
+      UZ: Ha, iltimos. Bu koʻr tomonim.
+04  Voice EN 2: Turn your wheel to the left. A little more.
+      UZ: Rulni chapga buring. Yana ozgina.
+05  Voice EN 2: Stop! Pull up and try again.
+      UZ: Toʻxtang! Oldinga chiqib, qaytadan urinib koʻring.
+06  Voice EN 1: Okay. How much room do I have?
+      UZ: Yaxshi. Qancha joy bor?
+07  Voice EN 2: About three feet. Come back slowly. Straight back.
+      UZ: Taxminan uch fut. Sekin orqaga keling. Toʻgʻri orqaga.
+08  Voice EN 2: You're good. Stop there.
+      UZ: Boʻldi. Shu yerda toʻxtang.
+09  Voice EN 1: Thanks a lot, I appreciate it.
+      UZ: Katta rahmat, minnatdorman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): It's my blind side.
+      UZ: Bu mening koʻr tomonim.
+11  Voice EN 1 (x2): Pull up and try again.
+      UZ: Oldinga chiqib, qaytadan urinib koʻring.
+12  Voice EN 1 (x2): Straight back.
+      UZ: Toʻgʻri orqaga.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Ishonchingiz boʻlmasa, tushib qarang: G.O.A.L., Get Out And Look. Keyingi darsda drop and hook.
+
+End card: TruckTalk · Keyingi dars: Drop and hook
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_45.json

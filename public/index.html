@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-k="land.title">TruckTalk — Amerikadagi trakchilar uchun ingliz tili</title>
+<meta name="description" data-k-content="land.desc" content="Amerikada ishlayotgan trakchilar uchun ingliz tili: 50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi va ovozli mashq.">
+<meta name="theme-color" content="#0f2742">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TruckTalk">
+<meta property="og:description" data-k-content="land.desc" content="Amerikada ishlayotgan trakchilar uchun ingliz tili: 50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi va ovozli mashq.">
+<meta property="og:image" content="/icons/icon-512.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/app.css">
+<script type="module" src="/js/landing.js"></script>
+</head>
+<body class="landing">
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="mark">TT</span><span>TruckTalk</span></a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#videos" data-k="land.navVideos">Video darslar</a>
+      <a href="#pricing" data-k="land.pricing">Narxlar</a>
+      <a href="/app/signin" data-k="signin">Kirish</a>
+    </nav>
+    <span class="spacer"></span>
+    <div class="langsw" id="langsw" role="group" aria-label="Language">
+      <button data-lang="uz" class="on" aria-pressed="true">UZ</button><button data-lang="ru" aria-pressed="false">RU</button><button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn primary sm hide-xs" href="/app" data-k="land.open">Ilovani ochish</a>
+  </div>
+</header>
+
+<main>
+  <section class="land-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow" style="color:#ffd36b" data-k="land.eyebrow">Amerikadagi trakchilar uchun ingliz tili</div>
+        <h1 data-k="land.h1">Politsiya, dispetcher va skladda ishonch bilan gapiring</h1>
+        <p class="lead" data-k="land.lead">50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi va ovozli mashq. Kuniga 15 daqiqa — telefoningizda, oʻzbek va rus tilidagi tushuntirishlar bilan.</p>
+        <div class="ctas">
+          <a class="btn primary" href="/app"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4" fill="currentColor"/></svg><span data-k="land.start">Bepul boshlash</span></a>
+          <a class="btn ghost on-dark" href="#videos" data-k="land.browse">Video darslar roʻyxati</a>
+        </div>
+        <div class="jump">
+          <label for="jumpN" data-k="land.jump">Videoda dars raqamini koʻrdingizmi? Shu yerga yozing:</label>
+          <form id="jumpForm" novalidate>
+            <input id="jumpN" type="number" inputmode="numeric" min="1" max="50" required data-k-placeholder="land.jumpPh" placeholder="masalan, 12" aria-describedby="jumpErr">
+            <button class="btn primary" data-k="land.jumpGo">Darsni ochish</button>
+          </form>
+          <div id="jumpErr" class="small" role="alert" style="color:#ffd36b;margin-top:6px" hidden data-k="land.jumpBad">1 dan 50 gacha raqam yozing</div>
+          <a class="tg-link small" href="#" data-tg="landing" hidden>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l9-7"/></svg>
+            <span data-k="land.tg">Yoki Telegram botimizga TRUCK deb yozing</span>
+          </a>
+        </div>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-top"><span class="dot"></span><b>1 · Pulled over</b></div>
+        <div class="chat">
+          <div class="bubble"><div class="who" data-k="land.mockWho1">Politsiyachi</div><div class="en">Good evening, driver. Do you know why I pulled you over?</div><div class="tr">Xayrli kech, haydovchi. Nima uchun sizni toʻxtatganimni bilasizmi?</div></div>
+          <div class="bubble me"><div class="who" data-k="land.mockWho2">Siz</div><div class="en">No, officer.</div><div class="tr">Yoʻq, ofitser.</div></div>
+          <div class="bubble"><div class="who" data-k="land.mockWho1">Politsiyachi</div><div class="en">License, registration and proof of insurance, please.</div><div class="tr">Guvohnoma, roʻyxat hujjati va sugʻurtani bering.</div></div>
+          <div class="bubble me"><div class="who" data-k="land.mockWho2">Siz</div><div class="en">I'm sorry. I didn't see the sign.</div><div class="tr">Kechirasiz. Belgini koʻrmay qoldim.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 data-k="land.how">Qanday ishlaydi</h2>
+      <div class="grid grid-3 how">
+        <div class="card"><span class="stepnum">1</span><h3 data-k="land.how1t">Video darsni koʻring</h3><p class="muted" data-k="land.how1">Har bir video — bitta vaziyat: politsiya toʻxtatishi, DOT tekshiruvi, yuk olish, yoqilgʻi quyish.</p></div>
+        <div class="card"><span class="stepnum">2</span><h3 data-k="land.how2t">Ilovada mashq qiling</h3><p class="muted" data-k="land.how2">Har bir iborani eshiting, takrorlang va kichik testdan oʻting. Soʻzlar takrorlash roʻyxatiga tushadi.</p></div>
+        <div class="card"><span class="stepnum">3</span><h3 data-k="land.how3t">60 kunlik kursni tugating</h3><p class="muted" data-k="land.how3">Har kuni: soʻzlar, dialog, grammatika, test va gapirish. AI oʻqituvchi xatolaringizni tushuntiradi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <h2 data-k="land.inside">Ilovada nimalar bor</h2>
+      <div class="grid grid-3">
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v9H2zM13 9h4l4 4v2h-8z"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><h3 data-k="land.f1t">Yoʻldagi haqiqiy vaziyatlar</h3><p class="muted" data-k="land.f1">Dispetcher, broker, shipper va receiver, politsiya, tarozi, servis — yoʻlda kerak boʻladigan hamma suhbatlar.</p></div>
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg><h3 data-k="land.f2t">Har bir ibora ovozi bilan</h3><p class="muted" data-k="land.f2">Tabiiy amerikancha talaffuz. Bir marta eshitgan iborangiz internetsiz ham ijro etiladi.</p></div>
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg><h3 data-k="land.f3t">AI oʻqituvchi</h3><p class="muted" data-k="land.f3">Gapingizni yozing yoki ayting — u xatoni tuzatadi va oʻzbek yoki rus tilida tushuntiradi.</p></div>
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><h3 data-k="land.f4t">Ovozli suhbat mashqi</h3><p class="muted" data-k="land.f4">Ovozli oʻqituvchi bilan dispetcher yoki politsiya suhbatini jonli mashq qiling.</p></div>
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg><h3 data-k="land.f5t">Aqlli takrorlash</h3><p class="muted" data-k="land.f5">Soʻzlar aynan unutay deganingizda qaytib keladi: 1, 3, 7, 14 va 30 kundan keyin.</p></div>
+        <div class="card feature"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg><h3 data-k="land.f6t">Telefon uchun qilingan</h3><p class="muted" data-k="land.f6">Ilova kabi oʻrnatiladi, ochilgan darslar internetsiz ishlaydi. Natijalar hisobingizda saqlanadi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="wrap">
+      <h2 data-k="land.videos">50 ta bepul video dars</h2>
+      <p class="muted" data-k="land.videosSub">Har birida dialog yoki kartochkalar, tarjima, ovoz va kichik test bor. Roʻyxatdan oʻtmasdan oching.</p>
+      <!--videos:start-->
+      <div class="bundle-list">
+        <div><h3><span data-k="land.bundle">Toʻplam</span> 1 · Suhbatlar va hujjatlar</h3><ol>
+          <li value="1"><a href="/v/1">Politsiya toʻxtatdi</a> <span class="faint">· Pulled over</span></li>
+          <li value="2"><a href="/v/2">Broker qoʻngʻirogʻi</a> <span class="faint">· The broker call</span></li>
+          <li value="3"><a href="/v/3">Trakdagi hujjatlar</a> <span class="faint">· Documents in the truck</span></li>
+          <li value="4"><a href="/v/4">Shipperda: yukni olish</a> <span class="faint">· At the shipper</span></li>
+          <li value="5"><a href="/v/5">Receiverda: kechikish va shikastlangan yuk</a> <span class="faint">· At the receiver</span></li>
+          <li value="6"><a href="/v/6">AQSh yoʻl belgilari</a> <span class="faint">· US road signs for truckers</span></li>
+          <li value="7"><a href="/v/7">Tarozi stansiyasida tekshiruv</a> <span class="faint">· Weigh station inspection</span></li>
+          <li value="8"><a href="/v/8">Broker bilan: uzoq kutish va kutish haqi</a> <span class="faint">· Detention pay</span></li>
+          <li value="9"><a href="/v/9">Ish vaqti qoidalari va elektron jurnal</a> <span class="faint">· Hours of service &amp; ELD words</span></li>
+          <li value="10"><a href="/v/10">Yoʻlda buzilish: yordam chaqirish</a> <span class="faint">· Breakdown: calling for help</span></li>
+        </ol></div>
+        <div><h3><span data-k="land.bundle">Toʻplam</span> 2 · Yoʻl belgilari</h3><ol>
+          <li value="11"><a href="/v/11">Majburiy belgilar: toʻxtash, yoʻl berish va boshqalar</a> <span class="faint">· Regulatory signs: Stop, Yield, Do Not Enter</span></li>
+          <li value="12"><a href="/v/12">Traklar uchun cheklov belgilari</a> <span class="faint">· Truck restriction signs</span></li>
+          <li value="13"><a href="/v/13">Balandlik, ogʻirlik va tarozi belgilari</a> <span class="faint">· Height, weight and weigh station signs</span></li>
+          <li value="14"><a href="/v/14">Togʻ yoʻllari: qiyalik va favqulodda yoʻlak</a> <span class="faint">· Mountain roads: grades, ramps and chains</span></li>
+          <li value="15"><a href="/v/15">Ogohlantiruvchi sariq belgilar</a> <span class="faint">· Yellow warning signs</span></li>
+          <li value="16"><a href="/v/16">Yoʻl taʼmiri: toʻq sariq belgilar</a> <span class="faint">· Work zone signs</span></li>
+          <li value="17"><a href="/v/17">Magistral yoʻl belgilari: interstate, chiqish va mil belgisi</a> <span class="faint">· Interstate, exit and mile marker signs</span></li>
+          <li value="18"><a href="/v/18">Temir yoʻl kesishmasi: trakchi bilishi shart</a> <span class="faint">· Railroad crossing signs</span></li>
+          <li value="19"><a href="/v/19">Maktab, piyodalar va favqulodda mashinalar</a> <span class="faint">· School zones, pedestrians and emergency vehicles</span></li>
+          <li value="20"><a href="/v/20">Yoʻl belgilari viktorinasi: 10 ta belgi</a> <span class="faint">· Road sign quiz: 10 signs</span></li>
+        </ol></div>
+        <div><h3><span data-k="land.bundle">Toʻplam</span> 3 · Yoʻldagi vaziyatlar</h3><ol>
+          <li value="21"><a href="/v/21">Truck stopda: yoqilgʻi, dush va parkovka</a> <span class="faint">· At the truck stop: fuel, shower and parking</span></li>
+          <li value="22"><a href="/v/22">Ombor darvozasida: roʻyxatdan oʻtish</a> <span class="faint">· Gate check-in at the warehouse</span></li>
+          <li value="23"><a href="/v/23">Lumper: yukni tushirish va toʻlov</a> <span class="faint">· Lumper: unloading and payment</span></li>
+          <li value="24"><a href="/v/24">DOT tekshiruvi: inspektor bilan suhbat</a> <span class="faint">· DOT inspection: talking to the inspector</span></li>
+          <li value="25"><a href="/v/25">Avariya boʻlganda: nima qilish va nima deyish</a> <span class="faint">· After an accident: what to do and say</span></li>
+          <li value="26"><a href="/v/26">Shina yorildi: yoʻlda yordam chaqirish</a> <span class="faint">· Tire blowout: calling road service</span></li>
+          <li value="27"><a href="/v/27">Ustaxonada: trak muammosini tushuntirish</a> <span class="faint">· At the repair shop: describing truck problems</span></li>
+          <li value="28"><a href="/v/28">Ob-havo va yoʻl yopilishi: zanjir qonuni</a> <span class="faint">· Weather, road closures and chain laws</span></li>
+          <li value="29"><a href="/v/29">Shipperda BOL muammosi: plomba va soni</a> <span class="faint">· BOL problems at the shipper: seal and count</span></li>
+          <li value="30"><a href="/v/30">Broker bilan SMS yozishish</a> <span class="faint">· Texting with a broker</span></li>
+        </ol></div>
+        <div><h3><span data-k="land.bundle">Toʻplam</span> 4 · Hujjatlar, pul va qoidalar</h3><ol>
+          <li value="31"><a href="/v/31">Rate confirmation: narx hujjatini oʻqish</a> <span class="faint">· Reading a rate confirmation</span></li>
+          <li value="32"><a href="/v/32">Pul olish: POD, invoys va faktoring</a> <span class="faint">· Getting paid: POD, invoice and factoring</span></li>
+          <li value="33"><a href="/v/33">DOT tibbiy koʻrigi: shifokor savollari</a> <span class="faint">· DOT medical exam: the doctor's questions</span></li>
+          <li value="34"><a href="/v/34">Narkotik va alkogol testi</a> <span class="faint">· Drug and alcohol testing</span></li>
+          <li value="35"><a href="/v/35">CDL toifalari va endorsementlar</a> <span class="faint">· CDL classes and endorsements</span></li>
+          <li value="36"><a href="/v/36">Xavfli yuk: plakatlar va hujjatlar</a> <span class="faint">· Hazmat: placards and papers</span></li>
+          <li value="37"><a href="/v/37">Ish vaqti: 34 soatlik dam va split sleeper</a> <span class="faint">· Hours of service: 34-hour restart and split sleeper</span></li>
+          <li value="38"><a href="/v/38">Reefer yuk: harorat va tekshiruv</a> <span class="faint">· Reefer loads: temperature and checks</span></li>
+          <li value="39"><a href="/v/39">Flatbed: yukni mahkamlash soʻzlari</a> <span class="faint">· Flatbed: load securement words</span></li>
+          <li value="40"><a href="/v/40">Jarima qogʻozi: citation va sud</a> <span class="faint">· Traffic ticket: citation and court</span></li>
+        </ol></div>
+        <div><h3><span data-k="land.bundle">Toʻplam</span> 5 · Til koʻnikmalari va yoʻl hayoti</h3><ol>
+          <li value="41"><a href="/v/41">Fonetik alifbo: Alpha, Bravo, Charlie</a> <span class="faint">· Phonetic alphabet: Alpha, Bravo, Charlie</span></li>
+          <li value="42"><a href="/v/42">Raqamlar, vaqt va manzillar</a> <span class="faint">· Numbers, times and addresses</span></li>
+          <li value="43"><a href="/v/43">Omborga qoʻngʻiroq: ish vaqti va yoʻl</a> <span class="faint">· Calling a facility: hours and directions</span></li>
+          <li value="44"><a href="/v/44">CB radio va trakchilar soʻzlari</a> <span class="faint">· CB radio and trucker slang</span></li>
+          <li value="45"><a href="/v/45">Orqaga yurish: spotter bilan gaplashish</a> <span class="faint">· Backing up: talking with a spotter</span></li>
+          <li value="46"><a href="/v/46">Drop and hook: treylerni almashtirish</a> <span class="faint">· Drop and hook: swapping trailers</span></li>
+          <li value="47"><a href="/v/47">Yoʻlda: ovqat buyurtma va mehmonxona</a> <span class="faint">· On the road: ordering food and a motel</span></li>
+          <li value="48"><a href="/v/48">Shifokor va dorixona: yoʻlda kasal boʻlsangiz</a> <span class="faint">· Doctor and pharmacy on the road</span></li>
+          <li value="49"><a href="/v/49">Pullik yoʻllar: toll, transponder va jarima</a> <span class="faint">· Toll roads: tolls, transponders and violations</span></li>
+          <li value="50"><a href="/v/50">Ishga kirish: trak kompaniyasi bilan intervyu</a> <span class="faint">· Job interview with a trucking company</span></li>
+        </ol></div>
+      </div>
+      <!--videos:end-->
+    </div>
+  </section>
+
+  <section class="section alt" id="pricing">
+    <div class="wrap">
+      <h2 data-k="land.pricing">Narxlar</h2>
+      <p class="muted" data-k="land.pricingSub">Video darslar va kursning boshlanishi bepul. Butun kursni 3 kun bepul sinab koʻring — karta kerak emas.</p>
+      <!--plans:start-->
+      <div class="plans">
+        <div class="card plan">
+          <h3 data-k="plan.free">Bepul</h3>
+          <div class="price">$0</div>
+          <div class="small muted" data-k="land.freeSub">Karta kerak emas, roʻyxatdan oʻtish shart emas</div>
+          <ul><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="pricing.freeF1">Boshlangʻich darslar va 1–3 kunlar</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="pricing.freeF2">Barcha 50 ta video dars</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="pricing.freeF3">AI oʻqituvchi: kuniga 3 ta tekshiruv</span></li></ul>
+          <a class="btn ghost block" style="margin-top:auto" href="/app" data-k="land.start">Bepul boshlash</a>
+        </div>
+        <div class="card plan best"><span class="ribbon" data-k="pricing.best">Eng foydali</span>
+          <h3 data-k="plan.self">Mustaqil</h3>
+          <div class="price">$19 <small>/ <span data-k="pricing.month">oy</span></small></div>
+          <div class="small"><span data-k="land.or">yoki</span> <b>$49</b> / <span data-k="pricing.3months">3 oy</span></div>
+          <ul><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.allLessons">Barcha 60 kun va 5 ta boshlangʻich dars</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.grammar">33 mavzuli grammatika kitobi</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.review">Aqlli takrorlash va lugʻat</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.aiCheck">AI oʻqituvchi: kuniga 40 ta tekshiruv</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.voice30">Ovozli oʻqituvchi: oyiga 30 daqiqa</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.offline">Internetsiz ham ishlaydi</span></li></ul>
+          <a class="btn primary block" style="margin-top:auto" href="/app/pricing" data-k="land.choose">Tanlash</a>
+        </div>
+        <div class="card plan">
+          <h3 data-k="plan.pro">Pro</h3>
+          <div class="price">$149 <small>/ <span data-k="pricing.month">oy</span></small></div>
+          <div class="small"><span data-k="land.or">yoki</span> <b>$399</b> / <span data-k="pricing.3months">3 oy</span></div>
+          <ul><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.everythingSelf">Mustaqil tarifdagi hamma narsa</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.liveClasses">Haftasiga 3 marta jonli dars oʻqituvchi bilan</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.mockInspection">DOT tekshiruvi va politsiya bilan mashq suhbati</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.voice300">Ovozli oʻqituvchi: oyiga 300 daqiqa</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span data-k="f.teacherChat">Oʻqituvchi bilan Telegram chat</span></li></ul>
+          <a class="btn dark block" style="margin-top:auto" href="/app/pricing" data-k="land.choose">Tanlash</a>
+        </div>
+      </div>
+      <!--plans:end-->
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="wrap" style="max-width:760px">
+      <h2 data-k="land.faq">Koʻp soʻraladigan savollar</h2>
+      <details><summary data-k="land.q1">Ingliz tilini umuman bilmasam ham boʻladimi?</summary><p class="muted" data-k="land.a1">Ha. Boshlangʻich darslar alifbo, raqamlar va eng kerakli soʻzlardan boshlanadi. Har bir iboraning tarjimasi va ovozi bor.</p></details>
+      <details><summary data-k="land.q2">Videoda «TRUCK deb yozing» deyilgan. Bu nima?</summary><p class="muted" data-k="land.a2">Telegram botimizga TRUCK deb yozing: u darslar havolasini va ilovaga kirish havolasini yuboradi. Yoki shu sahifada dars raqamini yozing.</p></details>
+      <details><summary data-k="land.q3">Qancha turadi?</summary><p class="muted" data-k="land.a3">50 ta video dars va kursning birinchi kunlari bepul. Butun kurs uchun yuqoridagi tariflardan birini tanlaysiz; avval 3 kun bepul sinab koʻrishingiz mumkin. Hech narsa avtomatik yechilmaydi.</p></details>
+      <details><summary data-k="land.q4">Telefonda ishlaydimi? Ilova yuklab olish kerakmi?</summary><p class="muted" data-k="land.a4">Brauzerda ochiladi, hech narsa yuklab olish shart emas. Xohlasangiz, «Bosh ekranga qoʻshish» orqali ilova kabi oʻrnatasiz. Ochilgan darslar internetsiz ham ishlaydi.</p></details>
+      <details><summary data-k="land.q5">Natijalarim yoʻqolmaydimi?</summary><p class="muted" data-k="land.a5">Google, email yoki Telegram orqali kirsangiz, natijalar hisobingizda saqlanadi va istalgan telefonda davom etasiz.</p></details>
+    </div>
+  </section>
+
+  <section class="section final">
+    <div class="wrap center stack">
+      <h2 data-k="land.final">Bugun boshlang: birinchi dars 10 daqiqa oladi</h2>
+      <div><a class="btn primary" href="/app" data-k="land.start">Bepul boshlash</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap row wrap-row between">
+    <div><b>TruckTalk</b> · <span data-k="land.rights">Amerikadagi trakchilar uchun ingliz tili.</span></div>
+    <nav class="row wrap-row" aria-label="Footer">
+      <a href="/app/videos" data-k="land.navVideos">Video darslar</a>
+      <a href="/app/course" data-k="nav.course">Kurs</a>
+      <a href="/app/pricing" data-k="land.pricing">Narxlar</a>
+      <a href="/app/signin" data-k="signin">Kirish</a>
+      <a href="#" data-tg="footer" hidden>Telegram</a>
+    </nav>
+  </div>
+</footer>
+<noscript><style>.langsw{display:none}</style></noscript>
+</body>
+</html>

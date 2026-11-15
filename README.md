@@ -1,0 +1,67 @@
+# TruckTalk v2
+
+English for truck drivers working in the USA: a 60-day course, 50 short video lessons, a grammar book, spaced review, an AI teacher and a live voice teacher. Uzbek first, Russian and English too.
+
+This is a rebuild of the current TruckTalk (`truck-talk-webapp`), made to compare against it. The current app is untouched. SpeakUp is not part of this version. **[docs/DIFFERENCES.md](docs/DIFFERENCES.md)** lists what changed and why.
+
+## Try it in one minute (no accounts, no keys)
+
+```bash
+npm install
+npm run dev          # http://localhost:3000  (demo mode: pretend sign-in and payments, data in .data/)
+```
+
+Demo mode has buttons to sign in as a student, a teacher or an admin, and a pretend checkout, so every screen works without Firebase, Whop, Anthropic or ElevenLabs. It switches itself off whenever a real database is configured.
+
+## What's inside
+
+| Part | Where | What it does |
+|---|---|---|
+| Landing page | `/` (`public/index.html`) | Explains the course, links all 50 video lessons, and has a box where a viewer types the lesson number from a video |
+| Video lessons | `/v/1` … `/v/50` | Every line with audio and translation, a self-test, and "add to review". Free, no sign-up |
+| The course | `/app` | 5 orientation days + 60 days (words, dialogue, tip, quiz graded by the server, speaking), grammar book (33 units), phrasebook, spaced review, streaks, XP, badges, certificate |
+| AI teacher | `/app/teacher` | Claude checks a sentence or answers a question, in Uzbek or Russian. Daily limits per plan |
+| Voice teacher | `/app/teacher?tab=voice` | Live spoken lesson (ElevenLabs agent). Paid plans, minutes counted by the server |
+| Pricing and checkout | `/app/pricing` | Free, trial (3 days, once per person), Self and Pro plans for 1 or 3 months via Whop; optional manual payment |
+| Telegram bot | `t.me/<bot>` | Answers a lesson number or `TRUCK`, sends sign-in links, tracks which video brought each lead |
+| Admin | `/admin` | Overview, students (search, grant or revoke a plan, roles, block, notes), payments incl. unmatched ones, Telegram leads, audit log, marketing links for every video |
+
+Free without paying: the orientation days, days 1–3, the first grammar units and all 50 video lessons.
+
+## Commands
+
+```bash
+npm run dev            # demo mode on :3000
+npm start              # production server (Render or any Node host); Vercel uses api/ directly
+npm test               # 43 unit and integration tests (node:test), incl. the real HTTP server in demo mode
+npm run check          # content files up to date, offline list complete, no inline scripts, every UI string translated
+npm run e2e            # phone-size browser walkthrough with screenshots (needs Playwright; see e2e/run.mjs)
+npm run build:content  # rebuild content/ and public/data/ from sources/ (course, grammar, 50 video scripts)
+npm run marketing      # video descriptions with lesson links for all 50 videos (APP_URL=...)
+```
+
+CI (`.github/workflows/ci.yml`) runs check, tests and the browser walkthrough on every push and pull request.
+
+## Deploying
+
+Vercel (recommended, free plan is enough to start) or Render. Step by step, with every environment variable: **[docs/SETUP.md](docs/SETUP.md)**. In short:
+
+1. A new Firebase project: Google + email-link sign-in, a Realtime Database, deploy `database.rules.json` (denies all browser access; the server is the only client).
+2. Set the environment variables from `.env.example` in Vercel.
+3. Optional services, each switched on by its keys: Whop (payments), Anthropic (AI teacher), ElevenLabs (natural voice and voice teacher), Telegram (bot).
+4. `node scripts/telegram-setup.mjs` once to connect the bot.
+
+## How it's built
+
+No build step: static pages and native ES modules in `public/`, 11 small server functions in `api/` (Vercel's free plan allows 12), shared logic in `lib/`. The browser never talks to the database. Lessons and answer keys stay on the server, every limit and payment is checked there, and progress merges safely across devices. Details: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
+
+```
+public/          landing, app, admin pages; js/app (screens), js/admin, js/shared (also used by the server)
+api/             server functions (config, me, content, quiz, progress, pay, webhooks, tts, ai, admin, dev)
+lib/             auth, database, payments ledger + Whop, limits, AI tutor, voice, TTS, Telegram, admin
+content/         full course content (server only, built from sources/)
+sources/         the course as written: v1 curriculum and grammar files, the 50 video scripts
+scripts/         content build, checks, marketing captions, Telegram setup
+tests/  e2e/     automated tests and the browser walkthrough
+elevenlabs/      the voice teacher agent's configuration
+```

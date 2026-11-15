@@ -1,0 +1,54 @@
+50 Ishga kirish - trak kompaniyasi bilan intervyu
+=================================================
+
+Title (UZ): Ishga kirish: trak kompaniyasi bilan intervyu
+Title (EN): Job interview with a trucking company
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Claymation
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Trak kompaniyasiga ishga kirishda rekruter shunday savollar beradi. Javoblarni tayyorlab qoʻying.
+
+--- DIALOGUE ---
+02  Voice EN 2: How many years of experience do you have?
+      UZ: Necha yillik tajribangiz bor?
+03  Voice EN 1: I have two years of OTR experience with a Class A CDL.
+      UZ: A toifali CDL bilan ikki yillik OTR tajribam bor.
+      (spoken as: I have two years of O.T.R. experience with a Class A C.D.L..)
+04  Voice EN 2: Any accidents or violations in the last three years?
+      UZ: Oxirgi uch yilda avariya yoki qoidabuzarlik boʻlganmi?
+05  Voice EN 1: No accidents. One speeding ticket two years ago.
+      UZ: Avariya yoʻq. Ikki yil oldin bitta tezlik jarimasi bor.
+06  Voice EN 2: Are you okay with being out two or three weeks at a time?
+      UZ: Bir safarda ikki-uch hafta yoʻlda boʻlishga rozimisiz?
+07  Voice EN 1: Yes. What is the pay per mile, and how often is home time?
+      UZ: Ha. Mil uchun toʻlov qancha va uyga qanchalik tez-tez kelaman?
+08  Voice EN 2: We'll send you an offer after the background check.
+      UZ: Fon tekshiruvidan keyin sizga taklif yuboramiz.
+09  Voice EN 1: Thank you. I look forward to hearing from you.
+      UZ: Rahmat. Javobingizni kutaman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I have two years of OTR experience.
+      UZ: Ikki yillik OTR tajribam bor.
+      (spoken as: I have two years of O.T.R. experience.)
+11  Voice EN 1 (x2): What is the pay per mile?
+      UZ: Mil uchun toʻlov qancha?
+12  Voice EN 1 (x2): I look forward to hearing from you.
+      UZ: Javobingizni kutaman.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Intervyuda toʻlov, uyga kelish va trak haqida savol berishdan uyalmang. Ish qidiryapsizmi? Bizga DM yozing: TRUCK.
+
+End card: TruckTalk · 5-toʻplam tugadi. Obuna boʻling!
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_50.json

@@ -1,0 +1,58 @@
+20 Yo'l belgilari viktorinasi - 10 ta belgi
+===========================================
+
+Title (UZ): Yoʻl belgilari viktorinasi: 10 ta belgi
+Title (EN): Road sign quiz: 10 signs
+Bundle 2 - Yo'l belgilari
+Style: Flat vector
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Oʻzingizni sinang! Belgi chiqadi, uch soniya ichida javob bering.
+
+--- CARDS ---
+02  Voice EN 1: Stop
+      UZ: toʻxtang
+03  Narrator (UZ): Javob: toʻxtang.
+04  Voice EN 1: Yield
+      UZ: yoʻl bering
+05  Narrator (UZ): Javob: yoʻl bering.
+06  Voice EN 1: No Trucks
+      UZ: traklar kirishi taqiqlangan
+07  Narrator (UZ): Javob: traklar kirishi taqiqlangan.
+08  Voice EN 1: Low Clearance
+      UZ: past koʻprik
+09  Narrator (UZ): Javob: past koʻprik.
+10  Voice EN 1: Weigh Station Open
+      UZ: tarozi ochiq
+11  Narrator (UZ): Javob: tarozi stansiyasi ochiq, kirasiz.
+12  Voice EN 1: Runaway Truck Ramp
+      UZ: favqulodda toʻxtash yoʻlagi
+13  Narrator (UZ): Javob: favqulodda toʻxtash yoʻlagi.
+14  Voice EN 1: Truck Rollover Warning
+      UZ: agʻdarilish xavfi
+15  Narrator (UZ): Javob: agʻdarilish xavfi, sekinlang.
+16  Voice EN 1: Road Work Ahead
+      UZ: oldinda yoʻl taʼmiri
+17  Narrator (UZ): Javob: oldinda yoʻl taʼmiri.
+18  Voice EN 1: Railroad Crossing
+      UZ: temir yoʻl kesishmasi
+19  Narrator (UZ): Javob: temir yoʻl kesishmasi.
+20  Voice EN 1: Move Over
+      UZ: chetga oʻting
+21  Narrator (UZ): Javob: chetga oʻting yoki sekinlang.
+
+--- OUTRO + END CARD ---
+22  Narrator (UZ): Nechta toʻgʻri topdingiz? Izohda yozing! Obuna boʻling, keyingi darslar tez orada.
+
+End card: TruckTalk · Yangi darslar tez orada. Obuna boʻling!
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs10.json

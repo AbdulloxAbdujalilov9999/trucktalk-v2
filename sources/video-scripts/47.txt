@@ -1,0 +1,52 @@
+47 Yo'lda - ovqat buyurtma va mehmonxona
+========================================
+
+Title (UZ): Yoʻlda: ovqat buyurtma va mehmonxona
+Title (EN): On the road: ordering food and a motel
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Manga
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Uzoq yoʻlda ovqat buyurtma qilish va mehmonxonada joy olish kerak boʻladi.
+
+--- DIALOGUE ---
+02  Voice EN 2: Hi, what can I get you?
+      UZ: Salom, sizga nima olib kelay?
+03  Voice EN 1: Can I get the chicken plate? No pork, please.
+      UZ: Tovuqli taomni olsam boʻladimi? Choʻchqa goʻshtisiz, iltimos.
+04  Voice EN 2: Sure. For here or to go?
+      UZ: Albatta. Shu yerdami yoki olib ketasizmi?
+05  Voice EN 1: To go, please.
+      UZ: Olib ketaman, iltimos.
+06  Voice EN 2: Welcome. Do you have a reservation?
+      UZ: Xush kelibsiz. Joy band qilganmisiz?
+07  Voice EN 1: No. Do you have a room for one night with truck parking?
+      UZ: Yoʻq. Trak toʻxtash joyi bilan bir kechalik xona bormi?
+08  Voice EN 2: Yes, trucks park in the back lot. Checkout is at eleven.
+      UZ: Ha, traklar orqa maydonda turadi. Chiqish soat oʻn birda.
+09  Voice EN 1: Great, I'll take it.
+      UZ: Zoʻr, olaman.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): No pork, please.
+      UZ: Choʻchqa goʻshtisiz, iltimos.
+11  Voice EN 1 (x2): For here or to go?
+      UZ: Shu yerdami yoki olib ketasizmi?
+12  Voice EN 1 (x2): Do you have a room with truck parking?
+      UZ: Trak joyi bilan xona bormi?
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Halol ovqat kerak boʻlsa, "no pork" yoki "halal" deb soʻrang. Keyingi darsda shifokor va dorixona.
+
+End card: TruckTalk · Keyingi dars: Shifokor va dorixona
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_47.json

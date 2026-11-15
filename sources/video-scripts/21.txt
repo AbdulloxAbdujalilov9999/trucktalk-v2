@@ -1,0 +1,53 @@
+21 Truck stopda - yoqilg'i, dush va parkovka
+============================================
+
+Title (UZ): Truck stopda: yoqilgʻi, dush va parkovka
+Title (EN): At the truck stop: fuel, shower and parking
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Isometric
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Truck stopga keldingiz. Yoqilgʻi quyish, dush olish va tunash uchun joy soʻrash kerak. Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 1: Hi. I need fuel on pump twelve.
+      UZ: Salom. Oʻn ikkinchi kolonkada yoqilgʻi kerak.
+03  Voice EN 2: How much do you want, or fill it up?
+      UZ: Qancha quyay, yoki toʻldiraymi?
+04  Voice EN 1: Fill it up, please. Diesel and DEF.
+      UZ: Toʻldiring, iltimos. Dizel va DEF.
+      (spoken as: Fill it up, please. Diesel and D.E.F..)
+05  Voice EN 2: Do you have a rewards card?
+      UZ: Bonus kartangiz bormi?
+06  Voice EN 1: Yes, here it is. Can I get a shower too?
+      UZ: Ha, mana. Dush ham olsam boʻladimi?
+07  Voice EN 2: Sure. You're number five. I'll text you when it's ready.
+      UZ: Albatta. Siz beshinchisiz. Tayyor boʻlsa, SMS yuboraman.
+08  Voice EN 1: Do you have reserved parking for tonight?
+      UZ: Bugun tunga band qilinadigan joy bormi?
+09  Voice EN 2: Yes, it's fifteen dollars. Spot forty-two, in the back.
+      UZ: Ha, oʻn besh dollar. Orqa tomonda, qirq ikkinchi joy.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Fill it up, please.
+      UZ: Toʻldiring, iltimos.
+11  Voice EN 1 (x2): Can I get a shower?
+      UZ: Dush olsam boʻladimi?
+12  Voice EN 1 (x2): Do you have reserved parking?
+      UZ: Band qilinadigan joy bormi?
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Kechqurun parkovka tez toʻladi. Joyni oldindan ilovada band qiling. Keyingi darsda ombor darvozasida gaplashamiz.
+
+End card: TruckTalk · Keyingi dars: Ombor darvozasida
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_21.json

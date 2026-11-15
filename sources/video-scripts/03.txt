@@ -1,0 +1,59 @@
+03 Trakdagi hujjatlar - qaysi biri nima deb ataladi
+===================================================
+
+Title (UZ): Trakdagi hujjatlar
+Title (EN): Documents in the truck
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Politsiya hujjatlaringizni soʻrasa, qaysi birini berasiz? Trakda doim boʻlishi kerak boʻlgan sakkizta hujjat.
+
+--- CARDS ---
+02  Voice EN 1 (x2): CDL (Commercial Driver's License)
+      UZ: tijorat haydovchilik guvohnomasi
+      (spoken as: C.D.L. Commercial Driver's License.)
+03  Narrator (UZ): Tijorat haydovchilik guvohnomasi. Trak haydash uchun asosiy hujjat.
+04  Voice EN 1 (x2): Medical card
+      UZ: tibbiy karta
+05  Narrator (UZ): Tibbiy karta. Sogʻligʻingiz haydashga yaroqli ekanini koʻrsatadi.
+06  Voice EN 1 (x2): Registration (cab card)
+      UZ: roʻyxatdan oʻtganlik hujjati
+      (spoken as: Registration. Cab card.)
+07  Narrator (UZ): Trakning roʻyxatdan oʻtganlik hujjati. Kabina kartasi ham deyiladi.
+08  Voice EN 1 (x2): Insurance card
+      UZ: sugʻurta hujjati
+09  Narrator (UZ): Sugʻurta hujjati. Trak sugʻurtalanganini koʻrsatadi.
+10  Voice EN 1 (x2): IFTA license
+      UZ: yoqilgʻi soligʻi litsenziyasi
+11  Narrator (UZ): Shtatlar boʻyicha yoqilgʻi soligʻi litsenziyasi.
+12  Voice EN 1 (x2): Annual inspection report
+      UZ: yillik texnik koʻrik hisoboti
+13  Narrator (UZ): Yillik texnik koʻrik hisoboti. Trak yiliga bir marta tekshiriladi.
+14  Voice EN 1 (x2): Bill of lading (BOL)
+      UZ: yuk xati
+      (spoken as: Bill of lading. B.O.L.)
+15  Narrator (UZ): Yuk xati. Nima va qayerga olib ketayotganingizni koʻrsatadi.
+16  Voice EN 1 (x2): ELD papers
+      UZ: elektron jurnal hujjatlari
+      (spoken as: E.L.D. papers.)
+17  Narrator (UZ): Elektron jurnal qurilmasi qoʻllanmasi va boʻsh qogʻoz jurnallar. Qurilma buzilsa kerak boʻladi.
+18  Voice EN 1 (x2): Here is my CDL and my medical card.
+      UZ: Mana guvohnomam va tibbiy kartam.
+      (spoken as: Here is my C.D.L. and my medical card.)
+
+--- OUTRO + END CARD ---
+19  Narrator (UZ): Hujjatlarni bitta papkada saqlang. Keyingi darsda shipperga boramiz.
+
+End card: TruckTalk · Keyingi dars: Shipperda: yukni olish
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v03.json

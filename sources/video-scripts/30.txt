@@ -1,0 +1,58 @@
+30 Broker bilan SMS yozishish
+=============================
+
+Title (UZ): Broker bilan SMS yozishish
+Title (EN): Texting with a broker
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Phone chat screen
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Koʻp brokerlar SMS yozadi. Qisqa, aniq va xushmuomala javob berishni oʻrganamiz.
+
+--- DIALOGUE ---
+02  Voice EN 2: Hi, can you send me a picture of the BOL?
+      UZ: Salom, BOLning rasmini yubora olasizmi?
+      (spoken as: Hi, can you send me a picture of the B.O.L.?)
+03  Voice EN 1: Sure, sending it now.
+      UZ: Albatta, hozir yuboraman.
+04  Voice EN 2: Thanks. What's your ETA to the receiver?
+      UZ: Rahmat. Qabul qiluvchiga qachon yetasiz?
+      (spoken as: Thanks. What's your E.T.A. to the receiver?)
+05  Voice EN 1: ETA is 3 PM. Traffic is heavy near Dallas.
+      UZ: Taxminan soat uchda. Dallas yonida tirbandlik katta.
+      (spoken as: E.T.A. is three p.m.. Traffic is heavy near Dallas.)
+06  Voice EN 2: The receiver closes at 4. Please don't be late.
+      UZ: Qabul qiluvchi soat toʻrtda yopiladi. Iltimos, kechikmang.
+      (spoken as: The receiver closes at four. Please don't be late.)
+07  Voice EN 1: No problem. I'll update you if anything changes.
+      UZ: Muammo yoʻq. Biror narsa oʻzgarsa, xabar beraman.
+08  Voice EN 2: Great. Also send the POD after delivery.
+      UZ: Zoʻr. Topshirgandan keyin POD ham yuboring.
+      (spoken as: Great. Also send the P.O.D. after delivery.)
+09  Voice EN 1: Will do. Thank you.
+      UZ: Albatta. Rahmat.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Sending it now.
+      UZ: Hozir yuboraman.
+11  Voice EN 1 (x2): I'll update you if anything changes.
+      UZ: Biror narsa oʻzgarsa, xabar beraman.
+12  Voice EN 1 (x2): Send the POD after delivery.
+      UZ: Topshirgandan keyin POD yuboring.
+      (spoken as: Send the P.O.D. after delivery.)
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): SMSda ham xushmuomala boʻling: please va thank you. Keyingi toʻplamda hujjatlar, pul va qoidalar.
+
+End card: TruckTalk · 3-toʻplam tugadi. Obuna boʻling!
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_30.json

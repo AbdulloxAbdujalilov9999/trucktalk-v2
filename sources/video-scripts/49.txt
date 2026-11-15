@@ -1,0 +1,51 @@
+49 Pullik yo'llar - toll, transponder va jarima
+===============================================
+
+Title (UZ): Pullik yoʻllar: toll, transponder va jarima
+Title (EN): Toll roads: tolls, transponders and violations
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Mosaic
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Amerikada koʻp yoʻllar pullik. Toʻlov usullari va soʻzlarini bilmasangiz, jarima kelib qolishi mumkin.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Toll road
+      UZ: pullik yoʻl
+03  Narrator (UZ): Foydalanish uchun pul toʻlanadigan yoʻl.
+04  Voice EN 1 (x2): Transponder
+      UZ: elektron toʻlov qurilmasi
+05  Narrator (UZ): Oynaga yopishtiriladigan qurilma. Pul avtomatik yechiladi.
+06  Voice EN 1 (x2): Cashless toll
+      UZ: naqd pulsiz toʻlov
+07  Narrator (UZ): Toʻxtash joyi yoʻq. Kamera raqamni oʻqiydi va hisob yuboradi.
+08  Voice EN 1 (x2): Pay by plate
+      UZ: raqam boʻyicha toʻlov
+09  Narrator (UZ): Hisob avtomobil raqamiga keladi, odatda qimmatroq.
+10  Voice EN 1 (x2): Axles
+      UZ: oʻqlar soni
+11  Narrator (UZ): Traklar uchun narx oʻqlar soniga qarab hisoblanadi.
+12  Voice EN 1 (x2): Toll violation
+      UZ: toʻlov qoidabuzarligi
+13  Narrator (UZ): Toʻlanmagan toʻlov uchun jarima.
+14  Voice EN 1 (x2): Toll-free route
+      UZ: bepul yoʻl
+15  Narrator (UZ): Navigatorda pullik yoʻllardan qochish mumkin.
+16  Voice EN 1 (x2): Does this truck have a transponder?
+      UZ: Bu trakda transponder bormi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Transponder balansini muntazam tekshiring. Keyingi darsda trak kompaniyasi bilan intervyu.
+
+End card: TruckTalk · Keyingi dars: Ishga kirish intervyusi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_49.json

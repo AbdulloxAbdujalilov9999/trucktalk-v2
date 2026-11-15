@@ -1,0 +1,55 @@
+04 Shipperda - yukni olish
+==========================
+
+Title (UZ): Shipperda: yukni olish
+Title (EN): At the shipper
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Pixel art
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Birinchi marta yuk olishga keldingiz. Ofisdagi xodimga nima deysiz? Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 2: Good morning. How can I help you?
+      UZ: Xayrli tong. Sizga qanday yordam bera olaman?
+03  Voice EN 1: Hi, I'm here for a pickup. My pickup number is 4-5-8-7-2.
+      UZ: Salom, men yuk olishga keldim. Yuk olish raqamim 45872.
+      (spoken as: Hi, I'm here for a pickup. My pickup number is four, five, eight, seven, two.)
+04  Voice EN 2: Okay. Is your trailer empty?
+      UZ: Yaxshi. Tirkamangiz boʻshmi?
+05  Voice EN 1: Yes, it's empty and clean.
+      UZ: Ha, boʻsh va toza.
+06  Voice EN 2: Back into door 12. We'll call you when you're loaded.
+      UZ: 12-dokka orqa bilan kiring. Yuk ortilgach sizga qoʻngʻiroq qilamiz.
+07  Voice EN 1: Thank you. Can I count the pallets?
+      UZ: Rahmat. Paletlarni sanasam boʻladimi?
+08  Voice EN 2: Sure. Check the count and the seal, then sign the bills.
+      UZ: Albatta. Sonini va plombani tekshiring, keyin hujjatlarga imzo qoʻying.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+09  Voice EN 1 (x2): I'm here for a pickup.
+      UZ: Men yuk olishga keldim.
+10  Narrator (UZ): Shipperga kelganda birinchi aytadigan gapingiz.
+11  Voice EN 1 (x2): Back into door 12.
+      UZ: 12-dokka orqa bilan kiring.
+      (spoken as: Back into door twelve.)
+12  Narrator (UZ): Sizga qaysi dokka kirishni aytishadi.
+13  Voice EN 1 (x2): We'll call you when you're loaded.
+      UZ: Yuk ortilgach sizga qoʻngʻiroq qilamiz.
+14  Narrator (UZ): Kabinada kutib turasiz, yuk ortilgach oʻzlari chaqirishadi.
+
+--- OUTRO + END CARD ---
+15  Narrator (UZ): Keyingi darsda receiverga boramiz.
+
+End card: TruckTalk · Keyingi dars: Receiverda: kechikish va shikastlangan yuk
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v04.json

@@ -1,0 +1,56 @@
+35 CDL toifalari va endorsementlar
+==================================
+
+Title (UZ): CDL toifalari va endorsementlar
+Title (EN): CDL classes and endorsements
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: 16-bit RPG
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): CDL guvohnomaning toifalari va qoʻshimcha ruxsatlari bor. Har birini ingliz tilida bilish kerak.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Class A
+      UZ: A toifa
+03  Narrator (UZ): Treyler bilan ogʻir trak haydash huquqi. Semi trak uchun aynan shu kerak.
+04  Voice EN 1 (x2): Class B
+      UZ: B toifa
+05  Narrator (UZ): Treylersiz katta mashinalar: avtobus, axlat mashinasi.
+06  Voice EN 1 (x2): H: Hazmat
+      UZ: xavfli yuk
+      (spoken as: H. Hazmat.)
+07  Narrator (UZ): Xavfli yuk tashish uchun ruxsat. Fon tekshiruvi talab qilinadi.
+08  Voice EN 1 (x2): N: Tanker
+      UZ: tsisterna
+      (spoken as: N. Tanker.)
+09  Narrator (UZ): Suyuqlik tashiydigan tsisterna uchun ruxsat.
+10  Voice EN 1 (x2): T: Doubles and triples
+      UZ: ikki va uch treyler
+      (spoken as: T. Doubles and triples.)
+11  Narrator (UZ): Ikki yoki uch treyler tortish uchun ruxsat.
+12  Voice EN 1 (x2): X
+      UZ: tsisterna va xavfli yuk
+13  Narrator (UZ): Hazmat va tanker birgalikda.
+14  Voice EN 1 (x2): TWIC card
+      UZ: port kartasi
+      (spoken as: twick card)
+15  Narrator (UZ): Portlar va himoyalangan hududlarga kirish kartasi.
+16  Voice EN 1 (x2): I have a Class A CDL with a tanker endorsement.
+      UZ: Menda tanker ruxsati bor A toifali CDL bor.
+      (spoken as: I have a Class A C.D.L. with a tanker endorsement.)
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Har bir qoʻshimcha ruxsat koʻproq ish va koʻproq pul degani. Keyingi darsda xavfli yuk belgilari.
+
+End card: TruckTalk · Keyingi dars: Xavfli yuk belgilari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_35.json

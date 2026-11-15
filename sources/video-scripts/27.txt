@@ -1,0 +1,52 @@
+27 Ustaxonada - trak muammosini tushuntirish
+============================================
+
+Title (UZ): Ustaxonada: trak muammosini tushuntirish
+Title (EN): At the repair shop: describing truck problems
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Blueprint
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Trakda muammo bor. Ustaga nima boʻlayotganini ingliz tilida tushuntirasiz. Kerakli soʻzlar shu yerda.
+
+--- DIALOGUE ---
+02  Voice EN 2: What's going on with the truck?
+      UZ: Trakka nima boʻldi?
+03  Voice EN 1: The check engine light is on, and it's losing power uphill.
+      UZ: Dvigatel chirogʻi yondi va tepalikda kuchi pasayyapti.
+04  Voice EN 2: Any strange noises?
+      UZ: Gʻalati tovushlar bormi?
+05  Voice EN 1: Yes, I hear an air leak near the back.
+      UZ: Ha, orqa tomonda havo chiqayotganini eshityapman.
+06  Voice EN 2: Okay. We'll run a diagnostic first. It's one fifty an hour.
+      UZ: Yaxshi. Avval diagnostika qilamiz. Soatiga bir yuz ellik dollar.
+07  Voice EN 1: How long will it take?
+      UZ: Qancha vaqt oladi?
+08  Voice EN 2: About two hours. I'll call you with a quote before we fix anything.
+      UZ: Taxminan ikki soat. Tuzatishdan oldin narxni aytib qoʻngʻiroq qilaman.
+09  Voice EN 1: Okay. Please call me before any big repair.
+      UZ: Yaxshi. Katta taʼmirdan oldin albatta qoʻngʻiroq qiling.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): The check engine light is on.
+      UZ: Dvigatel chirogʻi yondi.
+11  Voice EN 1 (x2): I hear an air leak.
+      UZ: Havo chiqayotganini eshityapman.
+12  Voice EN 1 (x2): Call me with a quote.
+      UZ: Narxni aytib qoʻngʻiroq qiling.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Ishni boshlashdan oldin narxni yozma soʻrang. Keyingi darsda ob-havo va yoʻl yopilishi.
+
+End card: TruckTalk · Keyingi dars: Ob-havo va yoʻl yopilishi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_27.json

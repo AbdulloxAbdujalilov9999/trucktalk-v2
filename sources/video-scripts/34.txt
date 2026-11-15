@@ -1,0 +1,52 @@
+34 Narkotik va alkogol testi
+============================
+
+Title (UZ): Narkotik va alkogol testi
+Title (EN): Drug and alcohol testing
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Silhouette
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Haydovchilar tasodifiy test topshiradi. Bu odatiy hol. Qoʻngʻiroq qilishsa, shunday gaplashiladi.
+
+--- DIALOGUE ---
+02  Voice EN 2: You've been selected for a random drug test.
+      UZ: Siz tasodifiy narkotik testiga tanlandingiz.
+03  Voice EN 1: Okay. Where do I need to go?
+      UZ: Yaxshi. Qayerga borishim kerak?
+04  Voice EN 2: Go to the clinic on Main Street within two hours.
+      UZ: Ikki soat ichida Main Streetʼdagi klinikaga boring.
+05  Voice EN 1: What do I need to bring?
+      UZ: Nima olib borishim kerak?
+06  Voice EN 2: Bring your driver's license and this form.
+      UZ: Haydovchilik guvohnomangiz va shu blankani olib boring.
+07  Voice EN 1: I'm on my way now.
+      UZ: Hozir yoʻlga chiqyapman.
+08  Voice EN 2: Remember, refusing the test counts as a failed test.
+      UZ: Esda tuting, testdan bosh tortish testdan oʻtmaganga teng.
+09  Voice EN 1: I understand. No problem.
+      UZ: Tushundim. Muammo yoʻq.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): You've been selected for a random test.
+      UZ: Siz tasodifiy testga tanlandingiz.
+11  Voice EN 1 (x2): What do I need to bring?
+      UZ: Nima olib borishim kerak?
+12  Voice EN 1 (x2): Refusing counts as a failed test.
+      UZ: Bosh tortish testdan oʻtmaganga teng.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Test natijalari Clearinghouse degan bazaga yoziladi va kompaniyalar uni tekshiradi. Keyingi darsda CDL toifalari.
+
+End card: TruckTalk · Keyingi dars: CDL toifalari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_34.json

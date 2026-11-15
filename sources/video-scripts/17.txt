@@ -1,0 +1,53 @@
+17 Magistral yo'l belgilari - interstate, chiqish va mil belgisi
+================================================================
+
+Title (UZ): Magistral yoʻl belgilari: interstate, chiqish va mil belgisi
+Title (EN): Interstate, exit and mile marker signs
+Bundle 2 - Yo'l belgilari
+Style: Flat vector
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Brokerga qayerdaligingizni qanday aytasiz? Magistral yoʻl belgilari sizga yordam beradi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Interstate shield
+      UZ: interstate yoʻl raqami
+03  Narrator (UZ): Toq raqamli interstate yoʻllar shimoldan janubga, juft raqamlilari gʻarbdan sharqqa boradi.
+04  Voice EN 1 (x2): Exit 152
+      UZ: 152-chiqish
+      (spoken as: Exit one fifty-two.)
+05  Narrator (UZ): Koʻp shtatlarda chiqish raqami mil belgisiga teng.
+06  Voice EN 1 (x2): Mile Marker
+      UZ: mil belgisi
+07  Narrator (UZ): Kichik yashil ustun. Yordam chaqirganda joyingizni shu bilan aytasiz.
+08  Voice EN 1 (x2): Exit Only
+      UZ: faqat chiqish
+09  Narrator (UZ): Bu yoʻlak faqat chiqishga olib boradi. Davom etmoqchi boʻlsangiz, yoʻlakni almashtiring.
+10  Voice EN 1 (x2): Rest Area
+      UZ: dam olish joyi
+11  Narrator (UZ): Dam olish joyi. Hojatxona va toʻxtash joyi bor.
+12  Voice EN 1 (x2): Truck Parking
+      UZ: trak toʻxtash joyi
+13  Narrator (UZ): Trak toʻxtash joyi. Ish vaqtingiz tugashidan oldin joy toping.
+14  Voice EN 1 (x2): Gas, Food, Lodging
+      UZ: yoqilgʻi, ovqat, mehmonxona
+15  Narrator (UZ): Bu chiqishda yoqilgʻi, ovqat va mehmonxona bor.
+16  Voice EN 1 (x2): I'm taking exit 152.
+      UZ: 152-chiqishdan chiqyapman.
+      (spoken as: I'm taking exit one fifty-two.)
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda temir yoʻl kesishmasi belgilarini oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Temir yoʻl kesishmasi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs07.json

@@ -1,0 +1,57 @@
+41 Fonetik alifbo - Alpha, Bravo, Charlie
+=========================================
+
+Title (UZ): Fonetik alifbo: Alpha, Bravo, Charlie
+Title (EN): Phonetic alphabet: Alpha, Bravo, Charlie
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Retro game show
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Telefonda harflarni aytish qiyin: B va D, M va N oʻxshash eshitiladi. Shuning uchun fonetik alifbo ishlatiladi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): A: Alpha
+      UZ: A harfi
+      (spoken as: A. Alpha.)
+03  Narrator (UZ): Alpha.
+04  Voice EN 1 (x2): B: Bravo
+      UZ: B harfi
+      (spoken as: B. Bravo.)
+05  Narrator (UZ): Bravo.
+06  Voice EN 1 (x2): C: Charlie
+      UZ: C harfi
+      (spoken as: C. Charlie.)
+07  Narrator (UZ): Charlie.
+08  Voice EN 1 (x2): D: Delta
+      UZ: D harfi
+      (spoken as: D. Delta.)
+09  Narrator (UZ): Delta.
+10  Voice EN 1 (x2): M: Mike
+      UZ: M harfi
+      (spoken as: M. Mike.)
+11  Narrator (UZ): Mike.
+12  Voice EN 1 (x2): N: November
+      UZ: N harfi
+      (spoken as: N. November.)
+13  Narrator (UZ): November.
+14  Voice EN 1 (x2): Spell it
+      UZ: harflab aytish
+15  Narrator (UZ): Masalan, treyler raqami T R 4 5: Tango, Romeo, four, five.
+16  Voice EN 1 (x2): Can you spell that, please?
+      UZ: Harflab ayta olasizmi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Toʻliq alifboni yozib, kabinada osib qoʻying. Keyingi darsda raqamlar va manzillar.
+
+End card: TruckTalk · Keyingi dars: Raqamlar, vaqt va manzillar
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_41.json

@@ -1,0 +1,52 @@
+25 Avariya bo'lganda - nima qilish va nima deyish
+=================================================
+
+Title (UZ): Avariya boʻlganda: nima qilish va nima deyish
+Title (EN): After an accident: what to do and say
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Whiteboard
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Kichik avariya boʻldi. Avval xavfsizlik, keyin politsiya, keyin maʼlumot almashish. Aybni boʻyningizga olmang.
+
+--- DIALOGUE ---
+02  Voice EN 2: You hit my car!
+      UZ: Mashinamga urdingiz!
+03  Voice EN 1: Are you okay? Is anyone hurt?
+      UZ: Yaxshimisiz? Hech kim jarohatlanmadimi?
+04  Voice EN 2: No, I'm okay.
+      UZ: Yoʻq, men yaxshiman.
+05  Voice EN 1: Let's move to the shoulder. I'm calling the police.
+      UZ: Yoʻl chetiga oʻtaylik. Politsiyaga qoʻngʻiroq qilyapman.
+06  Voice EN 2: Can we just handle this without the police?
+      UZ: Politsiyasiz hal qilsak boʻlmaydimi?
+07  Voice EN 1: No, I need a police report for my company.
+      UZ: Yoʻq, kompaniyam uchun politsiya bayonnomasi kerak.
+08  Voice EN 1: Can I see your license and insurance?
+      UZ: Guvohnoma va sugʻurtangizni koʻrsam boʻladimi?
+09  Voice EN 2: Here. Let's take pictures too.
+      UZ: Mana. Rasmga ham olaylik.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Is anyone hurt?
+      UZ: Hech kim jarohatlanmadimi?
+11  Voice EN 1 (x2): I'm calling the police.
+      UZ: Politsiyaga qoʻngʻiroq qilyapman.
+12  Voice EN 1 (x2): I need a police report.
+      UZ: Menga politsiya bayonnomasi kerak.
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): "Bu mening aybim" demang. Faqat faktlarni ayting va hamma narsani rasmga oling. Keyingi darsda yoʻlda shina yorilsa.
+
+End card: TruckTalk · Keyingi dars: Shina yorildi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_25.json

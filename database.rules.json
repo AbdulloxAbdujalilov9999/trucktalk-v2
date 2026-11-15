@@ -1,0 +1,29 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      ".indexOn": ["createdAt", "email", "telegramId", "paidUntil", "trial/endsAt", "lastSeenAt"]
+    },
+    "paymentIndex": {
+      ".indexOn": ["at"]
+    },
+    "leads": {
+      ".indexOn": ["lastAt", "firstAt"]
+    },
+    "audit": {
+      ".indexOn": ["at"]
+    },
+    "loginTokens": {
+      ".indexOn": ["exp"]
+    },
+    "telegramLinks": {
+      ".indexOn": ["exp"]
+    },
+    "whop": {
+      "events": {
+        ".indexOn": ["at"]
+      }
+    }
+  }
+}

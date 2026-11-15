@@ -1,0 +1,52 @@
+31 Rate confirmation - narx hujjatini o'qish
+============================================
+
+Title (UZ): Rate confirmation: narx hujjatini oʻqish
+Title (EN): Reading a rate confirmation
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Infographic
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Broker sizga rate confirmation yuboradi. Imzolashdan oldin shu yettita qatorni tekshiring.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Rate
+      UZ: narx
+03  Narrator (UZ): Yuk uchun toʻlanadigan umumiy summa. Yoqilgʻi qoʻshimchasi alohida yozilgan boʻlishi mumkin.
+04  Voice EN 1 (x2): Pickup and delivery times
+      UZ: yuk olish va topshirish vaqti
+05  Narrator (UZ): Uchrashuv vaqti yoki ochiq vaqt oraligʻi.
+06  Voice EN 1 (x2): Detention
+      UZ: kutish haqi
+07  Narrator (UZ): Odatda ikki soat bepul, keyin har soat uchun haq toʻlanadi.
+08  Voice EN 1 (x2): Layover
+      UZ: qoʻshimcha kun haqi
+09  Narrator (UZ): Yuk ertasi kunga qolsa toʻlanadigan haq.
+10  Voice EN 1 (x2): TONU
+      UZ: bekor qilingan yuk haqi
+      (spoken as: T.O.N.U.)
+11  Narrator (UZ): Truck Ordered Not Used. Siz keldingiz, lekin yuk bekor qilindi.
+12  Voice EN 1 (x2): Lumper
+      UZ: tushirish toʻlovi
+13  Narrator (UZ): Kim toʻlashi va qanday qaytarilishi yozilgan boʻladi.
+14  Voice EN 1 (x2): Payment terms
+      UZ: toʻlov shartlari
+15  Narrator (UZ): Pul qancha kunda toʻlanishi, masalan oʻttiz kun.
+16  Voice EN 1 (x2): Can you send me the rate con?
+      UZ: Rate confirmationʼni yubora olasizmi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Ogʻzaki vaʼdaga ishonmang, hammasi rate confirmationʼda yozilgan boʻlsin. Keyingi darsda pulni qanday olasiz.
+
+End card: TruckTalk · Keyingi dars: Pul olish: POD va invoys
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_31.json

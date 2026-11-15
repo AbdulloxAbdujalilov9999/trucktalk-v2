@@ -1,0 +1,52 @@
+16 Yo'l ta'miri - to'q sariq belgilar
+=====================================
+
+Title (UZ): Yoʻl taʼmiri: toʻq sariq belgilar
+Title (EN): Work zone signs
+Bundle 2 - Yo'l belgilari
+Style: Pixel art
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Toʻq sariq belgi koʻrsangiz, oldinda ishchilar bor. Bu zonada jarima juda qimmat.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Road Work Ahead
+      UZ: oldinda yoʻl taʼmiri
+03  Narrator (UZ): Oldinda yoʻl taʼmiri. Sekinlang va diqqat qiling.
+04  Voice EN 1 (x2): Flagger Ahead
+      UZ: oldinda boshqaruvchi ishchi
+05  Narrator (UZ): Oldinda bayroqcha ushlagan ishchi bor. Uning ishorasiga qarang.
+06  Voice EN 1 (x2): Stop / Slow paddle
+      UZ: toʻxtang / sekinlang taxtachasi
+      (spoken as: Stop, slow paddle.)
+07  Narrator (UZ): Ishchi qizil tomonini koʻrsatsa toʻxtaysiz, toʻq sariq tomonini koʻrsatsa sekin yurasiz.
+08  Voice EN 1 (x2): Right Lane Closed
+      UZ: oʻng yoʻlak yopiq
+09  Narrator (UZ): Oʻng yoʻlak yopiq. Oldindan chapga oʻting.
+10  Voice EN 1 (x2): Fines Double in Work Zones
+      UZ: ish zonasida jarima ikki baravar
+11  Narrator (UZ): Koʻp shtatlarda ish zonasida jarima ikki baravar boʻladi.
+12  Voice EN 1 (x2): Detour
+      UZ: aylanma yoʻl
+13  Narrator (UZ): Aylanma yoʻl. Strelka koʻrsatgan tomonga yuring.
+14  Voice EN 1 (x2): End Road Work
+      UZ: taʼmir tugadi
+15  Narrator (UZ): Taʼmir zonasi tugadi. Odatdagi tezlikka qaytishingiz mumkin.
+16  Voice EN 1 (x2): Slow down, there's a work zone ahead.
+      UZ: Sekinlang, oldinda taʼmir zonasi.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda interstate, chiqish va mil belgilarini oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: Magistral yoʻl belgilari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs06.json

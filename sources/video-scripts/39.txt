@@ -1,0 +1,51 @@
+39 Flatbed - yukni mahkamlash so'zlari
+======================================
+
+Title (UZ): Flatbed: yukni mahkamlash soʻzlari
+Title (EN): Flatbed: load securement words
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Low-poly
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Flatbedda yuk ochiq turadi, shuning uchun mahkamlash juda muhim. Asosiy soʻzlar shu.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Strap
+      UZ: tasma
+03  Narrator (UZ): Yukni tortib mahkamlaydigan kuchli tasma.
+04  Voice EN 1 (x2): Chain and binder
+      UZ: zanjir va tortgich
+05  Narrator (UZ): Ogʻir metall yuklar uchun zanjir va uni tortadigan moslama.
+06  Voice EN 1 (x2): Tarp
+      UZ: brezent
+07  Narrator (UZ): Yukni yomgʻirdan himoya qiladigan katta brezent.
+08  Voice EN 1 (x2): Edge protector
+      UZ: burchak himoyasi
+09  Narrator (UZ): Tasma yukni kesmasligi va yuk shikastlanmasligi uchun.
+10  Voice EN 1 (x2): Working load limit
+      UZ: ruxsat etilgan yuklama
+11  Narrator (UZ): Tasma yoki zanjir koʻtara oladigan eng katta ogʻirlik.
+12  Voice EN 1 (x2): Oversize load
+      UZ: gabaritdan katta yuk
+13  Narrator (UZ): Juda keng yoki uzun yuk. Maxsus ruxsatnoma va bayroqlar kerak.
+14  Voice EN 1 (x2): Re-check
+      UZ: qayta tekshirish
+15  Narrator (UZ): Birinchi ellik mildan keyin va har uch soatda tasmalarni qayta tekshiring.
+16  Voice EN 1 (x2): I need to re-check my straps.
+      UZ: Tasmalarimni qayta tekshirishim kerak.
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Yuk siljisa, javobgarlik haydovchida. Keyingi darsda jarima qogʻozi va sud.
+
+End card: TruckTalk · Keyingi dars: Jarima qogʻozi va sud
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_39.json

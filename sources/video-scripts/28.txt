@@ -1,0 +1,53 @@
+28 Ob-havo va yo'l yopilishi - zanjir qonuni
+============================================
+
+Title (UZ): Ob-havo va yoʻl yopilishi: zanjir qonuni
+Title (EN): Weather, road closures and chain laws
+Bundle 3 - Yo'ldagi vaziyatlar
+Style: Watercolor
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Qor yogʻyapti, oldinda dovon bor. Yoʻl holatini soʻrash va tushunish kerak.
+
+--- DIALOGUE ---
+02  Voice EN 1: Is the pass open tonight?
+      UZ: Bugun kechasi dovon ochiqmi?
+03  Voice EN 2: It's open, but chains are required for trucks.
+      UZ: Ochiq, lekin traklar uchun zanjir majburiy.
+04  Voice EN 1: Where is the chain-up area?
+      UZ: Zanjir taqiladigan joy qayerda?
+05  Voice EN 2: About five miles up, on the right.
+      UZ: Taxminan besh mil yuqorida, oʻng tomonda.
+06  Voice EN 1: Is there an accident or a closure?
+      UZ: Avariya yoki yoʻl yopilishi bormi?
+07  Voice EN 2: Check 511. They closed it for two hours last night.
+      UZ: 511 ni tekshiring. Kecha kechasi ikki soatga yopishgan edi.
+      (spoken as: Check five one one. They closed it for two hours last night.)
+08  Voice EN 1: I'll wait here until the morning then.
+      UZ: Unda ertalabgacha shu yerda kutaman.
+09  Voice EN 2: Good idea. The roads are icy after midnight.
+      UZ: Toʻgʻri qilasiz. Yarim tundan keyin yoʻllar muzlaydi.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): Is the pass open?
+      UZ: Dovon ochiqmi?
+11  Voice EN 1 (x2): Chains are required.
+      UZ: Zanjir majburiy.
+12  Voice EN 1 (x2): Where is the chain-up area?
+      UZ: Zanjir taqiladigan joy qayerda?
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): Yoʻl holatini 511 raqami yoki shtat sayti orqali bilasiz. Xavfli boʻlsa, kutish eng toʻgʻri qaror. Keyingi darsda BOL muammolari.
+
+End card: TruckTalk · Keyingi dars: BOL muammolari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b3_28.json

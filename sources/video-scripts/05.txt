@@ -1,0 +1,55 @@
+05 Receiverda - kechikish va shikastlangan yuk
+==============================================
+
+Title (UZ): Receiverda: kechikish va shikastlangan yuk
+Title (EN): At the receiver
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Flat vector
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yoʻlda avariya boʻldi va kechikdingiz. Receiverda nima deysiz? Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 1: Hi, I have a delivery for you. Here are my papers.
+      UZ: Salom, sizga yuk olib keldim. Mana hujjatlarim.
+03  Voice EN 2: Your appointment was at seven. You're two hours late.
+      UZ: Belgilangan vaqtingiz soat yettida edi. Ikki soat kechikdingiz.
+04  Voice EN 1: I'm sorry. There was a bad accident on the highway. Can you still work me in?
+      UZ: Kechirasiz. Yoʻlda katta avariya boʻldi. Meni navbatga qoʻshib qoʻya olasizmi?
+05  Voice EN 2: We can work you in, but you'll have to wait.
+      UZ: Qoʻshamiz, lekin kutishingizga toʻgʻri keladi.
+06  Voice EN 2: Okay, you're unloaded. One pallet is damaged.
+      UZ: Boʻldi, yuk tushirildi. Bitta palet shikastlangan.
+07  Voice EN 1: Please write it on the bill of lading before I sign.
+      UZ: Iltimos, imzo qoʻyishimdan oldin buni yuk xatiga yozing.
+08  Voice EN 2: Done. Here's your signed copy.
+      UZ: Yozdim. Mana imzolangan nusxangiz.
+09  Voice EN 1: Thank you. Have a good day.
+      UZ: Rahmat. Kuningiz yaxshi oʻtsin.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): I'm running late.
+      UZ: Kechikyapman.
+11  Narrator (UZ): Kechikishingizni bilsangiz, oldindan brokerga va yuk qabul qiluvchiga shunday deysiz.
+12  Voice EN 1 (x2): Can you still work me in?
+      UZ: Meni navbatga qoʻshib qoʻya olasizmi?
+13  Narrator (UZ): Vaqtingiz oʻtib ketgan boʻlsa, shunday soʻraysiz.
+14  Voice EN 1 (x2): Please write it on the bill of lading.
+      UZ: Iltimos, buni yuk xatiga yozing.
+15  Narrator (UZ): Shikast boʻlsa, imzodan oldin yozdiring.
+
+--- OUTRO + END CARD ---
+16  Narrator (UZ): Keyingi darsda yoʻl belgilarini oʻrganamiz.
+
+End card: TruckTalk · Keyingi dars: AQSh yoʻl belgilari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v05.json

@@ -1,0 +1,63 @@
+07 Tarozi stansiyasida tekshiruv
+================================
+
+Title (UZ): Tarozi stansiyasida tekshiruv
+Title (EN): Weigh station inspection
+Bundle 1 - Suhbatlar va hujjatlar
+Style: Pixel art
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Tarozi stansiyasida inspektor sizni tekshiruvga chaqirdi. Xotirjam boʻling va sekin gapiring. Tinglang.
+
+--- DIALOGUE ---
+02  Voice EN 2: Good afternoon, driver. This is a level 3 inspection. License, medical card and registration, please.
+      UZ: Xayrli kun, haydovchi. Bu 3-darajali tekshiruv, yaʼni hujjatlar tekshiruvi. Guvohnoma, tibbiy karta va roʻyxat hujjatini bering.
+      (spoken as: Good afternoon, driver. This is a level three inspection. License, medical card and registration, please.)
+03  Voice EN 1: Here you go, officer.
+      UZ: Marhamat, ofitser.
+04  Voice EN 2: Where are you coming from, and where are you going?
+      UZ: Qayerdan kelyapsiz va qayerga ketyapsiz?
+05  Voice EN 1: I'm coming from Chicago, going to Denver.
+      UZ: Chikagodan kelyapman, Denverga ketyapman.
+06  Voice EN 2: What are you hauling?
+      UZ: Nima tashiyapsiz?
+07  Voice EN 1: Dry freight. Paper products.
+      UZ: Quruq yuk. Qogʻoz mahsulotlari.
+08  Voice EN 2: Okay. Now I need to see your logs.
+      UZ: Yaxshi. Endi ish vaqti jurnalingizni koʻrishim kerak.
+09  Voice EN 1: Sorry, can you say that again, please?
+      UZ: Kechirasiz, yana bir marta aytib bera olasizmi?
+10  Voice EN 2: Your logs. On the ELD.
+      UZ: Jurnalingiz. ELD qurilmasida.
+      (spoken as: Your logs. On the E.L.D.)
+11  Voice EN 1: Oh, sure. Here you go.
+      UZ: Ha, albatta. Marhamat.
+12  Voice EN 2: Everything looks good. Drive safe.
+      UZ: Hammasi joyida. Ehtiyot boʻlib haydang.
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+13  Voice EN 1 (x2): Here you go, officer.
+      UZ: Marhamat, ofitser.
+14  Narrator (UZ): Hujjat berayotganda shunday deysiz.
+15  Voice EN 1 (x2): Sorry, can you say that again, please?
+      UZ: Kechirasiz, yana bir marta aytib bera olasizmi?
+16  Narrator (UZ): Tushunmasangiz, taxmin qilmang, qayta soʻrang.
+17  Voice EN 1 (x2): I'm hauling dry freight.
+      UZ: Men quruq yuk tashiyapman.
+18  Narrator (UZ): Nima tashiyotganingizni shunday aytasiz.
+
+--- OUTRO + END CARD ---
+19  Narrator (UZ): Qoʻllaringiz koʻrinib tursin va xotirjam boʻling. Keyingi darsda broker bilan kutish haqi haqida gaplashamiz.
+
+End card: TruckTalk · Keyingi dars: Broker bilan: uzoq kutish va kutish haqi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\v07.json

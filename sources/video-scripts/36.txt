@@ -1,0 +1,52 @@
+36 Xavfli yuk - plakatlar va hujjatlar
+======================================
+
+Title (UZ): Xavfli yuk: plakatlar va hujjatlar
+Title (EN): Hazmat: placards and papers
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Kinetic typography
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Xavfli yuk tashiyotgan boʻlsangiz, plakatlar va hujjatlar haqida soʻrashadi. Asosiy soʻzlar shu.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Placard
+      UZ: xavf plakati
+03  Narrator (UZ): Treylerning toʻrt tomoniga ilinadigan romb shaklidagi belgi.
+04  Voice EN 1 (x2): Flammable
+      UZ: yonuvchan
+05  Narrator (UZ): Qizil plakat, olov belgisi bilan.
+06  Voice EN 1 (x2): Corrosive
+      UZ: yemiruvchi
+07  Narrator (UZ): Oq-qora plakat. Kislota kabi moddalar.
+08  Voice EN 1 (x2): UN number
+      UZ: BMT raqami
+      (spoken as: U.N. number)
+09  Narrator (UZ): Moddani bildiruvchi toʻrt xonali raqam.
+10  Voice EN 1 (x2): Shipping papers
+      UZ: yuk hujjatlari
+11  Narrator (UZ): Xavfli yuk hujjatlari. Haydovchi qoʻli yetadigan joyda turishi shart.
+12  Voice EN 1 (x2): Emergency response guide
+      UZ: favqulodda holat qoʻllanmasi
+13  Narrator (UZ): Toʻq sariq kitobcha. Avariyada nima qilishni koʻrsatadi.
+14  Voice EN 1 (x2): Placarded load
+      UZ: plakatli yuk
+15  Narrator (UZ): Plakat talab qilinadigan yuk. Temir yoʻl oldida toʻxtash shart.
+16  Voice EN 1 (x2): Where are your hazmat shipping papers?
+      UZ: Xavfli yuk hujjatlaringiz qayerda?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Hujjatlar har doim eshik choʻntagida yoki oʻrindiqda, qoʻl yetadigan joyda boʻlsin. Keyingi darsda ish vaqti qoidalarining chuqurroq tomoni.
+
+End card: TruckTalk · Keyingi dars: Ish vaqti: 34 soatlik dam
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_36.json

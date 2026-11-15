@@ -1,0 +1,52 @@
+12 Traklar uchun cheklov belgilari
+==================================
+
+Title (UZ): Traklar uchun cheklov belgilari
+Title (EN): Truck restriction signs
+Bundle 2 - Yo'l belgilari
+Style: Glow sketch
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Oddiy mashina oʻtadi, trak oʻtolmaydi. Faqat trakchilar uchun yettita belgi.
+
+--- CARDS ---
+02  Voice EN 1 (x2): No Trucks
+      UZ: traklar kirishi taqiqlangan
+03  Narrator (UZ): Traklar kirishi taqiqlangan. Boshqa yoʻl toping.
+04  Voice EN 1 (x2): Truck Route
+      UZ: trak yoʻli
+05  Narrator (UZ): Trak yoʻli. Shahar ichida shu belgidan yuring.
+06  Voice EN 1 (x2): Trucks Use Right Lane
+      UZ: traklar oʻng yoʻlakdan yursin
+07  Narrator (UZ): Traklar faqat oʻng yoʻlakdan yuradi.
+08  Voice EN 1 (x2): No Trucks Over 5 Tons
+      UZ: 5 tonnadan ogʻir traklar kirmasin
+      (spoken as: No trucks over five tons)
+09  Narrator (UZ): Belgida yozilgan ogʻirlikdan ogʻir trak kira olmaydi.
+10  Voice EN 1 (x2): Length Limit
+      UZ: uzunlik cheklovi
+11  Narrator (UZ): Uzunlik cheklovi. Treyleringiz bilan siz odatda yetmish futdan uzunsiz.
+12  Voice EN 1 (x2): Hazmat Route
+      UZ: xavfli yuk yoʻli
+13  Narrator (UZ): Xavfli yuk tashiyotgan traklar uchun ruxsat etilgan yoʻl.
+14  Voice EN 1 (x2): No Hazardous Materials
+      UZ: xavfli yuk taqiqlangan
+15  Narrator (UZ): Xavfli yuk bilan bu yoʻldan, koʻpincha tunneldan, oʻtib boʻlmaydi.
+16  Voice EN 1 (x2): Is this a truck route?
+      UZ: Bu trak yoʻlimi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Keyingi darsda balandlik, ogʻirlik va tarozi belgilari.
+
+End card: TruckTalk · Keyingi dars: Balandlik, ogʻirlik va tarozi belgilari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\rs02.json

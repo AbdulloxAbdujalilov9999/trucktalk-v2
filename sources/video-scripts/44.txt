@@ -1,0 +1,54 @@
+44 CB radio va trakchilar so'zlari
+==================================
+
+Title (UZ): CB radio va trakchilar soʻzlari
+Title (EN): CB radio and trucker slang
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Neon sign
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Trakchilar radioda va truck stoplarda oʻz soʻzlarini ishlatadi. Eng koʻp eshitiladiganlari shu.
+
+--- CARDS ---
+02  Voice EN 1 (x2): Bear / Smokey
+      UZ: politsiya
+      (spoken as: Bear. Smokey.)
+03  Narrator (UZ): Yoʻl politsiyasi.
+04  Voice EN 1 (x2): Chicken coop
+      UZ: tarozi stansiyasi
+05  Narrator (UZ): Tarozi stansiyasi.
+06  Voice EN 1 (x2): Hammer down
+      UZ: tezlikni oshirish
+07  Narrator (UZ): Tezlikni oshirish yoki tez ketish.
+08  Voice EN 1 (x2): Deadhead
+      UZ: yuksiz yurish
+09  Narrator (UZ): Treyler boʻsh holda yurish.
+10  Voice EN 1 (x2): Reefer
+      UZ: muzlatgichli treyler
+11  Narrator (UZ): Sovutgichli treyler.
+12  Voice EN 1 (x2): Four-wheeler
+      UZ: yengil mashina
+13  Narrator (UZ): Oddiy yengil avtomobil.
+14  Voice EN 1 (x2): 10-4
+      UZ: tushundim
+      (spoken as: ten-four)
+15  Narrator (UZ): Tushundim, qabul qildim.
+16  Voice EN 1 (x2): 10-4, thanks for the heads up.
+      UZ: Tushundim, ogohlantirganingiz uchun rahmat.
+      (spoken as: ten-four, thanks for the heads up.)
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): Radioda hurmat bilan gapiring, soʻkinish taqiqlangan. Keyingi darsda orqaga yurish va parkovka.
+
+End card: TruckTalk · Keyingi dars: Orqaga yurish va spotter
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_44.json

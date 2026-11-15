@@ -1,0 +1,53 @@
+43 Omborga qo'ng'iroq - ish vaqti va yo'l
+=========================================
+
+Title (UZ): Omborga qoʻngʻiroq: ish vaqti va yoʻl
+Title (EN): Calling a facility: hours and directions
+Bundle 5 - Til ko'nikmalari va yo'l hayoti
+Style: Retro terminal
+Format: Conversation
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yetib borishdan oldin omborga qoʻngʻiroq qilib, ish vaqti va kirish joyini soʻrash foydali.
+
+--- DIALOGUE ---
+02  Voice EN 2: Receiving, this is Mike.
+      UZ: Qabul boʻlimi, Mayk eshitadi.
+03  Voice EN 1: Hi, I have a delivery for tomorrow. What are your receiving hours?
+      UZ: Salom, ertaga yukim bor. Qabul qilish vaqtingiz qanday?
+04  Voice EN 2: We receive from six AM to two PM.
+      UZ: Ertalab oltidan kunduzi soat ikkigacha qabul qilamiz.
+      (spoken as: We receive from six a.m. to two p.m..)
+05  Voice EN 1: Do you take first come, first served, or appointments only?
+      UZ: Navbat bilanmi yoki faqat uchrashuv bilanmi?
+06  Voice EN 2: Appointments only. Yours is at nine.
+      UZ: Faqat uchrashuv bilan. Siznikini soat toʻqqizda.
+07  Voice EN 1: Which entrance should trucks use?
+      UZ: Traklar qaysi kirishdan kirishi kerak?
+08  Voice EN 2: Use the second gate on Oak Road, not the main entrance.
+      UZ: Asosiy kirishdan emas, Oak Roadʼdagi ikkinchi darvozadan kiring.
+09  Voice EN 1: Is there overnight parking on site?
+      UZ: Hududda tunab qolish uchun joy bormi?
+
+--- RECAP ("Takrorlang": played twice with a pause) ---
+10  Voice EN 1 (x2): What are your receiving hours?
+      UZ: Qabul qilish vaqtingiz qanday?
+11  Voice EN 1 (x2): Which entrance should trucks use?
+      UZ: Traklar qaysi kirishdan kirishi kerak?
+12  Voice EN 1 (x2): Is there overnight parking?
+      UZ: Tunab qolish uchun joy bormi?
+
+--- OUTRO + END CARD ---
+13  Narrator (UZ): GPS koʻpincha asosiy kirishga olib boradi, traklar esa boshqa darvozadan kiradi. Keyingi darsda CB radio va trakchi soʻzlari.
+
+End card: TruckTalk · Keyingi dars: CB radio va trakchi soʻzlari
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b5_43.json

@@ -1,0 +1,53 @@
+32 Pul olish - POD, invoys va faktoring
+=======================================
+
+Title (UZ): Pul olish: POD, invoys va faktoring
+Title (EN): Getting paid: POD, invoice and factoring
+Bundle 4 - Hujjatlar, pul va qoidalar
+Style: Corkboard
+Format: Word / sign cards
+
+Voices:
+  Narrator (UZ, Mirjalol): cfWx14ZbaEUT4BjIA5tH
+  Voice EN 1 (driver / English term): T2sZgOl8ol4kf4u6yM2z
+  Voice EN 2 (officer, broker, clerk...): nPczCjzI2devNBz1zQrb
+  Model: eleven_v3
+
+
+--- INTRO ---
+01  Narrator (UZ): Yukni topshirdingiz. Endi pulni olish uchun nima qilish kerak? Mana tartib.
+
+--- CARDS ---
+02  Voice EN 1 (x2): POD
+      UZ: topshirish tasdigʻi
+      (spoken as: P.O.D.)
+03  Narrator (UZ): Proof of Delivery. Qabul qiluvchi imzolagan BOL.
+04  Voice EN 1 (x2): Invoice
+      UZ: hisob-faktura
+05  Narrator (UZ): Brokerga yuboriladigan toʻlov soʻrovi.
+06  Voice EN 1 (x2): Factoring
+      UZ: faktoring
+07  Narrator (UZ): Faktoring kompaniyasi pulni bir-ikki kunda beradi va kichik foiz oladi.
+08  Voice EN 1 (x2): Quick pay
+      UZ: tez toʻlov
+09  Narrator (UZ): Broker tezroq toʻlaydi, lekin bir necha foiz ushlab qoladi.
+10  Voice EN 1 (x2): Net 30
+      UZ: oʻttiz kunda toʻlov
+      (spoken as: Net thirty)
+11  Narrator (UZ): Pul oʻttiz kun ichida toʻlanadi.
+12  Voice EN 1 (x2): Accessorials
+      UZ: qoʻshimcha toʻlovlar
+13  Narrator (UZ): Kutish haqi, lumper, qoʻshimcha toʻxtash kabi toʻlovlar.
+14  Voice EN 1 (x2): Remittance
+      UZ: toʻlov tafsiloti
+15  Narrator (UZ): Qaysi yuk uchun qancha toʻlangani yozilgan xabar.
+16  Voice EN 1 (x2): When will I get paid for this load?
+      UZ: Bu yuk uchun pul qachon toʻlanadi?
+
+--- OUTRO + END CARD ---
+17  Narrator (UZ): PODni darhol, toza va oʻqiladigan qilib skanerlang. Keyingi darsda DOT tibbiy koʻrigi.
+
+End card: TruckTalk · Keyingi dars: DOT tibbiy koʻrigi
+CTA: Amerikada trak haydovchisi boʻlmoqchimisiz? Bizga DM yozing: TRUCK
+
+Source data: lessons\lessons-data\b4_32.json
