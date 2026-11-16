@@ -9,6 +9,7 @@ import { go } from "../main.js";
 import { play, stop, pause, newRun, canSpeak } from "../audio.js";
 import { sources, itemsOf, defaultSet, rememberSet, setPicker } from "../items.js";
 import { shuffle } from "../../shared/drills.js";
+import { pageHead } from "./common.js";
 
 const PREFS = "tt2:listen";
 const SET_RE = /^(mine|video:\d{1,2}|day:-?\d{1,2})$/;
@@ -124,10 +125,9 @@ export default async function listen(root, _params, { query }) {
   function paint() {
     const missing = items.some((x) => !voices[x.trLang]);
     root.innerHTML = `
-      <a class="back" href="/app/practice" data-link>${icon("left", "ico")} ${esc(t("nav.practice"))}</a>
-      <div class="pagehead"><h1>${esc(t("listen.title"))}</h1></div>
+      ${pageHead({ back: "/app/practice", backLabel: t("nav.practice"), eyebrow: t("practice.title"), title: t("listen.title"), sub: esc(t("listen.sub")),
+        body: `<div class="head-extra">${setPicker(set, src)}</div>` })}
       <div class="note safety" role="note">${icon("alert", "ico")}<span>${esc(t("listen.safety"))}</span></div>
-      <div style="margin:14px 0">${setPicker(set, src)}</div>
       <div id="player">${player()}</div>
       <div class="card stack" style="margin-top:14px">
         <label class="switch-row"><input type="checkbox" data-pref="tr" ${prefs.tr ? "checked" : ""}><span>${esc(t("listen.optTr"))}</span></label>

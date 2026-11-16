@@ -3,7 +3,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { wordForms, findWord, blankRound, speakers, defaultSpeaker } from "../public/js/shared/lesson.js";
+import { wordForms, findWord, blankRound, vocabRound, speakers, defaultSpeaker } from "../public/js/shared/lesson.js";
 import { normalize } from "../public/js/shared/text.js";
 
 /** A repeatable random generator, so a failing case can be replayed. */
@@ -137,6 +137,55 @@ test("every day of the course gets word practice that makes sense", () => {
     }
   }
   assert.ok(asked > 900, `only ${asked} questions in the whole course`);
+});
+
+test("word questions: each word once, exactly one right answer, the three kinds take turns", () => {
+  const items = [
+    { id: "w:1:0", en: "Trailer", tr: "Pritsep" },
+    { id: "w:1:1", en: "Brake", tr: "Tormoz" },
+    { id: "w:1:2", en: "Tire", tr: "Shina" },
+    { id: "w:1:3", en: "Fuel", tr: "Yoqilgʻi" },
+    { id: "w:1:4", en: "Dock", tr: "Rampa" },
+    { id: "w:1:5", en: "Load", tr: "Yuk" },
+    { id: "w:1:6", en: "load", tr: "yuk" },
+  ];
+  for (let seed = 1; seed <= 60; seed++) {
+    const qs = vocabRound(items, 20, seeded(seed));
+    assert.equal(qs.length, 6, "the same word written twice is asked once");
+    assert.equal(new Set(qs.map((q) => q.en.toLowerCase())).size, qs.length, "no word twice");
+    qs.forEach((q, i) => {
+      assert.equal(q.kind, ["meaning", "reverse", "listen"][i % 3], "the kinds take turns");
+      const side = q.kind === "meaning" ? "tr" : "en";
+      assert.equal(q.opts[q.a], q[side], "the marked answer is the word itself");
+      assert.ok(q.opts.length === 4, "four options when there are enough words");
+      assert.equal(new Set(q.opts.map((o) => o.toLowerCase())).size, q.opts.length, "no two options read the same");
+    });
+  }
+  assert.equal(vocabRound(items, 4, seeded(7)).length, 4, "count caps the round");
+  assert.equal(vocabRound(items.slice(0, 3), 8, seeded(2)).every((q) => q.opts.length === 3), true, "three words: three options");
+  assert.deepEqual(vocabRound(items.slice(0, 2), 8), [], "fewer than 3 words: no questions");
+  assert.deepEqual(vocabRound([{ id: "x", en: "Truck", tr: "" }, ...items.slice(0, 2)], 8), [], "a word without a translation does not count");
+  assert.deepEqual(vocabRound([], 8), []);
+  assert.deepEqual(vocabRound(undefined, 8), []);
+  assert.deepEqual(vocabRound(items, 8, seeded(1), []), [], "no kinds, no questions");
+  const one = vocabRound(items, 6, seeded(4), ["listen"]);
+  assert.ok(one.length === 6 && one.every((q) => q.kind === "listen"), "a single kind can be asked for");
+});
+
+test("every day of the course with words gets a word quiz", () => {
+  for (const d of allDays) {
+    const words = (d.words || []).map((w, i) => ({ id: `w:${d.n}:${i}`, en: w.en, tr: w.uz }));
+    if (words.length < 3) continue;
+    for (let seed = 1; seed <= 5; seed++) {
+      const qs = vocabRound(words, 20, seeded(seed * 31 + d.n));
+      assert.ok(qs.length >= Math.min(3, words.length), `day ${d.n}: enough questions`);
+      for (const q of qs) {
+        const side = q.kind === "meaning" ? "tr" : "en";
+        assert.equal(q.opts[q.a], q[side], `day ${d.n}: right answer marked`);
+        assert.equal(new Set(q.opts.map((o) => normalize(o).toLowerCase())).size, q.opts.length, `day ${d.n}: options all differ (${q.opts.join(" | ")})`);
+      }
+    }
+  }
 });
 
 test("the role-play: who speaks, and which part the student plays", () => {

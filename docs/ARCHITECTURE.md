@@ -145,8 +145,29 @@ generated once. A daily character budget caps new audio.
   the natural voice, one line at a time; the student's line is heard by the phone's speech recognition and scored with
   `compareSpeech()`. Each run has its own token from `audio.newRun()`, so Stop or leaving the page ends it cleanly, and
   the mic silences any voice before it listens. Phones without speech recognition get "I said it".
+- Tabs, as in the main app: Words / Conversation / Grammar / Quiz, and on review days Practice / Conversation / Review
+  quiz. Each tab marks one step (`words`, `dialogue`, `grammar`, `quiz`); "Next" marks the tab you are on, and the
+  lesson opens at the first tab not yet done (`?tab=` opens a given one).
+- The quiz is the lesson's own questions, graded by `/api/quiz` (the answers never reach the browser before the student
+  answers), followed by word questions from `vocabRound()`: each word once, the kinds taking turns (what it means, how
+  to say it in English, which word you heard), wrong options taken from the same day's words, never two options that
+  read the same. Those are checked in the browser, and the words missed go to the start of the review deck.
 - Finishing the words step puts the day's words into the review deck. A day is done when all its steps are; it is then
   marked and a celebration shows the XP earned, the streak and how many words went into review.
+
+## Homework (public/js/app/views/homework.js)
+
+One session per course day that has words (`homeworkDays()`), locked exactly when the day is. A session shows the day's
+words, then a quiz of up to 20 questions, each word asked once: fill in the blank from the day's own example sentences
+(`blankRound()`), then word questions (`vocabRound()`). The best score is kept as `quiz["hw:<day>"]` (the progress
+sanitizer accepts `hw:` and `rp:` keys), XP is given only for improving it, and missed words go to the review deck. The
+list also searches every course word the student can open and every video phrase.
+
+## Screens
+
+Every screen below the home page starts with the same head (`pageHead()` in `views/common.js`): a back button, an
+eyebrow, the title and its translation, a line about the page, and room for a picker or tabs. Game screens use a
+smaller version so the game stays on screen. Home, Practice and Homework open with the navy hero instead.
 
 ## Telegram (lib/telegram.js)
 

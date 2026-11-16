@@ -8,7 +8,7 @@ import { api } from "../api.js";
 import { state, addXp } from "../store.js";
 import { go } from "../main.js";
 import { play, stop } from "../audio.js";
-import { recognizer } from "./common.js";
+import { recognizer, pageHead } from "./common.js";
 import { SCENES, sceneById, MAX_TURNS } from "../../shared/scenes.js";
 
 const ui = (o) => (o && (o[lang()] || o.uz || o.en)) || "";
@@ -23,19 +23,17 @@ export default async function talk(root, params) {
 function list(root) {
   const a = state.me.access;
   root.innerHTML = `
-    <a class="back" href="/app/practice" data-link>${icon("left", "ico")} ${esc(t("nav.practice"))}</a>
-    <div class="pagehead"><h1>${esc(t("talk.title"))}</h1></div>
-    <p class="muted">${esc(t("talk.intro"))}</p>
-    ${!a.signedIn ? `<div class="card accent row wrap-row" style="margin-bottom:14px"><b class="grow">${esc(t("talk.signin"))}</b><a class="btn dark" href="/app/signin" data-link>${esc(t("signin"))}</a></div>`
-                  : `<p class="tiny muted">${esc(t("talk.cost", { n: (a.limits && a.limits.ai) || 0 }))}</p>`}
-    <div class="grid grid-2">
+    ${pageHead({ back: "/app/practice", backLabel: t("nav.practice"), right: `<span class="badge info">AI</span>`, eyebrow: t("practice.title"), title: t("talk.title"), sub: esc(t("talk.intro")),
+      body: a.signedIn ? `<p class="tiny muted head-extra">${esc(t("talk.cost", { n: (a.limits && a.limits.ai) || 0 }))}</p>` : "" })}
+    ${!a.signedIn ? `<div class="card accent row wrap-row"><b class="grow">${esc(t("talk.signin"))}</b><a class="btn dark" href="/app/signin" data-link>${esc(t("signin"))}</a></div>` : ""}
+    <section class="quick quick-two">
       ${SCENES.map((s) => `
-      <a class="card link row scene" href="/app/talk/${s.id}" data-link>
-        <span class="scene-ic">${icon(s.icon)}</span>
-        <span class="grow"><b>${esc(ui(s.title))}</b><br><span class="small muted">${esc(ui(s.who))}</span></span>
+      <a class="quick-tile" href="/app/talk/${s.id}" data-link>
+        <span class="quick-ico">${icon(s.icon)}</span>
+        <span class="grow"><span class="quick-t">${esc(ui(s.title))}</span><span class="quick-s">${esc(ui(s.who))}</span></span>
         ${icon("chevron", "ico faint")}
       </a>`).join("")}
-    </div>`;
+    </section>`;
 }
 
 function scene(root, sc) {
@@ -108,9 +106,8 @@ function scene(root, sc) {
 
   function paint() {
     root.innerHTML = `
-      <a class="back" href="/app/talk" data-link>${icon("left", "ico")} ${esc(t("talk.title"))}</a>
-      <div class="pagehead"><span class="scene-ic">${icon(sc.icon)}</span><h1 class="grow">${esc(ui(sc.title))}</h1>
-        ${s.msgs.length > 1 && !s.done ? `<button class="btn sm ghost" data-act="restart">${esc(t("talk.restart"))}</button>` : ""}</div>
+      ${pageHead({ back: "/app/talk", backLabel: t("talk.title"), game: true, eyebrow: ui(sc.who), title: ui(sc.title),
+        right: s.msgs.length > 1 && !s.done ? `<button class="btn sm ghost" data-act="restart">${icon("refresh")} ${esc(t("talk.restart"))}</button>` : "" })}
       <div class="card accent stack goal">
         <div class="tiny"><b>${esc(t("talk.goal"))}</b></div>
         <div>${esc(ui(sc.goal))}</div>

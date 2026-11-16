@@ -11,11 +11,10 @@ import { esc, icon, onAct, spinner, bar, sayBtn } from "../ui.js";
 import { state, update, addXp } from "../store.js";
 import { go } from "../main.js";
 import { play, stop } from "../audio.js";
-import { recognizer } from "./common.js";
+import { recognizer, pageHead } from "./common.js";
 import { sources, itemsOf, defaultSet, rememberSet, setPicker } from "../items.js";
-import { review as reviewCard, dueCards } from "../../shared/progress.js";
+import { review as reviewCard, dueCards, streak } from "../../shared/progress.js";
 import { drillRound, checkDrill, compareSpeech, sentenceTiles, tileable, sameSentence, distinctItems, listenRound, shuffle, DRILL_KINDS } from "../../shared/drills.js";
-import { SCENES } from "../../shared/scenes.js";
 
 const SET_RE = /^(mine|video:\d{1,2}|day:-?\d{1,2})$/;
 
@@ -36,7 +35,8 @@ function games() {
     { id: "say", ic: "mic", title: t("game.say"), sub: t("game.saySub") },
   ];
 }
-const back = () => `<a class="back" href="/app/practice" data-link>${icon("left", "ico")} ${esc(t("nav.practice"))}</a>`;
+/** The head of a game screen, like a lesson's: back to Practice, the game's name, and what goes with it. */
+const head = (title, opts = {}) => pageHead({ back: "/app/practice", backLabel: t("nav.practice"), eyebrow: t("practice.games"), title, game: true, ...opts });
 const progress = (i, n) => `<div class="row between" style="margin-bottom:6px"><span class="muted small">${i + 1} / ${n}</span></div>${bar((i / n) * 100)}`;
 
 /** A phrase the student got wrong: into the review deck (or back to the start of it), due soon. */
@@ -61,36 +61,40 @@ function endCard({ right, total, xp, missed, againLabel = t("game.again") }) {
 
 // ---------------------------------------------------------------- the hub
 function hub(root) {
-  const due = dueCards(state.progress).length, total = Object.keys(state.progress.srs).length;
+  const p = state.progress;
+  const due = dueCards(p).length, total = Object.keys(p.srs).length;
   root.innerHTML = `
-  <div class="pagehead"><h1>${esc(t("practice.title"))}</h1></div>
-  <p class="muted" style="margin-top:-4px">${esc(t("practice.sub"))}</p>
-  <div class="stack-lg">
-    <section class="grid grid-2">
-      <a class="card link stack hub-main" href="/app/listen" data-link>
-        <div class="row">${icon("headphones")}<h3 class="grow" style="margin:0">${esc(t("listen.title"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(t("listen.sub"))}</p>
-      </a>
-      <a class="card link stack hub-main" href="/app/talk" data-link>
-        <div class="row">${icon("chat")}<h3 class="grow" style="margin:0">${esc(t("talk.title"))}</h3><span class="badge info">AI</span></div>
-        <p class="muted" style="margin:0">${esc(t("talk.sub", { n: SCENES.length }))}</p>
-      </a>
-      <a class="card link stack" href="/app/review" data-link>
-        <div class="row"><span class="mi amber">${icon("repeat")}</span><h3 class="grow" style="margin:0">${esc(t("nav.review"))}</h3>${due ? `<span class="badge warn">${due}</span>` : ""}</div>
-        <p class="muted" style="margin:0">${esc(due ? t("home.reviewReady", { n: due }) : total ? t("practice.reviewLater") : t("home.reviewNone"))}</p>
-      </a>
-    </section>
-    <section>
-      <h2>${esc(t("practice.games"))}</h2>
-      <div class="grid grid-2">
-        ${games().map((g) => `
-        <a class="card link stack" href="/app/practice/${g.id}" data-link>
-          <div class="row"><span class="mi">${icon(g.ic)}</span><h3 style="margin:0">${esc(g.title)}</h3></div>
-          <p class="muted small" style="margin:0">${esc(g.sub)}</p>
-        </a>`).join("")}
-      </div>
-    </section>
-  </div>`;
+  <section class="hero-strip">
+    <div class="hero-left">
+      <p class="eyebrow">${esc(t("practice.title"))}</p>
+      <h1 class="hwy-title">${esc(t("home.practice"))}</h1>
+      <p class="hero-sub">${esc(t("practice.sub"))}</p>
+    </div>
+    <div class="hero-stats">
+      <a class="stat-tile" href="/app/review" data-link><span class="stat-ico">${icon("cards")}</span><span class="stat-num">${due}</span><span class="stat-label">${esc(t("progress.dueNow"))}</span></a>
+      <a class="stat-tile" href="/app/review" data-link><span class="stat-ico">${icon("book")}</span><span class="stat-num">${total}</span><span class="stat-label">${esc(t("profile.cards"))}</span></a>
+      <a class="stat-tile" href="/app/progress" data-link><span class="stat-ico">${icon("flame")}</span><span class="stat-num">${streak(p)}</span><span class="stat-label">${esc(t("stat.streak"))}</span></a>
+    </div>
+  </section>
+
+  <section class="quick">
+    <a class="quick-tile" href="/app/listen" data-link><span class="quick-ico">${icon("headphones")}</span><span class="quick-t">${esc(t("listen.title"))}</span><span class="quick-s">${esc(t("home.listenSub"))}</span></a>
+    <a class="quick-tile" href="/app/talk" data-link><span class="badge info">AI</span><span class="quick-ico">${icon("talk")}</span><span class="quick-t">${esc(t("talk.title"))}</span><span class="quick-s">${esc(t("home.talkSub"))}</span></a>
+    <a class="quick-tile" href="/app/review" data-link>${due ? `<span class="badge warn">${due}</span>` : ""}<span class="quick-ico">${icon("cards")}</span><span class="quick-t">${esc(t("nav.review"))}</span><span class="quick-s">${esc(due ? t("home.reviewDue", { n: due }) : total ? t("practice.reviewLater") : t("home.reviewSub"))}</span></a>
+  </section>
+
+  <a class="quick-tile wide-tile" href="/app/teacher" data-link>
+    <span class="quick-ico">${icon("chat")}</span>
+    <span><span class="quick-t">${esc(t("teacher.title"))}</span><span class="quick-s">${esc(t("teacher.hubSub"))}</span></span>
+    <span class="badge info">AI</span>${icon("chevron")}
+  </a>
+
+  <section class="panel">
+    <div class="panel-head"><h2>${esc(t("practice.games"))}</h2><p class="panel-sub">${esc(t("practice.gamesSub"))}</p></div>
+    <div class="quick quick-two">
+      ${games().map((g) => `<a class="quick-tile" href="/app/practice/${g.id}" data-link><span class="quick-ico">${icon(g.ic)}</span><span><span class="quick-t">${esc(g.title)}</span><span class="quick-s">${esc(g.sub)}</span></span></a>`).join("")}
+    </div>
+  </section>`;
 }
 
 // ---------------------------------------------------------------- numbers and spelling
@@ -114,24 +118,21 @@ function numbers(root, query) {
 
   function paint() {
     if (phase === "pick") {
-      root.innerHTML = `${back()}
-        <div class="pagehead"><h1>${esc(t("game.numbers"))}</h1></div>
+      root.innerHTML = `<div>${head(t("game.numbers"), { sub: esc(t("num.intro")) })}
         <div class="card stack">
-          <p style="margin:0">${esc(t("num.intro"))}</p>
           ${voice ? "" : `<div class="note">${esc(t("num.noVoice"))}</div>`}
           <div class="chips">${KINDS.map((k) => `<button class="chip ${k === kind ? "on" : ""}" data-act="kind" data-k="${k}" aria-pressed="${k === kind}">${esc(kindLabel(k))}</button>`).join("")}</div>
           <button class="btn primary block" data-act="start">${icon("play", "ico")} ${esc(t("start"))}</button>
-        </div>`;
+        </div></div>`;
       return;
     }
     if (phase === "end") {
-      root.innerHTML = `${back()}<div class="pagehead"><h1>${esc(t("game.numbers"))}</h1></div>${endCard({ right, total: round.length, xp })}`;
+      root.innerHTML = `<div>${head(t("game.numbers"))}${endCard({ right, total: round.length, xp })}</div>`;
       return;
     }
     const d = round[i];
     const mode = d.field === "digits" ? "numeric" : "text";
-    root.innerHTML = `${back()}
-      <div class="pagehead"><h1>${esc(t("game.numbers"))}</h1><span class="grow"></span><span class="badge info">${esc(kindLabel(d.kind))}</span></div>
+    root.innerHTML = `<div>${head(t("game.numbers"), { right: `<span class="badge info">${esc(kindLabel(d.kind))}</span>` })}
       ${progress(i, round.length)}
       <div class="card stack center" style="margin-top:14px">
         <button class="bigplay" data-act="hear" aria-label="${esc(t("num.play"))}">${icon("volume")}</button>
@@ -149,7 +150,7 @@ function numbers(root, query) {
           <div class="small muted">${esc(t("num.said"))}: “${esc(d.say)}”</div>
         </div>
         <button class="btn primary block" data-act="next">${esc(i + 1 < round.length ? t("next") : t("done"))}</button>`}
-      </div>`;
+      </div></div>`;
     const f = root.querySelector("#drillForm");
     f.addEventListener("submit", (e) => { e.preventDefault(); answer(); });
     const inp = root.querySelector("#ans");
@@ -190,9 +191,7 @@ async function phraseGame(root, game, query) {
   rememberSet(set);
   const items = itemsOf(set, src);
   const title = games().find((g) => g.id === game).title;
-  const header = () => `${back()}
-    <div class="pagehead"><h1>${esc(title)}</h1></div>
-    <div style="margin-bottom:14px">${setPicker(set, src)}</div>`;
+  const header = () => head(title, { body: `<div class="head-extra">${setPicker(set, src)}</div>` });
   const small = () => `${header()}<div class="card empty">${icon("search")}<p>${esc(t("game.small"))}</p></div>`;
 
   const impl = { listen: listenGame, match: matchGame, build: buildGame, say: sayGame }[game];

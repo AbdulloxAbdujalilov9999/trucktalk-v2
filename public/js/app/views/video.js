@@ -1,12 +1,13 @@
 /* One video lesson (/v/12): the intro, every line or card with audio and translation, the "repeat after me" recap,
  * a short self-test, related course days, and the way into the full course. This is where video viewers land. */
-import { t, pick, trLang } from "../i18n.js";
+import { t } from "../i18n.js";
 import { esc, icon, onAct, sayBtn, toast, bar } from "../ui.js";
 import { state, update, addXp, addCards } from "../store.js";
-import { videos, catalog, go, startTrial } from "../main.js";
+import { videos, catalog, go, startTrial, showLock } from "../main.js";
 import { playAll, stop } from "../audio.js";
 import { videoItems, practiceQuestions } from "../../shared/videos.js";
 import { config } from "../api.js";
+import { pageHead, titleParts } from "./common.js";
 
 export default async function video(root, [nStr]) {
   const n = Number(nStr);
@@ -72,46 +73,38 @@ export default async function video(root, [nStr]) {
   }
 
   function paint() {
-    const yt = v.youtube ? `<div class="card" style="padding:0;overflow:hidden;aspect-ratio:9/16;max-width:360px;margin:0 auto 14px"><iframe title="${esc(v.title.en)}" src="https://www.youtube-nocookie.com/embed/${esc(v.youtube)}" style="border:0;width:100%;height:100%" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : "";
+    const yt = v.youtube ? `<div class="card" style="padding:0;overflow:hidden;aspect-ratio:9/16;max-width:360px;width:100%;margin:0 auto"><iframe title="${esc(v.title.en)}" src="https://www.youtube-nocookie.com/embed/${esc(v.youtube)}" style="border:0;width:100%;height:100%" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : "";
+    const pager = `<div class="lesson-pager">
+      ${n > 1 ? `<a class="btn ghost sm" href="/v/${n - 1}" data-link aria-label="${esc(t("lesson", { n: n - 1 }))}">${icon("arrowL")} ${n - 1}</a>` : ""}
+      ${n < vids.length ? `<a class="btn ghost sm" href="/v/${n + 1}" data-link aria-label="${esc(t("lesson", { n: n + 1 }))}">${n + 1} ${icon("arrowR")}</a>` : ""}
+    </div>`;
     root.innerHTML = `
-      <a class="back" href="/app/videos" data-link>${icon("left", "ico")} ${esc(t("nav.videos"))}</a>
-      <div class="eyebrow">${esc(t("lesson", { n }))} · ${esc(t("videos.bundle", { n: v.bundle }))} · ${esc(v.bundleTitle)}</div>
-      <h1 style="margin-bottom:2px">${esc(v.title.uz)}</h1>
-      <p class="muted" style="margin-top:0">${esc(v.title.en)}</p>
+      ${pageHead({ back: "/app/videos", backLabel: t("nav.videos"), right: pager, eyebrow: `${t("lesson", { n })} · ${t("videos.bundle", { n: v.bundle })} · ${v.bundleTitle}`, title: v.title.uz, tr: v.title.en })}
       ${yt}
-      <div class="stack-lg">
-        <div class="note row" style="align-items:flex-start">${narratorBtn(v.intro)}<div class="grow"><b>${esc(t("videos.intro"))}:</b> ${esc(v.intro)}</div></div>
-        <section>
-          <div class="row between wrap-row" style="margin-bottom:10px">
-            <h2 style="margin:0">${esc(v.format === "cards" ? t("videos.cards") : t("videos.dialogue"))}</h2>
-            <div class="row">
-              ${v.format === "conversation" ? `<button class="btn sm dark" data-act="playall">${icon("play", "ico")} ${esc(t("dialogue.playAll"))}</button>` : ""}
-              <label class="row small" style="gap:6px"><input type="checkbox" data-act="tr" ${showTr ? "checked" : ""}> ${esc(t("dialogue.showTr"))}</label>
-            </div>
-          </div>
-          ${linesHtml()}
-        </section>
-        ${v.recap.length ? `<section>
-          <h2>${esc(t("videos.recap"))}</h2>
-          <div class="card list" style="padding:4px 12px">${v.recap.map((r) => `
-            <div class="word">${sayBtn(r.en)}<div class="grow"><div class="en">${esc(r.en)}</div><div class="tr">${esc(r.uz)}</div>${r.note ? `<div class="small" style="margin-top:4px">💡 ${esc(r.note)}</div>` : ""}</div></div>`).join("")}
-          </div>
-        </section>` : ""}
-        ${v.outro ? `<div class="note row" style="align-items:flex-start">${narratorBtn(v.outro)}<div class="grow"><b>${esc(t("videos.tip"))}:</b> ${esc(v.outro)}</div></div>` : ""}
-        <section class="card stack">
-          <h2 style="margin:0">${esc(t("videos.practice"))}</h2>
-          <p class="muted small" style="margin:0">${esc(t("videos.practiceSub"))}</p>
-          <div id="practice">${practiceHtml()}</div>
-        </section>
-        <button class="btn ${added() ? "ok" : "ghost"} block" data-act="addreview" ${added() ? "disabled" : ""}>${icon(added() ? "check" : "repeat", "ico")} ${esc(added() ? t("videos.added") : t("videos.addReview"))}</button>
-        ${related.length ? `<section><h3>${esc(t("videos.related"))}</h3><div class="card list" style="padding:4px 12px">${related.map((d) => `
-          <a class="item" href="/app/day/${d.n}" data-link><span class="n">${d.n}</span><span class="grow"><span class="t">${esc(pick(d.title))}</span><br><span class="s">${esc(d.title.en)}</span></span>${!d.free && !a.full ? icon("lock", "ico") : icon("chevron", "ico")}</a>`).join("")}</div></section>` : ""}
-        ${cta()}
-        <div class="row between">
-          ${n > 1 ? `<a class="btn ghost sm" href="/v/${n - 1}" data-link>${icon("left", "ico")} ${n - 1}</a>` : "<span></span>"}
-          ${n < 50 ? `<a class="btn ghost sm" href="/v/${n + 1}" data-link>${n + 1} ${icon("chevron", "ico")}</a>` : ""}
+      <div class="note row" style="align-items:flex-start">${narratorBtn(v.intro)}<div class="grow"><b>${esc(t("videos.intro"))}:</b> ${esc(v.intro)}</div></div>
+      <section class="panel">
+        <div class="panel-head panel-head-row">
+          <h2>${esc(v.format === "cards" ? t("videos.cards") : t("videos.dialogue"))}</h2>
+          ${v.format === "conversation" ? `<button class="btn primary sm" data-act="playall">${icon("play")} ${esc(t("dialogue.playAll"))}</button>` : ""}
         </div>
-      </div>`;
+        <label class="switch-row" style="margin:-6px 0 8px"><input type="checkbox" data-act="tr" ${showTr ? "checked" : ""}><span>${esc(t("dialogue.showTr"))}</span></label>
+        ${linesHtml()}
+      </section>
+      ${v.recap.length ? `<section class="panel">
+        <div class="panel-head"><h2>${esc(t("videos.recap"))}</h2></div>
+        <div class="transcript">${v.recap.map((r) => `<div class="transcript-line"><div class="line-text"><p class="line-en">${esc(r.en)}</p>${showTr ? `<p class="line-uz">${esc(r.uz)}</p>` : ""}${r.note ? `<p class="line-ex">💡 ${esc(r.note)}</p>` : ""}</div>${sayBtn(r.en)}</div>`).join("")}</div>
+      </section>` : ""}
+      ${v.outro ? `<div class="note row" style="align-items:flex-start">${narratorBtn(v.outro)}<div class="grow"><b>${esc(t("videos.tip"))}:</b> ${esc(v.outro)}</div></div>` : ""}
+      <section class="panel">
+        <div class="panel-head"><h2>${esc(t("videos.practice"))}</h2><p class="panel-sub">${esc(t("videos.practiceSub"))}</p></div>
+        <div id="practice" class="stack">${practiceHtml()}</div>
+      </section>
+      <button class="btn ${added() ? "ok" : "ghost"} block" data-act="addreview" ${added() ? "disabled" : ""}>${icon(added() ? "check" : "cards")} ${esc(added() ? t("videos.added") : t("videos.addReview"))}</button>
+      ${related.length ? `<section class="panel"><div class="panel-head"><h2>${esc(t("videos.related"))}</h2></div><div class="list">${related.map((d) => {
+        const tp = titleParts(d.title);
+        return `<a class="item" href="/app/day/${d.n}" ${!d.free && !a.full ? 'data-act="locked"' : "data-link"}><span class="n">${d.n}</span><span class="grow"><span class="t" style="display:block">${esc(tp.main)}</span>${tp.sub ? `<span class="s">${esc(tp.sub)}</span>` : ""}</span>${!d.free && !a.full ? icon("lock") : icon("chevron")}</a>`;
+      }).join("")}</div></section>` : ""}
+      ${cta()}`;
   }
 
   paint();
@@ -136,6 +129,7 @@ export default async function video(root, [nStr]) {
     },
     addreview: () => { addCards(items.map((_, i) => "v:" + n + ":" + i)); toast(t("videos.added"), "ok"); paint(); },
     trial: startTrial,
+    locked: () => showLock(),
   });
   return () => { off(); stop(); document.title = "TruckTalk"; };
 }

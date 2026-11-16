@@ -84,7 +84,7 @@ export default async function signin(root, _p, { query }) {
     root.innerHTML = `
       <div style="max-width:440px;margin:0 auto" class="stack-lg">
         <div class="center stack">
-          <div style="margin:8px auto 0;width:60px;height:60px;border-radius:18px;background:var(--navy);display:grid;place-items:center;color:var(--accent)">${icon("truck")}</div>
+          <div style="margin:8px auto 0;width:60px;height:60px;border-radius:18px;background:var(--navy);display:grid;place-items:center;color:var(--navy-200)">${icon("truck")}</div>
           <h1 style="margin:0">${esc(t("signin.title"))}</h1>
           ${a.signedIn ? "" : `<p class="muted" style="margin:0">${esc(t("signin.why"))}</p>`}
         </div>

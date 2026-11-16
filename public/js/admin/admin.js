@@ -215,7 +215,7 @@ async function viewPayments() {
   const [p, un] = await Promise.all([api("admin?view=payments"), api("admin?view=unmatched")]);
   main.innerHTML = `
     <div class="pagehead"><h1>Payments</h1></div>
-    ${un.unmatched.length ? `<section class="card stack" style="margin-bottom:16px;border-color:var(--accent)">
+    ${un.unmatched.length ? `<section class="card stack" style="margin-bottom:16px;border-color:var(--amber)">
       <h3 style="margin:0">${icon("bolt", "ico")} Payments without a matching account (${un.unmatched.length})</h3>
       <p class="small muted" style="margin:0">Whop said someone paid, but the checkout didn't say which TruckTalk account it was for (e.g. they paid from a link outside the app). It attaches by itself if the membership event names the account. Otherwise find the student and use “Give plan” on their page, with the Whop payment ID in the note.</p>
       <div class="scroll-x"><table class="table"><thead><tr><th>When</th><th>Whop payment</th><th>Plan</th><th>Amount</th><th>Whop buyer</th></tr></thead><tbody>

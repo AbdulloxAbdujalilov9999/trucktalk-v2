@@ -1,9 +1,10 @@
 /* Practice inside a course day, with no screen attached (the browser and the tests share it):
  *  - findWord: where a vocabulary word sits in its example sentence (whole words; -s, -es, -ed, -d, -ing and 's allowed)
  *  - blankRound: "fill in the blank" questions built from a day's words and their example sentences
+ *  - vocabRound: word questions for quizzes and homework (what it means, how to say it, what you heard)
  *  - speakers: who talks in a dialogue, and which of them the student plays by default */
 import { normalize } from "./text.js";
-import { shuffle } from "./drills.js";
+import { shuffle, distinctItems } from "./drills.js";
 
 const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 // What may follow the word: a possessive ("the driver's"), a plural or a verb ending.
@@ -106,6 +107,27 @@ export function blankRound(words, count = 6, rnd = Math.random) {
     const opts = shuffle([answer, ...others], rnd);
     return { id: u.w.id, before: s.slice(0, h.start), after: s.slice(h.end), answer, opts, a: opts.indexOf(answer), tr: u.w.tr || "" };
   }).filter((q) => q.opts.length >= 3);
+}
+
+/**
+ * Word questions, each word asked once. items: [{ id, en, tr }]. Returns up to count questions:
+ * [{ id, kind, en, tr, opts, a }] where kind is
+ *   "meaning"  what does <en> mean?            -> pick the translation
+ *   "reverse"  how do you say <tr> in English? -> pick the English
+ *   "listen"   (hear <en>) what did you hear?  -> pick the English
+ * The kinds take turns. Wrong options are other words of the same list; no two options read the same, in either language,
+ * so every question has exactly one right answer. Needs at least 3 different words (then each question has 3-4 options).
+ */
+export function vocabRound(items, count = 8, rnd = Math.random, kinds = ["meaning", "reverse", "listen"]) {
+  const pool = distinctItems((items || []).filter((x) => x && normalize(x.en) && normalize(x.tr)), 2000, rnd);
+  if (pool.length < 3 || !kinds.length) return [];
+  return pool.slice(0, Math.max(0, count)).map((item, i) => {
+    const kind = kinds[i % kinds.length];
+    const side = kind === "meaning" ? "tr" : "en";
+    const others = shuffle(pool.filter((x) => x !== item), rnd).slice(0, 3).map((x) => x[side]);
+    const opts = shuffle([item[side], ...others], rnd);
+    return { id: item.id, kind, en: item.en, tr: item.tr, opts, a: opts.indexOf(item[side]) };
+  });
 }
 
 /** The people in a dialogue, in the order they first speak. */

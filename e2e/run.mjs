@@ -92,7 +92,7 @@ await step("video lesson: self-test and add phrases to review", async () => {
 
 await step("free lesson opens without an account; a paid one shows the lock", async () => {
   await page.goto(BASE + "/app/day/1");
-  await page.waitForSelector(".steps");
+  await page.waitForSelector(".ltabs");
   await page.goto(BASE + "/app/day/10");
   await expectText(page, /Tariflarni koʻrish/);
   await shot(page, "03-locked-lesson");
@@ -104,27 +104,51 @@ await step("sign in (demo) returns to the lesson, then the free trial unlocks it
   await page.click('[data-act="demo"][data-as="student"]');
   await page.waitForURL("**/app/day/10");
   await page.click('[data-act="trial"]');
-  await page.waitForSelector(".steps", { timeout: 8000 });
+  await page.waitForSelector(".ltabs", { timeout: 8000 });
 });
 
-await step("a whole lesson: words, dialogue, tip, quiz (graded by the server), speaking", async () => {
+await step("a whole lesson, tab by tab: words, conversation, grammar, then the quiz (graded by the server)", async () => {
   await page.goto(BASE + "/app/day/1");
-  await page.waitForSelector(".steps");
+  await page.waitForSelector('.ltabs [data-t="vocab"].on');
   await shot(page, "05-lesson-words");
-  await page.click('[data-act="finish"][data-s="words"]');
-  await page.click('[data-act="finish"][data-s="dialogue"]');
-  await page.click('[data-act="finish"][data-s="grammar"]');
+  for (const next of ["talk", "grammar", "quiz"]) {
+    await page.click('[data-act="nextpart"]');
+    await page.waitForSelector(`.ltabs [data-t="${next}"].on`);
+  }
+  await page.waitForSelector('.ltabs [data-t="vocab"] .tab-ok', { state: "attached" });
+  // the lesson's own questions come first (answered right here); the word questions after them are answered at random
   const answers = course.days[0].quiz.map((q) => q.a);
-  for (let i = 0; i < answers.length; i++) await page.click(`[data-act="pick"][data-q="${i}"][data-o="${answers[i]}"]`);
-  await page.click('[data-act="check"]');
-  await page.waitForSelector(".result");
-  await expectText(page, new RegExp(`${answers.length}\\s*/\\s*${answers.length}`));
-  await shot(page, "06-lesson-quiz");
-  await page.click('.row [data-act="step"][data-s="speak"]');
-  await page.click('[data-act="finish"][data-s="speak"]');
-  await page.waitForSelector(".modal");
+  const total = await page.$$eval("#quizForm .quiz-q", (els) => els.length);
+  if (total <= answers.length) throw new Error("the quiz should add word questions to the lesson's own");
+  await page.click('#quizForm button[type="submit"]');
+  await expectText(page, /Hamma savollarga javob bering/);
+  for (let i = 0; i < total; i++) await page.check(`#quizForm input[name="q${i}"][value="${i < answers.length ? answers[i] : 0}"]`);
+  await page.click('#quizForm button[type="submit"]');
+  await page.waitForSelector(".modal", { timeout: 10000 });
   await shot(page, "07-lesson-complete");
-  await page.click(".modal [data-close]");
+  await page.click(".modal .modal-x");
+  await page.waitForSelector(".modal", { state: "detached" });
+  await page.waitForSelector("#quizResult");
+  for (let i = 0; i < answers.length; i++) await page.waitForSelector(`#qq-${i} .quiz-feedback.correct`, { state: "attached" });
+  await shot(page, "06-lesson-quiz");
+});
+
+await step("homework: the day's words, then a quiz; the score is kept", async () => {
+  await page.goto(BASE + "/app/homework");
+  await page.waitForSelector("#hw-1");
+  await page.fill("#hwq", "brake");
+  await page.waitForSelector(".gloss-item");
+  await page.fill("#hwq", "");
+  await page.goto(BASE + "/app/homework/1");
+  await page.waitForSelector("#hwForm");
+  const n = await page.$$eval("#hwForm .quiz-q", (els) => els.length);
+  if (n < 5) throw new Error("homework quiz too short: " + n);
+  for (let i = 0; i < n; i++) await page.check(`#hwForm input[name="h${i}"] >> nth=0`);
+  await page.click('#hwForm button[type="submit"]');
+  await page.waitForSelector("#hwResult");
+  await shot(page, "08b-homework");
+  await page.goto(BASE + "/app/homework");
+  await page.waitForSelector("#hw-1 .badge.ok", { state: "attached" });
 });
 
 await step("review: words from the lesson come back as cards", async () => {
@@ -135,11 +159,27 @@ await step("review: words from the lesson come back as cards", async () => {
   await shot(page, "08-review");
 });
 
-await step("AI teacher checks a sentence and counts the daily limit", async () => {
-  await page.goto(BASE + "/app/teacher");
+await step("grammar book: a unit's rule, examples and quiz (graded by the server)", async () => {
+  await page.goto(BASE + "/app/grammar");
+  await page.click('.list a.item[href="/app/grammar/to-be"]');
+  await page.waitForSelector("#gForm");
+  await expectText(page, /Misollar/);
+  const n = await page.$$eval("#gForm .quiz-q", (els) => els.length);
+  for (let i = 0; i < n; i++) await page.check(`#gForm input[name="g${i}"] >> nth=0`);
+  await page.click('#gForm button[type="submit"]');
+  await page.waitForSelector("#gResult");
+  await page.waitForSelector("#gq-0 .quiz-feedback", { state: "attached" });
+  await shot(page, "09b-grammar");
+});
+
+await step("AI teacher (from the practice page) checks a sentence and counts the daily limit", async () => {
+  await page.goto(BASE + "/app/practice");
+  await page.click('a[href="/app/teacher"]');
+  await page.waitForSelector("#tq");
   await page.fill("#tq", "I waiting at the dock since two hours.");
   await page.click('[data-act="send"]');
-  await page.waitForSelector(".card.flat .badge");
+  await page.waitForSelector(".rp-feedback .rp-fb-title");
+  await expectText(page, /Bugun yana \d+ ta tekshiruv/);
   await shot(page, "09-ai-teacher");
 });
 
@@ -192,7 +232,6 @@ await step("listen in the truck: the hands-free player steps through a phrase", 
 
 await step("conversation practice: the AI officer answers and coaches each line", async () => {
   await page.goto(BASE + "/app/talk");
-  await page.waitForSelector(".scene");
   await page.click('a[href="/app/talk/police"]');
   await expectText(page, /Do you know why I stopped you/);
   await page.click('[data-act="sugg"] >> nth=0');
@@ -217,13 +256,21 @@ await step("buying a plan (demo checkout) opens it at once", async () => {
   await expectText(page, /tarifi .* gacha faol/);
 });
 
-await step("profile: plan, stats, badges and settings", async () => {
-  await page.goto(BASE + "/app/profile");
+await step("settings: the plan, and the daily goal can be changed", async () => {
+  await page.goto(BASE + "/app/settings");
   await expectText(page, /Mustaqil tarifi/);
   await page.click('[data-act="goal"][data-v="50"]');
   await page.waitForSelector('[data-act="goal"][data-v="50"].on');
+  await shot(page, "11-settings");
+});
+
+await step("progress: the numbers, the week's XP against the new goal, and badges", async () => {
+  await page.goto(BASE + "/app/progress");
+  await page.waitForSelector(".xpchart");
+  await expectText(page, /50 XP/);
   await expectText(page, /Birinchi kun/);
-  await shot(page, "11-profile");
+  if (!(await page.$(".bdg:not(.off)"))) throw new Error("the first-day badge should be earned");
+  await shot(page, "11b-progress");
 });
 
 await step("the certificate opens after the final road test", async () => {
@@ -248,7 +295,7 @@ await step("the certificate opens after the final road test", async () => {
 });
 
 await step("progress is saved to the account (a new phone gets it back)", async () => {
-  await page.goto(BASE + "/app/profile");
+  await page.goto(BASE + "/app/settings");
   await page.waitForSelector("#syncLine");
   await page.waitForFunction(() => /hisobingizga saqlanadi/.test(document.getElementById("syncLine").innerText), null, { timeout: 10000 });
   const token = await page.evaluate(() => localStorage.getItem("tt2:demo-token"));
@@ -256,8 +303,8 @@ await step("progress is saved to the account (a new phone gets it back)", async 
   await phone2.addInitScript((t) => { localStorage.setItem("tt2:demo-token", t); localStorage.setItem("tt2:lang", "uz"); }, token);
   const p2 = await phone2.newPage();
   watch(p2);
-  await p2.goto(BASE + "/app/course");
-  await p2.waitForSelector(".drow.done", { state: "attached", timeout: 10000 });
+  await p2.goto(BASE + "/app/course/1");
+  await p2.waitForSelector(".day-card.done", { state: "attached", timeout: 10000 });
   await phone2.close();
 });
 
@@ -274,7 +321,7 @@ await step("works offline after the first visit", async () => {
 });
 
 await step("admin: sign in, see the student, give a plan, see it in the audit log", async () => {
-  await page.goto(BASE + "/app/profile");
+  await page.goto(BASE + "/app/settings");
   await page.click('[data-act="signout"]');
   await page.waitForURL("**/app");
   await page.goto(BASE + "/app/signin?next=/admin");
@@ -303,7 +350,7 @@ await step("desktop layout", async () => {
   await d.goto(BASE + "/");
   await d.screenshot({ path: path.join(SHOTS, "20-desktop-landing.png") });
   await d.goto(BASE + "/app");
-  await d.waitForSelector(".hero");
+  await d.waitForSelector(".hero-strip");
   await d.screenshot({ path: path.join(SHOTS, "21-desktop-home.png") });
   await desk.close();
 });

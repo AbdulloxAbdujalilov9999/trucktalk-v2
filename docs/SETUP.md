@@ -94,7 +94,7 @@ How it behaves: a payment adds its days after any time already paid; a refund, d
    ```
 4. Try it: send `/start`, `12`, `TRUCK` and `/login` to the bot.
 
-What the bot does: `t.me/<bot>?start=v12` (or just "12") sends lesson 12's key phrases and a link to it; `TRUCK` or `/start` sends the welcome with the free lessons, the course and prices; `/login` sends a one-time sign-in link (single use, 10 minutes); a signed-in student can connect Telegram from their profile. Every first contact is saved as a lead with its source (which video, the landing page...), visible under **Admin → Telegram leads**.
+What the bot does: `t.me/<bot>?start=v12` (or just "12") sends lesson 12's key phrases and a link to it; `TRUCK` or `/start` sends the welcome with the free lessons, the course and prices; `/login` sends a one-time sign-in link (single use, 10 minutes); a signed-in student can connect Telegram from Settings. Every first contact is saved as a lead with its source (which video, the landing page...), visible under **Admin → Telegram leads**.
 
 ## 8. Marketing links for the 50 videos
 

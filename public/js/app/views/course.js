@@ -1,84 +1,91 @@
-/* The course map: how far down the road the driver is, the next lesson, the orientation lessons, then 12 weeks
- * (12 exits) of 5 days. A week opens to its days; the current one is open. Locked days open the trial/plans sheet. */
+/* Lessons, as in the main TruckTalk app: the list of weeks (the orientation first, then 12 "exits"), and a week's page with
+ * its days. Grammar and the 50 free video lessons are one tap away. Locked days open the trial/plans sheet. */
 import { t } from "../i18n.js";
-import { esc, icon, bar, onAct } from "../ui.js";
+import { esc, icon, onAct } from "../ui.js";
 import { state } from "../store.js";
-import { catalog, showLock } from "../main.js";
-import { courseState, weekStats, ring, road, enTitle, trTitle, isDone } from "./common.js";
-
-function drow(d, p, a, current, label) {
-  const done = isDone(p, d.n), locked = !d.free && !a.full;
-  const q = p.quiz["day:" + d.n];
-  const cls = ["drow", done ? "done" : "", locked ? "locked" : "", d.review ? "review" : "", current ? "current" : ""].join(" ");
-  const st = done ? `<span class="badge ok">${q ? `${q.best}/${q.total}` : icon("check")}</span>`
-    : locked ? icon("lock")
-    : current ? `<span class="badge info">${esc(t("home.upNext"))}</span>`
-    : d.free && !a.full ? `<span class="badge info">${esc(t("free"))}</span>` : "";
-  const tr = [trTitle(d.title), d.review ? t("reviewDay") : ""].filter(Boolean).join(" · ");
-  return `<a class="${cls}" href="/app/day/${d.n}" ${locked ? `data-act="locked"` : "data-link"}>
-    <span class="dnum">${esc(label)}</span>
-    <span class="grow"><span class="dt">${esc(enTitle(d.title))}</span>${tr ? `<span class="dtr">${esc(tr)}</span>` : ""}</span>
-    <span class="dst">${st}</span>
-  </a>`;
-}
-
-function weekBox({ id, badge, title, sub, done, total, open, cls, rows }) {
-  return `<section class="wk ${cls} ${open ? "open" : ""}" id="wk-${id}">
-    <button class="wk-head" data-act="wk" aria-expanded="${open}" aria-controls="wkd-${id}">
-      <span class="exitb">${badge}</span>
-      <span class="grow"><span class="wk-t">${esc(title)}</span>${sub ? `<span class="wk-tr">${esc(sub)}</span>` : ""}${bar(total ? (done / total) * 100 : 0, "ok")}</span>
-      <span class="wk-n">${done}/${total}</span>
-      ${icon("chevron", "ico chev")}
-    </button>
-    <div class="wk-days" id="wkd-${id}">${rows}</div>
-  </section>`;
-}
+import { catalog, showLock, go } from "../main.js";
+import { courseState, weekStats, titleParts, weekCard, weekDays, weekTitle, dayLabel, isDone, isLocked, partsDone, dayParts, pctOf } from "./common.js";
 
 export default async function course(root, params, { query }) {
   const cat = await catalog();
-  const p = state.progress, a = state.me.access;
-  const cs = courseState(cat, p), next = cs.next;
-  const weeks = weekStats(cat, p, next);
-  const orient = cat.orientation.days, orientDone = orient.filter((d) => isDone(p, d.n)).length;
-  const wq = Number(query.get("w"));
-  const openId = wq >= 1 && wq <= weeks.length ? wq : !cs.started && orientDone < orient.length ? 0 : (weeks.find((w) => w.current) || weeks[0]).week;
-  const pct = Math.round(cs.pct);
+  // old links: /app/course?w=3
+  const wq = query.get("w");
+  if (!params[0] && wq && /^\d{1,2}$/.test(wq)) { go("/app/course/" + wq, { replace: true }); return; }
+  if (params[0] != null) return week(root, cat, Number(params[0]));
+  return list(root, cat);
+}
 
+function list(root, cat) {
+  const p = state.progress, a = state.me.access;
+  const cs = courseState(cat, p);
+  const weeks = weekStats(cat, p, cs.next);
+  const orient = cat.orientation.days, orientDone = orient.filter((d) => isDone(p, d.n)).length;
   root.innerHTML = `
-    <div class="pagehead"><h1>${esc(t("course.title"))}</h1></div>
-    <p class="muted" style="margin-top:0">${esc(t("course.sub"))}</p>
-    <section class="card cs-sum" style="margin-bottom:22px">
-      <div class="cs-top">
-        ${ring(pct, { light: true, label: t("course.progress", { done: cs.done, total: cs.total }) })}
-        <div class="grow"><span class="num">${cs.done} / ${cs.total}</span><span class="small muted">${esc(t("home.daysDone"))}</span></div>
-      </div>
-      ${road(cs.pct, t("course.progress", { done: cs.done, total: cs.total }))}
-      <a class="mitem" href="/app/day/${next.n}" ${!next.free && !a.full ? `data-act="locked"` : "data-link"} style="margin:0 -6px -6px">
-        <span class="mi"><b class="num" style="font-size:1.15rem">${next.n}</b></span>
-        <span class="grow"><b>${esc(enTitle(next.title))}</b><small>${esc(t("home.upNext"))}${trTitle(next.title) ? " · " + esc(trTitle(next.title)) : ""}</small></span>
-        ${icon("chevron")}
-      </a>
+    <section class="quick quick-two">
+      <a class="quick-tile" href="/app/grammar" data-link><span class="quick-ico">${icon("grammar")}</span><span><span class="quick-t">${esc(t("grammar.title"))}</span><span class="quick-s">${esc(t("lessons.grammarSub", { n: cat.grammar.length }))}</span></span></a>
+      <a class="quick-tile" href="/app/videos" data-link><span class="quick-ico">${icon("video")}</span><span><span class="quick-t">${esc(t("videos.title"))}</span><span class="quick-s">${esc(t("lessons.videosSub"))}</span></span></a>
     </section>
-    <div class="sec-head"><h2 class="sec-title">${esc(t("course.weeks"))}</h2></div>
-    ${weekBox({
-      id: 0, badge: icon("sign"), title: t("orientation"), sub: t("orientation.sub"), done: orientDone, total: orient.length,
-      open: openId === 0, cls: orientDone >= orient.length ? "done" : orientDone ? "started" : "",
-      rows: orient.map((d, i) => drow(d, p, a, false, "O" + (i + 1))).join(""),
-    })}
-    ${weeks.map((w) => weekBox({
-      id: w.week, badge: `<small>EXIT</small><b>${w.week}</b>`, title: enTitle(w.title), sub: trTitle(w.title), done: w.done, total: w.days.length,
-      open: openId === w.week, cls: w.done >= w.days.length ? "done" : w.started ? "started" : "",
-      rows: w.days.map((d) => drow(d, p, a, next.n === d.n && !isDone(p, d.n), String(d.n))).join(""),
-    })).join("")}
-  `;
-  if (wq) requestAnimationFrame(() => { const el = root.querySelector("#wk-" + openId); if (el) el.scrollIntoView({ block: "start" }); });
-  return onAct(root, {
-    locked: () => showLock(),
-    wk: (el) => {
-      const box = el.closest(".wk");
-      const open = !box.classList.contains("open");
-      box.classList.toggle("open", open);
-      el.setAttribute("aria-expanded", String(open));
-    },
-  });
+    <section class="panel">
+      <div class="panel-head">
+        <h2>${esc(t("lessons.all"))}</h2>
+        <p class="panel-sub">${esc(t("lessons.allSub"))}</p>
+      </div>
+      <div class="week-grid">
+        ${weekCard({ week: 0, badge: icon("bulb"), title: t("lessons.orientation"), sub: t("lessons.orientationSub"), done: orientDone, total: orient.length })}
+        ${weeks.map((w) => {
+          const tp = titleParts(w.title);
+          return weekCard({ week: w.week, badge: String(w.week), title: tp.main, sub: tp.sub, done: w.done, total: w.days.length, current: w.current, locked: w.days.some((d) => isLocked(d, a)) });
+        }).join("")}
+      </div>
+    </section>`;
+}
+
+function dayCard(cat, d, p, a, next) {
+  const label = dayLabel(cat, d.n), tp = titleParts(d.title);
+  const done = isDone(p, d.n), locked = isLocked(d, a);
+  const parts = dayParts(d), got = partsDone(p, d), score = pctOf(p.quiz["day:" + d.n]);
+  const current = !done && !locked && next && next.n === d.n;
+  const cls = ["day-card", done ? "done" : "", locked ? "locked" : "", d.review ? "rev" : "", current ? "current" : ""].filter(Boolean).join(" ");
+  return `<a class="${cls}" href="/app/day/${d.n}" ${locked ? `data-act="locked"` : "data-link"}>
+    <span class="day-badge">${esc(label)}</span>
+    <span class="day-info">
+      <span class="day-num">${esc(d.review ? t("lessons.dayReview", { n: label }) : t("lessons.dayCaps", { n: label }))}${d.free && !a.full ? `<span class="badge-free">${esc(t("free"))}</span>` : ""}${current ? `<span class="badge-free">${esc(t("home.upNext"))}</span>` : ""}</span>
+      <span class="day-title">${esc(tp.main)}</span>
+      ${tp.sub ? `<span class="day-tu">${esc(tp.sub)}</span>` : ""}
+      ${done ? `<span class="day-status">${esc(score != null ? t("lessons.score", { n: score }) : t("done"))}</span>`
+        : got && !locked ? `<span class="day-status inprog">${esc(t("lesson.partsDone", { a: got, b: parts.length }))}</span>` : ""}
+    </span>
+    <span class="day-go">${locked ? icon("lock") : done ? icon("checkCircle") : icon("chevron")}</span>
+  </a>`;
+}
+
+function week(root, cat, w) {
+  const days = weekDays(cat, w);
+  if (!days.length) { go("/app/course", { replace: true }); return; }
+  const p = state.progress, a = state.me.access;
+  const next = courseState(cat, p).next;
+  const done = days.filter((d) => isDone(p, d.n)).length, pct = Math.round((done / days.length) * 100);
+  const tp = titleParts(weekTitle(cat, w));
+  const last = cat.weeks.length;
+  const wordsIn = days.reduce((s, d) => s + (d.words || 0), 0);
+  root.innerHTML = `
+    <section class="lesson-head">
+      <div class="lesson-head-top">
+        <a class="btn ghost sm" href="/app/course" data-link>${icon("arrowL")} ${esc(t("lessons.all"))}</a>
+        <div class="lesson-pager">
+          ${w > 0 ? `<a class="btn ghost sm" href="/app/course/${w - 1}" data-link aria-label="${esc(w - 1 === 0 ? t("lessons.orientation") : t("week", { n: w - 1 }))}">${icon("arrowL")} ${esc(w - 1 === 0 ? "O" : String(w - 1))}</a>` : ""}
+          ${w < last ? `<a class="btn ghost sm" href="/app/course/${w + 1}" data-link aria-label="${esc(t("week", { n: w + 1 }))}">${esc(String(w + 1))} ${icon("arrowR")}</a>` : ""}
+        </div>
+      </div>
+      <p class="eyebrow">${esc(w === 0 ? t("lessons.orientationCaps") : t("lessons.weekOf", { n: w, total: last }))}</p>
+      <h1 class="hwy-title">${esc(tp.main)}</h1>
+      ${tp.sub ? `<p class="lesson-title-uz">${esc(tp.sub)}</p>` : ""}
+      <p class="hero-sub" style="margin-top:10px">${esc(t("lessons.daysDone", { a: done, b: days.length }))}${wordsIn ? " · " + esc(t("lessons.wordsIn", { n: wordsIn })) : ""}</p>
+      <div class="progressbar" style="margin-top:12px"><div class="progressbar-fill" style="width:${pct}%"></div></div>
+    </section>
+    <section class="panel">
+      <div class="day-grid">${days.map((d) => dayCard(cat, d, p, a, next)).join("")}</div>
+    </section>
+    ${wordsIn ? `<a class="quick-tile wide-tile" href="/app/homework#w${w}" data-link><span class="quick-ico">${icon("homework")}</span><span><span class="quick-t">${esc(t("lessons.weekHomework"))}</span><span class="quick-s">${esc(t("lessons.weekHomeworkSub"))}</span></span>${icon("chevron")}</a>` : ""}`;
+  return onAct(root, { locked: () => showLock() });
 }

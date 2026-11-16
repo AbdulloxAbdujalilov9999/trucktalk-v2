@@ -1,7 +1,7 @@
 /* Phrases for the practice games and the listening player, taken only from what the student can already open: the
  * free video lessons, the words (and example sentences) of the course days they may open, and their review cards.
  * A set is named "mine" (review cards), "video:<n>" or "day:<n>". Every item: { id, en, tr, trLang, kind }. */
-import { t, trLang, pick } from "./i18n.js";
+import { t, trLang, pick, lang } from "./i18n.js";
 import { cachedGet } from "./api.js";
 import { esc } from "./ui.js";
 import { currentUser } from "./auth.js";
@@ -70,6 +70,6 @@ export function setPicker(current, src, id = "setpick") {
     <select class="input" id="${id}">
       ${mine ? opt("mine", t("practice.mine", { n: mine })) : ""}
       <optgroup label="${esc(t("nav.videos"))}">${src.vids.map((v) => opt("video:" + v.n, `${t("lesson", { n: v.n })}: ${v.title.uz} · ${v.title.en}`)).join("")}</optgroup>
-      <optgroup label="${esc(t("nav.course"))}">${days.map((d) => opt("day:" + d.n, `${d.n >= 1 ? t("day", { n: d.n }) : t("orientation")}: ${pick(d.title)}`)).join("")}</optgroup>
+      <optgroup label="${esc(t("nav.course"))}">${days.map((d) => opt("day:" + d.n, `${d.n >= 1 ? t("day", { n: d.n }) : t("orientation")}: ${pick(d.title, lang())}`)).join("")}</optgroup>
     </select></label>`;
 }

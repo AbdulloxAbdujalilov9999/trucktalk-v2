@@ -8,6 +8,7 @@ import { review as reviewCard, dueCards } from "../../shared/progress.js";
 import { videoItems } from "../../shared/videos.js";
 import { play, stop } from "../audio.js";
 import { currentUser } from "../auth.js";
+import { pageHead } from "./common.js";
 
 const SESSION = 20;
 
@@ -34,15 +35,16 @@ export default async function reviewView(root) {
     paint();
   }
 
+  const head = (o = {}) => pageHead({ back: "/app/practice", backLabel: t("nav.practice"), eyebrow: t("practice.title"), title: t("review.title"), sub: esc(t("review.sub")), ...o });
   function paint() {
     const total = Object.keys(state.progress.srs).length;
     if (!total) {
-      root.innerHTML = `<div class="pagehead"><h1>${esc(t("review.title"))}</h1></div><div class="card empty">${icon("repeat")}<p>${esc(t("review.empty"))}</p><a class="btn primary" href="/app/course" data-link>${esc(t("nav.course"))}</a></div>`;
+      root.innerHTML = `${head()}<div class="card empty">${icon("repeat")}<p>${esc(t("review.empty"))}</p><a class="btn primary" href="/app/course" data-link>${esc(t("nav.course"))}</a></div>`;
       return;
     }
     if (i >= queue.length) {
       const next = Object.values(state.progress.srs).map((c) => c.due).filter((d) => d > Date.now()).sort((a, b) => a - b)[0];
-      root.innerHTML = `<div class="pagehead"><h1>${esc(t("review.title"))}</h1></div>
+      root.innerHTML = `${head()}
         <div class="card center stack" style="padding:28px 16px">
           <div style="font-size:2.6rem">✅</div>
           <h2>${esc(t("review.allDone"))}</h2>
@@ -54,19 +56,17 @@ export default async function reviewView(root) {
     }
     const c = lookup(queue[i]);
     root.innerHTML = `
-      <div class="pagehead"><h1>${esc(t("review.title"))}</h1><span class="grow"></span><span class="muted small">${esc(t("review.left", { n: queue.length - i }))}</span></div>
-      ${bar((i / queue.length) * 100)}
-      <div class="card flash" style="margin-top:14px" data-act="show">
+      ${head({ game: true, sub: "", right: `<span class="badge">${esc(t("review.left", { n: queue.length - i }))}</span>`, body: `<div class="head-extra">${bar((i / queue.length) * 100)}</div>` })}
+      <div class="card flash" data-act="show">
         <div class="big">${esc(c.en)}</div>
         ${shown ? `<div style="font-size:1.25rem">${esc(c.tr)}</div>${c.ex ? `<div class="muted small">${esc(c.ex)}</div>` : ""}${c.extr ? `<div class="muted small">${esc(c.extr)}</div>` : ""}` : ""}
       </div>
-      <div class="row" style="margin-top:12px;justify-content:center">${sayBtn(c.en)}</div>
-      <div class="row" style="margin-top:14px">
+      <div class="row" style="justify-content:center">${sayBtn(c.en)}</div>
+      <div class="row">
         ${shown ? `<button class="btn bad grow" data-act="grade" data-k="0">${icon("x", "ico")} ${esc(t("review.again"))}</button>
                    <button class="btn ok grow" data-act="grade" data-k="1">${icon("check", "ico")} ${esc(t("review.know"))}</button>`
                 : `<button class="btn primary block" data-act="show">${esc(t("review.show"))}</button>`}
-      </div>
-      <p class="center tiny muted" style="margin-top:14px">${esc(t("review.sub"))}</p>`;
+      </div>`;
     if (!shown) play(c.en);
   }
 

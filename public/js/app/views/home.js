@@ -1,113 +1,106 @@
-/* Home: a greeting with how far along the course the driver is, the next lesson, today's numbers, the course drawn as a
- * highway (12 weeks = 12 exits), practice for the road, and the rest of the app one tap away. */
+/* Home, laid out like the main TruckTalk app's dashboard: a greeting with the progress ring, the next lesson and today's
+ * numbers; the course as a highway of 60 days; the 12 weeks. Added on top: a line about the plan or signing in, and three
+ * kinds of practice for the road one tap away. */
 import { t, fmtDate } from "../i18n.js";
 import { esc, icon, onAct } from "../ui.js";
 import { state, xpToday, goal } from "../store.js";
-import { catalog, videos, startTrial, planLabel } from "../main.js";
+import { catalog, startTrial, planLabel, showLock } from "../main.js";
 import { streak, dueCards } from "../../shared/progress.js";
-import { trialLine, courseState, weekStats, ring, road, enTitle, trTitle } from "./common.js";
+import { trialLine, courseState, weekStats, ring, titleParts, weekCard, isDone, isLocked, homeworkStats, dayParts } from "./common.js";
 
 function greeting(h = new Date().getHours()) {
   return t(h < 12 ? "greet.morning" : h < 18 ? "greet.afternoon" : "greet.evening");
 }
 
-function exitSign(w, i) {
-  const n = w.days.length, cls = w.done >= n ? "done" : w.started ? "started" : "";
-  const mark = w.done >= n ? icon("check") : w.current ? icon("truck") : "";
-  return `<a class="exit ${cls} ${w.current ? "current" : ""}" href="/app/course?w=${w.week}" data-link aria-label="EXIT ${w.week}: ${esc(enTitle(w.title))}, ${w.done}/${n}">
-    <span class="exit-tag">EXIT <b>${w.week}</b></span>
-    <span class="exit-t">${esc(enTitle(w.title))}</span>
-    <span class="exit-dots" aria-hidden="true">${w.days.map((d, j) => `<i class="${j < w.done ? "on" : ""}"></i>`).join("")}</span>
-    ${mark ? `<span class="exit-mark" aria-hidden="true">${mark}</span>` : ""}
-  </a>`;
+/** The note above the hero: sign in to keep progress, start the free trial, days left, or what a free account gets. */
+function banner(a) {
+  const box = (ic, title, sub, action) => `<section class="trial-banner">
+    <span class="trial-banner-ico">${icon(ic)}</span>
+    <div class="trial-banner-text"><p class="trial-banner-days">${esc(title)}</p>${sub ? `<p class="trial-banner-sub">${esc(sub)}</p>` : ""}</div>
+    ${action}</section>`;
+  if (!a.signedIn) return box("shield", t("home.saveProgress"), t("home.saveProgressSub"), `<a class="btn primary sm" href="/app/signin" data-link>${esc(t("signin"))}</a>`);
+  if (a.canStartTrial) return box("gift", t("trial.cta"), t("trial.sub"), `<button class="btn primary sm" data-act="trial">${esc(t("trial.start"))}</button>`);
+  if (a.tier === "trial") return box("clock", trialLine(a), t("home.trialSub"), `<a class="btn primary sm" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a>`);
+  if (a.tier === "free" && a.trialUsed) return box("lock", t("home.freeTitle"), t("lock.body"), `<a class="btn primary sm" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a>`);
+  return "";
 }
 
-const mitem = (href, ic, title, sub, extra = "", cls = "") => `
-  <a class="mitem" href="${href}" data-link>
-    <span class="mi ${cls}">${icon(ic)}</span>
-    <span class="grow"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ""}</span>
-    ${extra}${icon("chevron")}
-  </a>`;
-
 export default async function home(root) {
-  const [cat, vids] = await Promise.all([catalog(), videos()]);
+  const cat = await catalog();
   const p = state.progress, a = state.me.access, user = state.me.user;
-  const first = user && user.name ? user.name.trim().split(/\s+/)[0] : null;
-  const cs = courseState(cat, p), next = cs.next;
+  const first = user && user.name ? user.name.trim().split(/\s+/)[0] : "";
+  const cs = courseState(cat, p), next = cs.next, pct = Math.round(cs.pct);
   const weeks = weekStats(cat, p, next);
-  const orientLeft = cat.orientation.days.filter((d) => !(p.days[d.n] && p.days[d.n].done));
+  const hw = homeworkStats(cat, p);
   const due = dueCards(p).length;
   const xp = xpToday(), g = goal(), st = streak(p);
-  const nextVideo = vids.find((v) => !(p.videos[v.n] && p.videos[v.n].seen)) || vids[0];
-  const nextLocked = !next.free && !a.full;
-  const pct = Math.round(cs.pct);
+  const nt = titleParts(next.title);
+  const nextLocked = isLocked(next, a);
+  const orientLeft = cat.orientation.days.filter((d) => !isDone(p, d.n));
 
-  let banner = "";
-  if (!a.signedIn) {
-    banner = `<div class="card accent row wrap-row"><span class="mi">${icon("shield")}</span><b class="grow">${esc(t("home.saveProgress"))}</b><a class="btn primary" href="/app/signin" data-link>${esc(t("signin"))}</a></div>`;
-  } else if (a.canStartTrial) {
-    banner = `<div class="card accent stack"><div class="row"><span class="mi amber">${icon("gift")}</span><div class="grow"><b>${esc(t("trial.cta"))}</b><div class="small muted">${esc(t("trial.sub"))}</div></div></div><button class="btn primary block" data-act="trial">${esc(t("trial.start"))}</button></div>`;
-  } else if (a.tier === "trial") {
-    banner = `<div class="card accent row wrap-row"><span class="mi">${icon("clock")}</span><b class="grow">${esc(trialLine(a))}</b><a class="btn primary sm" href="/app/pricing" data-link>${esc(t("nav.pricing"))}</a></div>`;
-  } else if (a.tier === "free" && a.trialUsed) {
-    banner = `<div class="card accent row wrap-row"><span class="mi">${icon("lock")}</span><b class="grow">${esc(t("lock.body"))}</b><a class="btn primary sm" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a></div>`;
-  }
+  const dots = cat.days.map((d) => {
+    const done = isDone(p, d.n), locked = isLocked(d, a);
+    const cls = ["dot", done ? "done" : locked ? "locked" : "unlocked", d.review ? "rev" : "", d.n === next.n && !done ? "next" : ""].filter(Boolean).join(" ");
+    return `<a class="${cls}" href="/app/day/${d.n}" ${locked ? `data-act="locked"` : "data-link"} title="${esc(t("lesson.title", { n: d.n, title: titleParts(d.title).main }))}">${d.n}</a>`;
+  }).join("");
 
   root.innerHTML = `
-  <div class="stack-lg">
-    <section class="card hero">
+    ${banner(a)}
+    <section class="hero-strip">
       <div class="hero-top">
-        <div class="grow">
-          <div class="eyebrow">${esc(greeting())}</div>
-          <h1 class="hero-name">${esc(first || t("home.hiAnon"))}</h1>
-          <p class="hero-sub">${esc(cs.done ? t("home.driven", { done: cs.done, total: cs.total }) : t("home.firstTrip"))}</p>
+        <div class="hero-left">
+          <p class="eyebrow">${esc(first ? greeting() : t("home.eyebrow"))}</p>
+          <h1 class="hwy-title">${esc(first || t("home.route"))}</h1>
+          <p class="hero-sub">${esc(cs.done ? t("home.driven", { n: cs.done, total: cs.total }) : t("home.letsStart"))}</p>
         </div>
         ${ring(pct, { label: t("course.progress", { done: cs.done, total: cs.total }) })}
       </div>
       ${a.paidUntil ? `<p class="hero-paid">${esc(t("paid.until", { plan: planLabel(a), date: fmtDate(a.paidUntil) }))}</p>` : ""}
       <div class="upnext">
-        <div class="un-row">
-          <span class="daybadge"><small>${esc(t("day.badge"))}</small><b>${next.n}</b></span>
-          <span class="grow">
-            <span class="eyebrow" style="margin:0">${esc(t("home.upNext"))}</span>
-            <span class="un-title">${esc(enTitle(next.title))}</span>
-            ${trTitle(next.title) ? `<span class="un-tr">${esc(trTitle(next.title))}</span>` : ""}
-            <span class="un-meta"><span>${icon("clock")}${esc(t("lesson.minutes"))}</span>${next.review ? `<span>${icon("repeat")}${esc(t("reviewDay"))}</span>` : ""}${nextLocked ? `<span>${icon("lock")}${esc(t("locked"))}</span>` : next.free && !a.full ? `<span>${icon("gift")}${esc(t("free"))}</span>` : ""}</span>
-          </span>
+        <div class="upnext-badge"><small>${esc(t("day.badge"))}</small><b>${next.n}</b></div>
+        <div class="upnext-text">
+          <p class="upnext-label">${esc(!cs.started ? t("home.startHere") : next.review ? t("home.upNextReview") : t("home.upNext"))}</p>
+          <h2>${esc(nt.main)}</h2>
+          ${nt.sub ? `<p class="upnext-tu">${esc(nt.sub)}</p>` : ""}
+          <p class="upnext-meta"><span>${icon("clock")} ${esc(t("lesson.partsMin", { n: dayParts(next).length, min: t(next.review ? "lesson.minReview" : "lesson.min") }))}</span>${nextLocked ? `<span>${icon("lock")} ${esc(t("locked"))}</span>` : next.free && !a.full ? `<span>${icon("gift")} ${esc(t("free"))}</span>` : ""}</p>
         </div>
-        <a class="btn light block" href="/app/day/${next.n}" data-link>${icon("play")} ${esc(cs.started ? t("home.continue") : t("home.startCourse"))}</a>
+        <a class="btn primary lg" href="/app/day/${next.n}" ${nextLocked ? `data-act="locked"` : "data-link"}>${esc(cs.started ? t("continue") : t("start"))} ${icon("arrowR")}</a>
       </div>
       <div class="hero-stats">
-        <a href="/app/profile" data-link>${icon("flame")}<b>${st}</b><span>${esc(t("home.streak")).replace(/-/g, "\u2011")}</span></a>
-        <div class="${xp >= g ? "goal-hit" : ""}" title="${esc(t("home.goal", { n: g }))}">${icon(xp >= g ? "check" : "bolt")}<b>${xp}<small> / ${g}</small></b><span>${esc(t("home.xpToday"))}</span></div>
-        <a href="/app/review" data-link>${icon("repeat")}<b>${due}</b><span>${esc(t("home.toReview"))}</span></a>
+        <a class="stat-tile" href="/app/progress" data-link><span class="stat-ico">${icon("flame")}</span><span class="stat-num">${st}</span><span class="stat-label">${esc(t("stat.streak"))}</span></a>
+        <div class="stat-tile${xp >= g ? " goal-hit" : ""}" title="${esc(t("home.goal", { n: g }))}"><span class="stat-ico">${icon(xp >= g ? "checkCircle" : "bolt")}</span><span class="stat-num">${xp}<span class="stat-den">/${g}</span></span><span class="stat-label">${esc(t("stat.xpToday"))}</span></div>
+        <a class="stat-tile" href="/app/homework" data-link><span class="stat-ico">${icon("homework")}</span><span class="stat-num">${hw.done}<span class="stat-den">/${hw.total}</span></span><span class="stat-label">${esc(t("nav.homework"))}</span></a>
+      </div>
+      ${a.signedIn && !first ? `<a class="hero-link" href="/app/settings" data-link>${esc(t("home.setName"))}</a>` : ""}
+    </section>
+
+    <section class="quick">
+      <a class="quick-tile" href="/app/listen" data-link><span class="quick-ico">${icon("headphones")}</span><span class="quick-t">${esc(t("listen.title"))}</span><span class="quick-s">${esc(t("home.listenSub"))}</span></a>
+      <a class="quick-tile" href="/app/talk" data-link><span class="badge info">AI</span><span class="quick-ico">${icon("talk")}</span><span class="quick-t">${esc(t("talk.title"))}</span><span class="quick-s">${esc(t("home.talkSub"))}</span></a>
+      <a class="quick-tile" href="/app/review" data-link>${due ? `<span class="badge warn">${due}</span>` : ""}<span class="quick-ico">${icon("cards")}</span><span class="quick-t">${esc(t("nav.review"))}</span><span class="quick-s">${esc(due ? t("home.reviewDue", { n: due }) : t("home.reviewSub"))}</span></a>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>${esc(t("home.highway"))} <span class="mono">(${pct}%)</span></h2>
+        <p class="panel-sub">${esc(t("home.highwaySub"))}</p>
+      </div>
+      <div class="route"><div class="route-fill" style="width:${pct}%"></div><span class="route-truck" style="left:${Math.min(96, Math.max(4, pct))}%">${icon("truck")}</span></div>
+      <div class="road">${dots}</div>
+      <div class="legend">
+        <span><i class="sw done"></i>${esc(t("legend.done"))}</span>
+        <span><i class="sw unlocked"></i>${esc(t("legend.open"))}</span>
+        <span><i class="sw locked"></i>${esc(t("legend.locked"))}</span>
+        <span><i class="sw rev"></i>${esc(t("reviewDay"))}</span>
       </div>
     </section>
-    ${banner}
-    <section class="card">
-      <div class="sec-head"><h2 class="sec-title">${esc(t("home.highway"))} <span class="muted">(${pct}%)</span></h2><a href="/app/course" data-link>${esc(t("home.courseMap"))}</a></div>
-      ${road(cs.pct, t("course.progress", { done: cs.done, total: cs.total }))}
-      <div class="exits">${weeks.map(exitSign).join("")}</div>
-    </section>
-    <section>
-      <div class="sec-head"><h2 class="sec-title">${esc(t("home.practice"))}</h2><a href="/app/practice" data-link>${esc(t("home.allPractice"))}</a></div>
-      <div class="quick">
-        <a class="qtile q-blue" href="/app/listen" data-link><span class="qi">${icon("headphones")}</span><b>${esc(t("listen.title"))}</b><small>${esc(t("home.listenSub"))}</small></a>
-        <a class="qtile q-green" href="/app/talk" data-link><span class="badge">AI</span><span class="qi">${icon("chat")}</span><b>${esc(t("talk.title"))}</b><small>${esc(t("home.talkSub"))}</small></a>
-        <a class="qtile q-amber" href="/app/practice/numbers" data-link><span class="qi">${icon("hash")}</span><b>${esc(t("game.numbers"))}</b><small>${esc(t("home.numbersSub"))}</small></a>
+
+    <section class="panel">
+      <div class="panel-head panel-head-row"><h2>${esc(t("home.weeks"))}</h2><a class="btn ghost sm" href="/app/course" data-link>${esc(t("lessons.all"))}</a></div>
+      <div class="week-grid">
+        ${orientLeft.length && !cs.started ? weekCard({ week: 0, badge: icon("bulb"), title: t("lessons.orientation"), sub: t("lessons.orientationSub"), done: cat.orientation.days.length - orientLeft.length, total: cat.orientation.days.length }) : ""}
+        ${weeks.map((w) => weekCard({ week: w.week, badge: String(w.week), title: titleParts(w.title).main, done: w.done, total: w.days.length, current: w.current, locked: w.days.some((d) => isLocked(d, a)) })).join("")}
       </div>
-    </section>
-    <section>
-      <div class="sec-head"><h2 class="sec-title">${esc(t("home.more"))}</h2></div>
-      <div class="card menu">
-        ${mitem("/app/review", "repeat", t("nav.review"), due ? t("home.reviewReady", { n: due }) : t("home.reviewNone"), due ? `<span class="badge warn">${due}</span>` : "", "amber")}
-        ${!cs.started && orientLeft.length ? mitem(`/app/day/${orientLeft[0].n}`, "sign", t("orientation"), t("orientation.sub"), "", "green") : ""}
-        ${mitem(`/v/${nextVideo.n}`, "video", t("home.nextVideo"), `${t("lesson", { n: nextVideo.n })}: ${nextVideo.title.uz} · ${nextVideo.title.en}`)}
-        ${mitem("/app/teacher", "chat", t("nav.teacher"), t("home.askTeacher"))}
-        ${mitem("/app/grammar", "book", t("grammar.title"), t("grammar.sub"))}
-        ${mitem("/app/words", "search", t("words.title"), t("words.sub"))}
-      </div>
-    </section>
-  </div>`;
-  return onAct(root, { trial: startTrial });
+    </section>`;
+  return onAct(root, { trial: startTrial, locked: () => showLock() });
 }
