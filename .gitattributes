@@ -1,3 +1,4 @@
 # Same line endings on every computer, so generated files stay byte-identical (npm run check compares them).
 * text=auto eol=lf
 *.png binary
+*.woff2 binary

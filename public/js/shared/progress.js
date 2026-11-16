@@ -72,7 +72,7 @@ export function sanitize(p, now = Date.now()) {
       const r = compact({ seen: t(v.seen), best: num(v.best, 0, 100) ? Math.round(v.best) : undefined });
       return Object.keys(r).length ? r : null;
     }),
-    quiz: pickMap(p.quiz, 300, (k) => /^(day|grammar|video):-?[a-z0-9-]{1,40}$/.test(k), (v) => {
+    quiz: pickMap(p.quiz, 300, (k) => /^(day|grammar|video|hw|rp):-?[a-z0-9-]{1,40}$/.test(k), (v) => {
       if (!v || !num(v.best, 0, 100) || !num(v.total, 1, 100) || v.best > v.total) return null;
       return compact({ best: v.best, total: v.total, at: t(v.at) });
     }),

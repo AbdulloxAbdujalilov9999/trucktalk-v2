@@ -5,7 +5,7 @@ import { esc, icon, onAct, toast } from "../ui.js";
 import { state } from "../store.js";
 import { catalog } from "../main.js";
 import { totalXp } from "../../shared/progress.js";
-import { certificateStatus } from "./common.js";
+import { certificateStatus, pageHead } from "./common.js";
 
 /** A short, stable number to quote: completion date + the end of the account id. */
 export function certNumber(uid, doneAt) {
@@ -21,25 +21,26 @@ export default async function certificate(root) {
   const st = certificateStatus(cat, p), final = st.final, daysDone = st.done;
   const doneAt = p.days[final.n] && p.days[final.n].done;
 
+  const head = `<div class="no-print">${pageHead({ back: "/app/progress", backLabel: t("nav.progress"), eyebrow: t("nav.progress"), title: t("cert.title") })}</div>`;
   if (!a.signedIn || !user) {
-    root.innerHTML = `<div class="card stack center"><div style="font-size:2.4rem">🎓</div><h2>${esc(t("cert.title"))}</h2>
-      <p class="muted">${esc(t("cert.signin"))}</p><a class="btn primary" href="/app/signin?next=/app/certificate" data-link>${esc(t("signin"))}</a></div>`;
+    root.innerHTML = `${head}<section class="panel lockcard stack"><div class="lock-ic">${icon("award")}</div>
+      <p class="panel-sub">${esc(t("cert.signin"))}</p><a class="btn primary" href="/app/signin?next=/app/certificate" data-link>${esc(t("signin"))}</a></section>`;
     return;
   }
   if (!st.ready) {
-    root.innerHTML = `<div class="card stack center"><div style="font-size:2.4rem">🎓</div><h2>${esc(t("cert.title"))}</h2>
-      <p class="muted">${esc(t("cert.locked", { n: final.n, need: st.need, total: st.total }))}</p>
-      <div class="bar" style="width:100%" aria-hidden="true"><i style="width:${Math.round((daysDone / cat.days.length) * 100)}%"></i></div>
+    root.innerHTML = `${head}<section class="panel lockcard stack"><div class="lock-ic">${icon("award")}</div>
+      <p class="panel-sub">${esc(t("cert.locked", { n: final.n, need: st.need, total: st.total }))}</p>
+      <div class="progressbar" aria-hidden="true"><div class="progressbar-fill" style="width:${Math.round((daysDone / cat.days.length) * 100)}%"></div></div>
       <p class="small muted">${esc(t("cert.progress", { done: daysDone, total: cat.days.length }))}</p>
-      <a class="btn primary" href="/app/day/${st.next.n}" data-link>${esc(t("cert.continue", { n: st.next.n }))}</a></div>`;
+      <a class="btn primary" href="/app/day/${st.next.n}" data-link>${esc(t("cert.continue", { n: st.next.n }))}</a></section>`;
     return;
   }
 
   const name = (user.name || "").trim();
   const num = certNumber(user.uid, doneAt);
   root.innerHTML = `
-    <div class="pagehead no-print"><h1>${esc(t("cert.title"))}</h1></div>
-    ${name ? "" : `<div class="card accent no-print stack" style="margin-bottom:12px"><p style="margin:0">${esc(t("cert.needName"))}</p><a class="btn sm" href="/app/profile" data-link>${esc(t("nav.profile"))}</a></div>`}
+    ${head}
+    ${name ? "" : `<div class="card accent no-print stack"><p style="margin:0">${esc(t("cert.needName"))}</p><a class="btn sm" href="/app/settings" data-link>${esc(t("nav.settings"))}</a></div>`}
     <article class="cert" aria-label="${esc(t("cert.title"))}">
       <div class="cert-in">
         <div class="cert-brand">${icon("truck", "ico")} TruckTalk</div>

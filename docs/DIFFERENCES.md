@@ -22,7 +22,10 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | Admin | Dashboards load the whole user list live | Server-side search and filters, payments (incl. unmatched), Telegram leads, audit log of every change, marketing links |
 | Weak signal | Waits for the network with no time limit | Falls back to the saved copy after 3.5 seconds |
 | Security headers | No Content-Security-Policy | Strict CSP, no inline scripts (checked automatically) |
-| Tests | 7 test files, no CI | 43 automated tests, a 15-step browser walkthrough at phone size, CI on every push |
+| Screens | Home, Lessons, Homework, Progress, Settings; lessons in tabs (Words, Conversation, Grammar, Quiz) | The same screens, laid out the same way, with Practice added as a sixth tab, and more on each screen (see "Built like the main app, then better" below) |
+| Look | TruckTalk brand: navy hero cards, week cards, a road of lesson dots | The same navy look and cards on every screen (including the ones the main app doesn't have), fonts served by the app itself, light and dark themes that both work |
+| Practice | Inside each lesson: flip cards, fill in the blank, word matching, a role-play spoken into the mic | The same inside each lesson (flip cards, match the pairs, fill in the blank, a spoken role-play where you pick your part and can hide your lines), plus a Practice tab: spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear), conversation practice with an AI officer, dispatcher, broker and others, and the AI teacher |
+| Tests | 7 test files, no CI | 66 automated tests, a 22-step browser walkthrough at phone size, CI on every push |
 | Trying it | Needs Firebase and keys | `npm run dev` runs everything with nothing set up |
 
 ## Every finding from the review, and what v2 does
@@ -51,9 +54,71 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | L3 | Staff can fake who did a reset | The server writes the audit log with the caller's own account |
 | L4 | The Android app bundles an old copy of the site | v2 installs as a web app from the browser and always runs the current version |
 | L5 | Stale branches | Fresh repository |
-| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 43 tests cover access, payments, webhooks, grading, sync and the HTTP server; CI runs them plus the browser walkthrough |
+| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 66 tests cover access, payments, webhooks, grading, sync, practice, lesson games and quizzes and the HTTP server; CI runs them plus the browser walkthrough |
 
 ## New in v2
+
+**Built like the main app, then better** (third round, 16 Nov 2026). The main TruckTalk app was the draft: v2 now has
+its screens, in the same order and the same layout, and each one does more.
+
+| Screen | Like the main app | Better in v2 |
+|---|---|---|
+| Tab bar | Home, Lessons, Homework, Progress, Settings | Practice added (listening, games, conversation practice, the AI teacher); labels fit on a 320-pixel phone in all three languages |
+| Home | Greeting, progress ring, the next lesson with Continue, streak, XP, the road of 60 lesson dots, the weeks | Today's XP against your daily goal, homework done, the review words waiting, a "Practice for the road" row, the trial and plan line |
+| Lessons | Grammar and videos tiles, orientation and 12 week cards | A pager between weeks, how many words a week teaches, partial progress on a day ("2 of 4 parts done"), a link to the week's homework |
+| A lesson | Words / Conversation / Grammar / Quiz tabs; review days get Practice / Conversation / Review quiz | Each tab is ticked when done and the lesson opens at the first one you haven't done; the Conversation tab has the dialogue, a role-play you speak into the mic and a speaking check marked by AI; the quiz adds word questions of three kinds (meaning, English, by ear) to the lesson's own, graded on the server, and the words you miss go back into Review |
+| Homework | 20-word sessions cut from the whole word list, then a quiz | One session per lesson, with that lesson's words (52 sessions), locked like the lesson; the quiz mixes fill-in-the-blank from the lesson's own sentences with word questions; missed words go into Review; a search over every course word and video phrase |
+| Progress | Four numbers, the certificate, the grammar book, completed days | Plus the last 7 days of XP against your goal, homework, grammar, videos, role-plays and review at a glance, the quizzes worth taking again, and badges |
+| Settings | Language, translations, theme, speech rate, voice, daily goal, install, name, account | The same rows, plus your plan and what it includes, progress backup with "sync now", Telegram, and the admin link for staff |
+| Grammar book | 33 units by topic | Unit pager, the rule in a box, the explanation in your language with one tap to the other, the quiz graded on the server, best score kept |
+| Everything else | — | Practice, Listen in the truck, Conversation practice, Review, the AI teacher, the 50 video lessons, plans and the certificate all use the same page heads and cards |
+
+Fixed along the way: a lesson quiz that failed to show its own questions, cut-off tab names on small phones, and
+grammar shown in Uzbek on the English screen.
+
+**A new look, and lessons that teach more** (second round, 16 Nov 2026):
+
+- **Home**: a greeting, a progress ring, the next lesson with one big Continue button, the streak, today's XP against
+  the daily goal and the words waiting for review, then the highway: a road with the truck where the student is and
+  12 exit signs, one per week, that turn green as the weeks are done.
+- **Course map**: the same road and the next lesson on top, then orientation and the 12 weeks; a week opens to its
+  five days, finished days show their quiz score, and the current week is open.
+- **Inside each lesson**: a header with the week, the time it takes and progress through the five steps. Words come
+  as flip cards (word on the front; meaning, example and its translation on the back) or a list, with "listen to
+  all". Under them, **match the pairs** and **fill in the blank**: the day's own example sentences with the word left
+  out, four choices, and the whole sentence read aloud after the answer (it works for 984 of the 1,020 words, keeps
+  names and acronyms capitalised, and never lets a capital letter give the answer away).
+- **Role-play** under every dialogue: pick your part (the driver by default), optionally hide your lines, then the
+  other person speaks in a natural voice and you answer into the mic; each line is scored word by word, and at the end
+  you can swap parts. Phones without speech recognition get an "I said it" button instead.
+- **Finishing a day** gets a celebration with the XP earned, the streak and how many words went into review.
+- **Brand and type**: the truck logo and "Truck Talk: English for the road" in the top bar, Oswald for headings and
+  Inter for text (both served by the app, so they work offline and in Uzbek and Russian), a proper dark theme.
+
+**Practice for drivers** (the Practice tab; added 16 Nov 2026):
+
+- **Listen in the truck.** A hands-free player for the road: the English phrase, its meaning (the Uzbek teacher's
+  natural voice, or the phone's Russian voice), a pause to say it out loud, then the English again a little slower.
+  Any video lesson, course day or the student's own review words; shuffle, loop, longer pauses. Keeps the screen on
+  and answers headphone and steering-wheel buttons where the phone allows it. A safety note says to set it up before
+  driving.
+- **Numbers and spelling by ear.** The voice reads what dispatchers, brokers and officers actually say (load and PO
+  numbers, phone numbers, appointment times, weights, bridge heights, rates per mile, mile markers, reefer
+  temperatures, addresses, the radio alphabet) and the student types it. The check forgives how it's typed ("2:30 pm",
+  "14:30", "13 6", "80k") but not a wrong number, then shows the sentence and how it was said.
+- **Conversation practice.** 11 situations from a driver's week: a police stop, a DOT inspection, checking in at a
+  shipper, arriving late at a receiver, calling dispatch, negotiating with a broker, a breakdown call, the repair shop,
+  the DOT physical, a truck stop, a job interview. Claude plays the other person in simple spoken English and, after
+  every line, says whether it was right, gives the smallest fix and why (in Uzbek or Russian), and suggests what to say
+  next. Speak or type. A conversation counts as one AI use; the server keeps its line count (8 at most), so it can't
+  be stretched into free AI calls. Corrections are listed at the end to practise.
+- **Four quick games** from what the student can already open: listen and choose, match the pairs, build the
+  sentence, and say it (the phone's speech recognition shows which words came through). A phrase the student gets
+  wrong goes into their review deck, so it comes back at the right time.
+- **Practice** is a tab of its own (review is inside Practice and on the home screen), and the home screen has a
+  "Practice for the road" row. The AI teacher is on the Practice page.
+
+**Everything else new:**
 
 - **A front door for video viewers.** The landing page explains the course in Uzbek, Russian or English, lists all 50
   video lessons, and has a box: type the number from the video, land in that lesson. Each lesson page plays every line
@@ -66,8 +131,8 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 - **Telegram bot**: lesson by number, `TRUCK` welcome, prices, sign-in links, connecting Telegram to an existing account,
   and leads by source.
 - **AI teacher** checks a sentence or answers a question in Uzbek or Russian, with clear daily limits per plan.
-- **Profile**: plan and limits, six stats, badges, voice and speed, daily goal, light or dark theme, install button,
-  Telegram connect, sync status.
+- **Settings and Progress** (in place of the earlier Profile): plan and limits, voice and speed, daily goal, light or
+  dark theme, install button, Telegram connect, sync status; stats, the week's XP, badges and quizzes to redo.
 - **Certificate** after the final road test (as before), now printable to PDF and shareable.
 - **Admin**: overview with revenue and today's AI and voice use, students with search and filters, a student page
   (progress, quiz results, payments, voice calls, grant or revoke a plan, role, block, reset trial, notes), payments
@@ -85,11 +150,9 @@ Say which of these you want and they can be added to v2:
   separate `trucktalk-teachers` classroom site is untouched and keeps working; the Pro plan's live classes are meant to
   run there. In v2, teachers can look at every student's progress and quiz results in the admin.
 - **Lesson presentations narrated in Uzbek** (the slide mode where the teacher's voice explains each lesson).
-- **Practice games** (fill in the blank, word matching). v2 has the quiz, speaking practice and spaced review instead.
 - **Manager role, approval queue and calendar.** v2 has student, teacher and admin, and no approval step: free lessons
   are open, paid ones need a plan.
 - **The Android app.** v2 installs from the browser as an app (home-screen icon, works offline).
-- **The mile-marker progress map.** v2 shows the course by weeks with progress bars and stats.
 
 ## If you decide to switch to v2
 

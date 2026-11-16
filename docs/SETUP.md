@@ -74,12 +74,12 @@ How it behaves: a payment adds its days after any time already paid; a refund, d
 
 1. [console.anthropic.com](https://console.anthropic.com) → API key → `ANTHROPIC_API_KEY`.
 2. **Set a monthly spend limit** in the Anthropic console. That is the hard stop; the app's limits are the soft ones.
-3. Limits in the app (stored in the database, so they hold across server instances): per person per day free 3, trial 15, Self 40, Pro 100, staff 200 (`public/js/shared/plans.js`), and `AI_DAILY_LIMIT` for everyone together (default 3000). Inputs are capped at 400 characters.
+3. Limits in the app (stored in the database, so they hold across server instances): per person per day free 3, trial 15, Self 40, Pro 100, staff 200 (`public/js/shared/plans.js`), and `AI_DAILY_LIMIT` for everyone together (default 3000). Inputs are capped at 400 characters. A conversation practice counts as one use for the student (up to 8 lines), and each line counts against `AI_DAILY_LIMIT`.
 4. Model: `claude-haiku-5-5` by default (fast and cheap for short corrections). `TUTOR_MODEL` changes it.
 
 ## 6. Natural voice and the voice teacher (ElevenLabs)
 
-1. `ELEVENLABS_API_KEY` turns on natural voices for lesson phrases. Each phrase is generated once and cached by the CDN and on each phone. Only canonical URLs for phrases in the course are answered, so it can't be used as a free text-to-speech service or made to regenerate audio. `TTS_DAILY_CHARS` (default 60000) caps new audio per day. Without a key the app uses the phone's own voice. (`OPENAI_API_KEY` is an alternative for English.)
+1. `ELEVENLABS_API_KEY` turns on natural voices for lesson phrases. Each phrase is generated once and cached by the CDN and on each phone. Only canonical URLs for phrases in the course are answered, so it can't be used as a free text-to-speech service or made to regenerate audio. `TTS_DAILY_CHARS` (default 60000) caps new audio per day. Without a key the app uses the phone's own voice. The Uzbek list includes the meanings that "Listen in the truck" reads out (about 80,000 characters in all, each generated once): raise `TTS_DAILY_CHARS` for the first days if you want them ready sooner; until then the player shows those meanings on screen. (`OPENAI_API_KEY` is an alternative for English.)
 2. Voice teacher: create an agent from `elevenlabs/teacher.agent.json` (ElevenLabs → Agents → New → import, or `npx @elevenlabs/cli agents push`). Keep **authentication on** (`enable_auth: true`) so only links signed by your server can start a call. Put its id in `ELEVENLABS_AGENT_ID`.
 3. Minutes: Self 30, Pro 300 per 30 days. Each call reserves up to 10 minutes up front and is settled from ElevenLabs' own record of the call, so closing the tab or a modified app can't make calls free. `VOICE_DAILY_MINUTES` (default 240) caps all calls together per day. Also set a usage limit in ElevenLabs.
 
@@ -94,7 +94,7 @@ How it behaves: a payment adds its days after any time already paid; a refund, d
    ```
 4. Try it: send `/start`, `12`, `TRUCK` and `/login` to the bot.
 
-What the bot does: `t.me/<bot>?start=v12` (or just "12") sends lesson 12's key phrases and a link to it; `TRUCK` or `/start` sends the welcome with the free lessons, the course and prices; `/login` sends a one-time sign-in link (single use, 10 minutes); a signed-in student can connect Telegram from their profile. Every first contact is saved as a lead with its source (which video, the landing page...), visible under **Admin → Telegram leads**.
+What the bot does: `t.me/<bot>?start=v12` (or just "12") sends lesson 12's key phrases and a link to it; `TRUCK` or `/start` sends the welcome with the free lessons, the course and prices; `/login` sends a one-time sign-in link (single use, 10 minutes); a signed-in student can connect Telegram from Settings. Every first contact is saved as a lead with its source (which video, the landing page...), visible under **Admin → Telegram leads**.
 
 ## 8. Marketing links for the 50 videos
 

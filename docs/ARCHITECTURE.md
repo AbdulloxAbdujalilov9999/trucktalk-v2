@@ -114,6 +114,61 @@ Public, but only for the exact canonical URL of a phrase on the course's allowli
 gets a 400 that is never cached. Audio is cached for a year (`immutable`) by the CDN and the phone, so each phrase is
 generated once. A daily character budget caps new audio.
 
+## Practice (public/js/app/views/practice.js, listen.js, talk.js; public/js/shared/drills.js, scenes.js)
+
+- The games and the listening player use only what the student can already open (`public/js/app/items.js`): the free
+  video lessons, the words and example sentences of the days returned by `content?kind=words`, and their review cards.
+  Quiz answers never come into it. A wrong answer puts the phrase's card (`w:` or `v:`) back at the start of the review
+  deck.
+- `drills.js` has no screen attached, so the tests run the same code: numbers spoken the American way, drills, the
+  forgiving answer check, the speech comparison (longest common subsequence over normalised words), tiles and rounds.
+  Drills are random text, so they always use the phone's voice (`play(text, { device: true })`).
+- Listening: English through the natural voice when it's on; Uzbek meanings through the Uzbek natural voice (the
+  allowlist now includes the translations of every word, example and video phrase, about 80,000 characters, generated
+  once each); Russian meanings through the phone's Russian voice. The phone's voice has a time limit, so a phone that
+  never reports the end of an utterance can't stall the player. Screen Wake Lock and Media Session where supported.
+- Conversation practice: `POST /api/ai {action: "roleplay"}` (`roleplay()` in `lib/tutor.js`). The AI's instructions
+  are built on the server from `scenes.js`; the browser sends only the scene id, the conversation so far (checked:
+  `me`/`them` lines of at most 300 characters, at most 16) and the new line. The first line of a conversation takes one
+  AI use and gets an id; later lines with that id are free, but `usage/<day>/talk/<uid>/<id>` counts them and stops at
+  8. Every line also counts against `ai/_all`. Structured output (verdict, correction, note, reply, translation,
+  suggestions, done). Demo mode answers with each scene's own lines.
+
+## Inside a lesson (public/js/app/views/day.js; public/js/shared/lesson.js)
+
+- Word practice uses only the day's own words. `blankRound()` finds each word in its example sentence (whole words,
+  endings such as -s, -ed, -ing and 's, quotes around signs, a hyphen where the word has a space), cuts it out and
+  offers three other words of the day, written to fit the gap: capitalised at the start of a sentence, lower-case
+  otherwise, except acronyms, "I ..." phrases and names, which keep their capitals. Options that look like the answer are
+  picked first, so a capital letter never gives it away (the tests check this for every word of the course).
+- Role-play: the student picks a part (`defaultSpeaker()`: the driver, else the second speaker). The other part plays in
+  the natural voice, one line at a time; the student's line is heard by the phone's speech recognition and scored with
+  `compareSpeech()`. Each run has its own token from `audio.newRun()`, so Stop or leaving the page ends it cleanly, and
+  the mic silences any voice before it listens. Phones without speech recognition get "I said it".
+- Tabs, as in the main app: Words / Conversation / Grammar / Quiz, and on review days Practice / Conversation / Review
+  quiz. Each tab marks one step (`words`, `dialogue`, `grammar`, `quiz`); "Next" marks the tab you are on, and the
+  lesson opens at the first tab not yet done (`?tab=` opens a given one).
+- The quiz is the lesson's own questions, graded by `/api/quiz` (the answers never reach the browser before the student
+  answers), followed by word questions from `vocabRound()`: each word once, the kinds taking turns (what it means, how
+  to say it in English, which word you heard), wrong options taken from the same day's words, never two options that
+  read the same. Those are checked in the browser, and the words missed go to the start of the review deck.
+- Finishing the words step puts the day's words into the review deck. A day is done when all its steps are; it is then
+  marked and a celebration shows the XP earned, the streak and how many words went into review.
+
+## Homework (public/js/app/views/homework.js)
+
+One session per course day that has words (`homeworkDays()`), locked exactly when the day is. A session shows the day's
+words, then a quiz of up to 20 questions, each word asked once: fill in the blank from the day's own example sentences
+(`blankRound()`), then word questions (`vocabRound()`). The best score is kept as `quiz["hw:<day>"]` (the progress
+sanitizer accepts `hw:` and `rp:` keys), XP is given only for improving it, and missed words go to the review deck. The
+list also searches every course word the student can open and every video phrase.
+
+## Screens
+
+Every screen below the home page starts with the same head (`pageHead()` in `views/common.js`): a back button, an
+eyebrow, the title and its translation, a line about the page, and room for a picker or tabs. Game screens use a
+smaller version so the game stays on screen. Home, Practice and Homework open with the navy hero instead.
+
 ## Telegram (lib/telegram.js)
 
 Login links are HMAC-signed with `SESSION_SECRET`, expire in 10 minutes and are single use (`loginTokens/`). Linking an

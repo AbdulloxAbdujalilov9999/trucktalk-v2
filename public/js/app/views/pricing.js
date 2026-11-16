@@ -6,7 +6,7 @@ import { api, config } from "../api.js";
 import { state, refreshMe } from "../store.js";
 import { go, planLabel, startTrial } from "../main.js";
 import { PLANS, FEATURES, planById } from "../../shared/plans.js";
-import { trialLine } from "./common.js";
+import { trialLine, pageHead } from "./common.js";
 
 const BEFORE_KEY = "tt2:paid-before";
 
@@ -80,8 +80,7 @@ export default async function pricing(root, _p, { query }) {
 
   function paint() {
     root.innerHTML = `
-      <div class="pagehead"><h1>${esc(t("pricing.title"))}</h1></div>
-      <p class="muted">${esc(t("pricing.sub"))}</p>
+      ${pageHead({ back: "/app/settings", backLabel: t("nav.settings"), eyebrow: t("profile.account"), title: t("pricing.title"), sub: esc(t("pricing.sub")) })}
       <div class="stack-lg">
         ${statusCard()}
         ${cfg.demo ? `<div class="note small">${esc(t("pricing.demo"))}</div>` : ""}

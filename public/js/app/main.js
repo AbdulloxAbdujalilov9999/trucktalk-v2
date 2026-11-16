@@ -14,13 +14,17 @@ const views = {
   home: () => import("./views/home.js"),
   course: () => import("./views/course.js"),
   day: () => import("./views/day.js"),
+  homework: () => import("./views/homework.js"),
+  progress: () => import("./views/progress.js"),
+  settings: () => import("./views/settings.js"),
   grammar: () => import("./views/grammar.js"),
   videos: () => import("./views/videos.js"),
   video: () => import("./views/video.js"),
   review: () => import("./views/review.js"),
-  words: () => import("./views/words.js"),
+  practice: () => import("./views/practice.js"),
+  listen: () => import("./views/listen.js"),
+  talk: () => import("./views/talk.js"),
   teacher: () => import("./views/teacher.js"),
-  profile: () => import("./views/profile.js"),
   pricing: () => import("./views/pricing.js"),
   signin: () => import("./views/signin.js"),
   certificate: () => import("./views/certificate.js"),
@@ -28,21 +32,40 @@ const views = {
 const ROUTES = [
   [/^\/app\/?$/, "home"],
   [/^\/app\/course\/?$/, "course"],
+  [/^\/app\/course\/(\d{1,2})\/?$/, "course"],
   [/^\/app\/day\/(-?\d{1,2})\/?$/, "day"],
+  [/^\/app\/homework\/?$/, "homework"],
+  [/^\/app\/homework\/(-?\d{1,2})\/?$/, "homework"],
+  [/^\/app\/words\/?$/, "homework"],             // the old phrasebook: its search is part of Homework now
+  [/^\/app\/progress\/?$/, "progress"],
+  [/^\/app\/(?:settings|profile)\/?$/, "settings"],
   [/^\/app\/grammar\/?$/, "grammar"],
   [/^\/app\/grammar\/([a-z0-9-]+)\/?$/, "grammar"],
   [/^\/app\/videos\/?$/, "videos"],
   [/^\/(?:app\/videos|v)\/(\d{1,2})\/?$/, "video"],
   [/^\/app\/review\/?$/, "review"],
-  [/^\/app\/words\/?$/, "words"],
+  [/^\/app\/practice\/?$/, "practice"],
+  [/^\/app\/practice\/(numbers|listen|match|build|say)\/?$/, "practice"],
+  [/^\/app\/listen\/?$/, "listen"],
+  [/^\/app\/talk\/?$/, "talk"],
+  [/^\/app\/talk\/([a-z]{2,20})\/?$/, "talk"],
   [/^\/app\/teacher\/?$/, "teacher"],
-  [/^\/app\/profile\/?$/, "profile"],
   [/^\/app\/pricing\/?$/, "pricing"],
   [/^\/app\/signin\/?$/, "signin"],
   [/^\/app\/certificate\/?$/, "certificate"],
 ];
-const TABS = [["home", "/app", "home"], ["course", "/app/course", "book"], ["videos", "/app/videos", "video"], ["review", "/app/review", "repeat"], ["profile", "/app/profile", "user"]];
-const TOP = [["home", "/app"], ["course", "/app/course"], ["videos", "/app/videos"], ["grammar", "/app/grammar"], ["review", "/app/review"], ["words", "/app/words"], ["teacher", "/app/teacher"], ["profile", "/app/profile"]];
+// The main navigation, as in the main TruckTalk app: pills in the header, a bottom bar on phones.
+const NAV = [
+  ["home", "/app", "dashboard", "nav.home"],
+  ["course", "/app/course", "lessons", "nav.lessons"],
+  ["homework", "/app/homework", "homework", "nav.homework"],
+  ["practice", "/app/practice", "target", "nav.practice"],
+  ["progress", "/app/progress", "progress", "nav.progress"],
+  ["settings", "/app/settings", "settings", "nav.settings"],
+];
+// which menu item lights up for a screen that has none of its own
+const NAV_OF = { day: "course", grammar: "course", videos: "course", video: "course", review: "practice", listen: "practice", talk: "practice",
+  teacher: "practice", certificate: "progress", pricing: "settings", signin: "settings" };
 
 // ---------------------------------------------------------------- shared helpers for views
 let catalogP = null, videosP = null;
@@ -98,18 +121,27 @@ export function planLabel(access) {
 
 // ---------------------------------------------------------------- shell
 function renderShell(name) {
-  document.getElementById("tabbar").innerHTML = TABS.map(([k, href, ic]) =>
-    `<a href="${href}" data-link class="${k === name || (k === "videos" && name === "video") ? "on" : ""}">${icon(ic)}<span>${esc(t("nav." + k))}</span></a>`).join("");
+  const on = NAV_OF[name] || name;
   const staff = state.me.access && state.me.access.staff;
-  document.getElementById("topnav").innerHTML = TOP.map(([k, href]) =>
-    `<a href="${href}" data-link class="${k === name || (k === "videos" && name === "video") ? "on" : ""}">${esc(t("nav." + k))}</a>`).join("") +
-    (staff ? `<a href="/admin">${esc(t("nav.admin"))}</a>` : "");
+  document.getElementById("mainNav").innerHTML = NAV.map(([k, href, ic, label]) =>
+    `<a class="navbtn${k === on ? " on" : ""}" href="${href}" data-link${k === on ? ' aria-current="page"' : ""}>${icon(ic)}<span>${esc(t(label))}</span></a>`).join("") +
+    (staff ? `<a class="navbtn staff" href="/admin">${icon("shield")}<span>${esc(t("nav.admin"))}</span></a>` : "");
   const tier = state.me.access && state.me.access.tier;
   document.getElementById("planchip").innerHTML = tier && tier !== "anon" && tier !== "free" ? `<span class="chip-plan ${esc(tier)}">${esc(planLabel(state.me.access))}</span>` : "";
+  const sub = document.getElementById("brandsub");
+  if (sub) sub.textContent = t("brand.sub");
   document.getElementById("langsw").innerHTML = ["uz", "ru", "en"].map((l) => `<button data-lang="${l}" class="${l === lang() ? "on" : ""}" aria-pressed="${l === lang()}">${l.toUpperCase()}</button>`).join("");
 }
 
-let cleanup = null, renderSeq = 0;
+let cleanup = null, renderSeq = 0, enterTimer = 0;
+/** A soft entrance when a screen opens; taken off again so redraws inside the screen don't replay it. */
+function enter() {
+  clearTimeout(enterTimer);
+  root.classList.remove("enter");
+  void root.offsetWidth;
+  root.classList.add("enter");
+  enterTimer = setTimeout(() => root.classList.remove("enter"), 700);
+}
 export async function render() {
   const my = ++renderSeq;
   stop();
@@ -123,13 +155,14 @@ export async function render() {
     const mod = await views[name]();
     if (my !== renderSeq) return;
     root.innerHTML = "";
+    enter();
     const c = await mod.default(root, params, { query: new URLSearchParams(location.search) });
     if (my !== renderSeq) { if (typeof c === "function") c(); return; }
     cleanup = typeof c === "function" ? c : null;
   } catch (e) {
     console.error(e);
     if (my === renderSeq) {
-      root.innerHTML = `<div class="card empty"><p>${esc(t("error.generic"))}</p><button class="btn" id="reloadBtn">${esc(t("retry"))}</button></div>`;
+      root.innerHTML = `<div class="panel empty"><p>${esc(t("error.generic"))}</p><button class="btn" id="reloadBtn">${esc(t("retry"))}</button></div>`;
       document.getElementById("reloadBtn").addEventListener("click", () => location.reload());
     }
   }
@@ -141,11 +174,13 @@ document.addEventListener("click", (e) => {
   const a = e.target.closest("a[data-link]");
   if (a && !e.metaKey && !e.ctrlKey && !e.shiftKey && a.origin === location.origin) {
     e.preventDefault();
-    if (a.pathname + a.search !== location.pathname + location.search) go(a.pathname + a.search);
+    if (a.pathname + a.search !== location.pathname + location.search) go(a.pathname + a.search + a.hash);
+    else if (a.hash) { const el = document.getElementById(a.hash.slice(1)); if (el) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
+    else window.scrollTo({ top: 0, behavior: "smooth" });   // the open screen's menu item: back to the top
     return;
   }
   const s = e.target.closest('[data-act="say"]');
-  if (s) { e.preventDefault(); play(s.dataset.t, { lang: s.dataset.lang || "en", gender: s.dataset.g || undefined }); return; }
+  if (s) { e.preventDefault(); play(s.dataset.t, { lang: s.dataset.lang || "en", gender: s.dataset.g || undefined, device: s.dataset.device === "1" }); return; }
   const l = e.target.closest("#langsw [data-lang]");
   if (l) { setLang(l.dataset.lang); render(); if (currentUser()) api("me", { method: "POST", body: { action: "update", lang: l.dataset.lang } }).catch(() => {}); }
 });

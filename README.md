@@ -1,6 +1,6 @@
 # TruckTalk v2
 
-English for truck drivers working in the USA: a 60-day course, 50 short video lessons, a grammar book, spaced review, an AI teacher and a live voice teacher. Uzbek first, Russian and English too.
+English for truck drivers working in the USA: a 60-day course, 50 short video lessons, a grammar book, spaced review, hands-free listening for the road, practice games, conversation practice with an AI police officer, dispatcher or broker, an AI teacher and a live voice teacher. Uzbek first, Russian and English too.
 
 This is a rebuild of the current TruckTalk (`truck-talk-webapp`), made to compare against it. The current app is untouched. SpeakUp is not part of this version. **[docs/DIFFERENCES.md](docs/DIFFERENCES.md)** lists what changed and why.
 
@@ -21,7 +21,13 @@ Demo mode has buttons to sign in as a student, a teacher or an admin, and a pret
 |---|---|---|
 | Landing page | `/` (`public/index.html`) | Explains the course, links all 50 video lessons, and has a box where a viewer types the lesson number from a video |
 | Video lessons | `/v/1` … `/v/50` | Every line with audio and translation, a self-test, and "add to review". Free, no sign-up |
-| The course | `/app` | 5 orientation days + 60 days (words, dialogue, tip, quiz graded by the server, speaking), grammar book (33 units), phrasebook, spaced review, streaks, XP, badges, certificate |
+| The course | `/app`, `/app/course` | Laid out like the main TruckTalk app: home, the lessons by week, and each day in tabs (Words, Conversation, Grammar, Quiz; review days: Practice, Conversation, Review quiz). 5 orientation days + 60 days, quiz graded by the server, spoken role-play, grammar book (33 units), certificate |
+| Homework | `/app/homework` | One session per lesson: study the day's words, then a quiz (fill in the blank and word questions). Search over every course word and video phrase |
+| Progress and settings | `/app/progress`, `/app/settings` | Stats, the week's XP against your goal, quizzes worth retaking, badges; language, translations, theme, voice and speed, daily goal, plan, backup, Telegram |
+| Practice | `/app/practice` | Hub for everything below, plus spaced review |
+| Listen in the truck | `/app/listen` | Hands-free player: English, its meaning (Uzbek natural voice or the phone's Russian voice), a pause to repeat, the English again slower. Keeps the screen on, works with headphone and steering-wheel buttons |
+| Practice games | `/app/practice/<game>` | Trucking numbers and spelling read aloud (load and PO numbers, phone numbers, appointment times, weights, bridge heights, rates, mile markers, reefer temps, the radio alphabet), listen and choose, match the pairs, build the sentence, say it (speech recognition). Mistakes go to the review deck |
+| Conversation practice | `/app/talk` | 11 real situations (police stop, DOT inspection, shipper, late at the receiver, dispatcher, broker, breakdown, repair shop, DOT physical, truck stop, job interview). Claude plays the other person and coaches every line. One AI use per conversation |
 | AI teacher | `/app/teacher` | Claude checks a sentence or answers a question, in Uzbek or Russian. Daily limits per plan |
 | Voice teacher | `/app/teacher?tab=voice` | Live spoken lesson (ElevenLabs agent). Paid plans, minutes counted by the server |
 | Pricing and checkout | `/app/pricing` | Free, trial (3 days, once per person), Self and Pro plans for 1 or 3 months via Whop; optional manual payment |
@@ -35,7 +41,7 @@ Free without paying: the orientation days, days 1–3, the first grammar units a
 ```bash
 npm run dev            # demo mode on :3000
 npm start              # production server (Render or any Node host); Vercel uses api/ directly
-npm test               # 43 unit and integration tests (node:test), incl. the real HTTP server in demo mode
+npm test               # 66 unit and integration tests (node:test), incl. the real HTTP server in demo mode
 npm run check          # content files up to date, offline list complete, no inline scripts, every UI string translated
 npm run e2e            # phone-size browser walkthrough with screenshots (needs Playwright; see e2e/run.mjs)
 npm run build:content  # rebuild content/ and public/data/ from sources/ (course, grammar, 50 video scripts)

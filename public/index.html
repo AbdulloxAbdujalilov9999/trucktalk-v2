@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title data-k="land.title">TruckTalk — Amerikadagi trakchilar uchun ingliz tili</title>
 <meta name="description" data-k-content="land.desc" content="Amerikada ishlayotgan trakchilar uchun ingliz tili: 50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi va ovozli mashq.">
-<meta name="theme-color" content="#0f2742">
+<meta name="theme-color" content="#10325a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1d36" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TruckTalk">
 <meta property="og:description" data-k-content="land.desc" content="Amerikada ishlayotgan trakchilar uchun ingliz tili: 50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi va ovozli mashq.">
@@ -13,13 +14,15 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/app.css">
 <script type="module" src="/js/landing.js"></script>
 </head>
 <body class="landing">
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="/"><span class="mark">TT</span><span>TruckTalk</span></a>
+    <a class="brand" href="/" aria-label="TruckTalk"><img class="logo" src="/icons/icon-192.png" alt="" width="36" height="36"><span class="brand-txt"><b>TRUCK TALK</b><small data-k="brand.sub">Yoʻl uchun ingliz tili</small></span></a>
     <nav class="topnav" aria-label="Main">
       <a href="#videos" data-k="land.navVideos">Video darslar</a>
       <a href="#pricing" data-k="land.pricing">Narxlar</a>

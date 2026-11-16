@@ -1,81 +1,106 @@
-/* Home: where you left off, today's goal, review, the next video lesson, and the trial/plan offer. */
-import { t, pick, fmtDate } from "../i18n.js";
-import { esc, icon, bar, onAct } from "../ui.js";
+/* Home, laid out like the main TruckTalk app's dashboard: a greeting with the progress ring, the next lesson and today's
+ * numbers; the course as a highway of 60 days; the 12 weeks. Added on top: a line about the plan or signing in, and three
+ * kinds of practice for the road one tap away. */
+import { t, fmtDate } from "../i18n.js";
+import { esc, icon, onAct } from "../ui.js";
 import { state, xpToday, goal } from "../store.js";
-import { catalog, videos, startTrial, planLabel } from "../main.js";
-import { streak, daysDone, dueCards } from "../../shared/progress.js";
-import { trialLine } from "./common.js";
+import { catalog, startTrial, planLabel, showLock } from "../main.js";
+import { streak, dueCards } from "../../shared/progress.js";
+import { trialLine, courseState, weekStats, ring, titleParts, weekCard, isDone, isLocked, homeworkStats, dayParts } from "./common.js";
+
+function greeting(h = new Date().getHours()) {
+  return t(h < 12 ? "greet.morning" : h < 18 ? "greet.afternoon" : "greet.evening");
+}
+
+/** The note above the hero: sign in to keep progress, start the free trial, days left, or what a free account gets. */
+function banner(a) {
+  const box = (ic, title, sub, action) => `<section class="trial-banner">
+    <span class="trial-banner-ico">${icon(ic)}</span>
+    <div class="trial-banner-text"><p class="trial-banner-days">${esc(title)}</p>${sub ? `<p class="trial-banner-sub">${esc(sub)}</p>` : ""}</div>
+    ${action}</section>`;
+  if (!a.signedIn) return box("shield", t("home.saveProgress"), t("home.saveProgressSub"), `<a class="btn primary sm" href="/app/signin" data-link>${esc(t("signin"))}</a>`);
+  if (a.canStartTrial) return box("gift", t("trial.cta"), t("trial.sub"), `<button class="btn primary sm" data-act="trial">${esc(t("trial.start"))}</button>`);
+  if (a.tier === "trial") return box("clock", trialLine(a), t("home.trialSub"), `<a class="btn primary sm" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a>`);
+  if (a.tier === "free" && a.trialUsed) return box("lock", t("home.freeTitle"), t("lock.body"), `<a class="btn primary sm" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a>`);
+  return "";
+}
 
 export default async function home(root) {
-  const [cat, vids] = await Promise.all([catalog(), videos()]);
+  const cat = await catalog();
   const p = state.progress, a = state.me.access, user = state.me.user;
-  const first = user && user.name ? user.name.split(" ")[0] : null;
-  const days = cat.days;
-  const next = days.find((d) => !(p.days[d.n] && p.days[d.n].done)) || days[days.length - 1];
-  const started = days.some((d) => p.days[d.n]);
-  const orientDone = cat.orientation.days.filter((d) => p.days[d.n] && p.days[d.n].done).length;
+  const first = user && user.name ? user.name.trim().split(/\s+/)[0] : "";
+  const cs = courseState(cat, p), next = cs.next, pct = Math.round(cs.pct);
+  const weeks = weekStats(cat, p, next);
+  const hw = homeworkStats(cat, p);
   const due = dueCards(p).length;
-  const xp = xpToday(), g = goal();
-  const nextVideo = vids.find((v) => !(p.videos[v.n] && p.videos[v.n].seen)) || vids[0];
-  const nextLocked = !next.free && !a.full;
+  const xp = xpToday(), g = goal(), st = streak(p);
+  const nt = titleParts(next.title);
+  const nextLocked = isLocked(next, a);
+  const orientLeft = cat.orientation.days.filter((d) => !isDone(p, d.n));
 
-  let banner = "";
-  if (!a.signedIn) {
-    banner = `<div class="card accent row wrap-row"><div class="grow"><b>${esc(t("home.saveProgress"))}</b></div><a class="btn dark" href="/app/signin" data-link>${esc(t("signin"))}</a></div>`;
-  } else if (a.canStartTrial) {
-    banner = `<div class="card accent stack"><div class="row">${icon("gift")}<b class="grow">${esc(t("trial.cta"))}</b></div><p class="small muted" style="margin:0">${esc(t("trial.sub"))}</p><button class="btn primary" data-act="trial">${esc(t("trial.start"))}</button></div>`;
-  } else if (a.tier === "trial") {
-    banner = `<div class="card accent row wrap-row"><div class="grow"><b>${esc(trialLine(a))}</b></div><a class="btn dark" href="/app/pricing" data-link>${esc(t("nav.pricing"))}</a></div>`;
-  } else if (a.tier === "free" && a.trialUsed) {
-    banner = `<div class="card accent row wrap-row"><div class="grow"><b>${esc(t("lock.body"))}</b></div><a class="btn dark" href="/app/pricing" data-link>${esc(t("lock.seePlans"))}</a></div>`;
-  }
+  const dots = cat.days.map((d) => {
+    const done = isDone(p, d.n), locked = isLocked(d, a);
+    const cls = ["dot", done ? "done" : locked ? "locked" : "unlocked", d.review ? "rev" : "", d.n === next.n && !done ? "next" : ""].filter(Boolean).join(" ");
+    return `<a class="${cls}" href="/app/day/${d.n}" ${locked ? `data-act="locked"` : "data-link"} title="${esc(t("lesson.title", { n: d.n, title: titleParts(d.title).main }))}">${d.n}</a>`;
+  }).join("");
 
   root.innerHTML = `
-  <div class="stack-lg">
-    <section class="card hero stack">
-      <div class="eyebrow" style="color:#ffd36b">${esc(t("home.tagline"))}</div>
-      <h1 style="margin:0">${esc(first ? t("home.hi", { name: first }) : t("home.hiAnon"))}</h1>
-      ${a.paidUntil ? `<div class="muted">${esc(t("paid.until", { plan: planLabel(a), date: fmtDate(a.paidUntil) }))}</div>` : ""}
-      <a class="btn primary" style="align-self:flex-start" href="/app/day/${next.n}" data-link>
-        ${icon("play")} ${esc(started ? t("home.continue") : t("home.startCourse"))}: ${esc(t("day", { n: next.n }))} · ${esc(pick(next.title))}
-        ${nextLocked ? icon("lock") : ""}
-      </a>
+    ${banner(a)}
+    <section class="hero-strip">
+      <div class="hero-top">
+        <div class="hero-left">
+          <p class="eyebrow">${esc(first ? greeting() : t("home.eyebrow"))}</p>
+          <h1 class="hwy-title">${esc(first || t("home.route"))}</h1>
+          <p class="hero-sub">${esc(cs.done ? t("home.driven", { n: cs.done, total: cs.total }) : t("home.letsStart"))}</p>
+        </div>
+        ${ring(pct, { label: t("course.progress", { done: cs.done, total: cs.total }) })}
+      </div>
+      ${a.paidUntil ? `<p class="hero-paid">${esc(t("paid.until", { plan: planLabel(a), date: fmtDate(a.paidUntil) }))}</p>` : ""}
+      <div class="upnext">
+        <div class="upnext-badge"><small>${esc(t("day.badge"))}</small><b>${next.n}</b></div>
+        <div class="upnext-text">
+          <p class="upnext-label">${esc(!cs.started ? t("home.startHere") : next.review ? t("home.upNextReview") : t("home.upNext"))}</p>
+          <h2>${esc(nt.main)}</h2>
+          ${nt.sub ? `<p class="upnext-tu">${esc(nt.sub)}</p>` : ""}
+          <p class="upnext-meta"><span>${icon("clock")} ${esc(t("lesson.partsMin", { n: dayParts(next).length, min: t(next.review ? "lesson.minReview" : "lesson.min") }))}</span>${nextLocked ? `<span>${icon("lock")} ${esc(t("locked"))}</span>` : next.free && !a.full ? `<span>${icon("gift")} ${esc(t("free"))}</span>` : ""}</p>
+        </div>
+        <a class="btn primary lg" href="/app/day/${next.n}" ${nextLocked ? `data-act="locked"` : "data-link"}>${esc(cs.started ? t("continue") : t("start"))} ${icon("arrowR")}</a>
+      </div>
+      <div class="hero-stats">
+        <a class="stat-tile" href="/app/progress" data-link><span class="stat-ico">${icon("flame")}</span><span class="stat-num">${st}</span><span class="stat-label">${esc(t("stat.streak"))}</span></a>
+        <div class="stat-tile${xp >= g ? " goal-hit" : ""}" title="${esc(t("home.goal", { n: g }))}"><span class="stat-ico">${icon(xp >= g ? "checkCircle" : "bolt")}</span><span class="stat-num">${xp}<span class="stat-den">/${g}</span></span><span class="stat-label">${esc(t("stat.xpToday"))}</span></div>
+        <a class="stat-tile" href="/app/homework" data-link><span class="stat-ico">${icon("homework")}</span><span class="stat-num">${hw.done}<span class="stat-den">/${hw.total}</span></span><span class="stat-label">${esc(t("nav.homework"))}</span></a>
+      </div>
+      ${a.signedIn && !first ? `<a class="hero-link" href="/app/settings" data-link>${esc(t("home.setName"))}</a>` : ""}
     </section>
-    ${banner}
-    <section class="stats">
-      <div class="stat"><b>${icon("flame", "ico")} ${streak(p)}</b><span>${esc(t("home.streak"))}</span></div>
-      <div class="stat"><b>${xp}<small class="muted" style="font-size:.8rem"> / ${g}</small></b><span>${esc(t("home.xpToday"))}</span>${bar((xp / g) * 100, xp >= g ? "ok" : "")}</div>
-      <div class="stat"><b>${daysDone({ days: Object.fromEntries(Object.entries(p.days).filter(([k]) => +k >= 1)) })}<small class="muted" style="font-size:.8rem"> / 60</small></b><span>${esc(t("home.daysDone"))}</span></div>
-      <div class="stat"><b>${due}</b><span>${esc(t("home.toReview"))}</span></div>
+
+    <section class="quick">
+      <a class="quick-tile" href="/app/listen" data-link><span class="quick-ico">${icon("headphones")}</span><span class="quick-t">${esc(t("listen.title"))}</span><span class="quick-s">${esc(t("home.listenSub"))}</span></a>
+      <a class="quick-tile" href="/app/talk" data-link><span class="badge info">AI</span><span class="quick-ico">${icon("talk")}</span><span class="quick-t">${esc(t("talk.title"))}</span><span class="quick-s">${esc(t("home.talkSub"))}</span></a>
+      <a class="quick-tile" href="/app/review" data-link>${due ? `<span class="badge warn">${due}</span>` : ""}<span class="quick-ico">${icon("cards")}</span><span class="quick-t">${esc(t("nav.review"))}</span><span class="quick-s">${esc(due ? t("home.reviewDue", { n: due }) : t("home.reviewSub"))}</span></a>
     </section>
-    ${xp >= g ? `<div class="card flat center"><b>${esc(t("home.goalDone"))}</b></div>` : ""}
-    <section class="grid grid-2">
-      <a class="card link stack" href="/app/review" data-link>
-        <div class="row">${icon("repeat")}<h3 style="margin:0">${esc(t("nav.review"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(due ? t("home.reviewReady", { n: due }) : t("home.reviewNone"))}</p>
-      </a>
-      <a class="card link stack" href="/v/${nextVideo.n}" data-link>
-        <div class="row">${icon("video")}<h3 style="margin:0">${esc(t("home.nextVideo"))}</h3></div>
-        <p style="margin:0"><b>${esc(t("lesson", { n: nextVideo.n }))}:</b> ${esc(nextVideo.title.uz)} <span class="muted">· ${esc(nextVideo.title.en)}</span></p>
-      </a>
-      ${orientDone < cat.orientation.days.length && !started ? `
-      <a class="card link stack" href="/app/day/${cat.orientation.days[orientDone].n}" data-link>
-        <div class="row">${icon("sign")}<h3 style="margin:0">${esc(t("orientation"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(t("orientation.sub"))}</p>
-      </a>` : ""}
-      <a class="card link stack" href="/app/teacher" data-link>
-        <div class="row">${icon("chat")}<h3 style="margin:0">${esc(t("nav.teacher"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(t("home.askTeacher"))}</p>
-      </a>
-      <a class="card link stack" href="/app/grammar" data-link>
-        <div class="row">${icon("book")}<h3 style="margin:0">${esc(t("grammar.title"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(t("grammar.sub"))}</p>
-      </a>
-      <a class="card link stack" href="/app/words" data-link>
-        <div class="row">${icon("search")}<h3 style="margin:0">${esc(t("words.title"))}</h3></div>
-        <p class="muted" style="margin:0">${esc(t("words.sub"))}</p>
-      </a>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>${esc(t("home.highway"))} <span class="mono">(${pct}%)</span></h2>
+        <p class="panel-sub">${esc(t("home.highwaySub"))}</p>
+      </div>
+      <div class="route"><div class="route-fill" style="width:${pct}%"></div><span class="route-truck" style="left:${Math.min(96, Math.max(4, pct))}%">${icon("truck")}</span></div>
+      <div class="road">${dots}</div>
+      <div class="legend">
+        <span><i class="sw done"></i>${esc(t("legend.done"))}</span>
+        <span><i class="sw unlocked"></i>${esc(t("legend.open"))}</span>
+        <span><i class="sw locked"></i>${esc(t("legend.locked"))}</span>
+        <span><i class="sw rev"></i>${esc(t("reviewDay"))}</span>
+      </div>
     </section>
-  </div>`;
-  return onAct(root, { trial: startTrial });
+
+    <section class="panel">
+      <div class="panel-head panel-head-row"><h2>${esc(t("home.weeks"))}</h2><a class="btn ghost sm" href="/app/course" data-link>${esc(t("lessons.all"))}</a></div>
+      <div class="week-grid">
+        ${orientLeft.length && !cs.started ? weekCard({ week: 0, badge: icon("bulb"), title: t("lessons.orientation"), sub: t("lessons.orientationSub"), done: cat.orientation.days.length - orientLeft.length, total: cat.orientation.days.length }) : ""}
+        ${weeks.map((w) => weekCard({ week: w.week, badge: String(w.week), title: titleParts(w.title).main, done: w.done, total: w.days.length, current: w.current, locked: w.days.some((d) => isLocked(d, a)) })).join("")}
+      </div>
+    </section>`;
+  return onAct(root, { trial: startTrial, locked: () => showLock() });
 }

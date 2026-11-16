@@ -6,7 +6,7 @@ import { api, config } from "../api.js";
 import { state, refreshMe } from "../store.js";
 import { go, catalog } from "../main.js";
 import { tutorResult } from "./day.js";
-import { recognizer } from "./common.js";
+import { recognizer, pageHead } from "./common.js";
 
 // ElevenLabs' browser library, pinned and integrity-locked (same file the current TruckTalk uses)
 const SDK_URL = "https://cdn.jsdelivr.net/npm/@elevenlabs/client@1.32.1/dist/lib.iife.js";
@@ -47,13 +47,13 @@ export default async function teacher(root, _p, { query }) {
   function paint() {
     const hasSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
     root.innerHTML = `
-      <div class="pagehead"><h1>${esc(t("teacher.title"))}</h1></div>
-      ${!a.signedIn ? `<div class="card accent row wrap-row" style="margin-bottom:14px"><b class="grow">${esc(t("teacher.signin"))}</b><a class="btn dark" href="/app/signin" data-link>${esc(t("signin"))}</a></div>` : ""}
-      <div class="seg full" style="margin-bottom:14px">
-        <button data-act="tab" data-t="check" class="${tab === "check" ? "on" : ""}">${esc(t("teacher.check"))}</button>
-        <button data-act="tab" data-t="ask" class="${tab === "ask" ? "on" : ""}">${esc(t("teacher.ask"))}</button>
-        <button data-act="tab" data-t="voice" class="${tab === "voice" ? "on" : ""}">${esc(t("teacher.voice"))}</button>
-      </div>
+      ${pageHead({ back: "/app/practice", backLabel: t("nav.practice"), right: `<span class="badge info">AI</span>`, eyebrow: t("practice.title"), title: t("teacher.title"), sub: esc(t("teacher.hubSub")),
+        body: `<div class="seg full head-extra" role="group" aria-label="${esc(t("teacher.title"))}">
+          <button data-act="tab" data-t="check" class="${tab === "check" ? "on" : ""}" aria-pressed="${tab === "check"}">${esc(t("teacher.check"))}</button>
+          <button data-act="tab" data-t="ask" class="${tab === "ask" ? "on" : ""}" aria-pressed="${tab === "ask"}">${esc(t("teacher.ask"))}</button>
+          <button data-act="tab" data-t="voice" class="${tab === "voice" ? "on" : ""}" aria-pressed="${tab === "voice"}">${esc(t("teacher.voice"))}</button>
+        </div>` })}
+      ${!a.signedIn ? `<div class="card accent row wrap-row"><b class="grow">${esc(t("teacher.signin"))}</b><a class="btn dark" href="/app/signin" data-link>${esc(t("signin"))}</a></div>` : ""}
       ${tab === "voice" ? voicePane() : `
       <div class="card stack">
         <p class="muted" style="margin:0">${esc(tab === "check" ? t("teacher.checkHint") : t("teacher.askHint"))}</p>

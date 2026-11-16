@@ -68,6 +68,17 @@ test("sanitize drops junk and impossible values", () => {
   assert.equal(({}).polluted, undefined);
 });
 
+test("sanitize keeps homework and role-play scores beside day, grammar and video ones", () => {
+  const s = sanitize({ quiz: {
+    "hw:12": { best: 18, total: 20, at: T }, "hw:-3": { best: 9, total: 10, at: T }, "rp:7": { best: 80, total: 100, at: T },
+    "day:1": { best: 5, total: 5, at: T }, "grammar:to-be": { best: 4, total: 6, at: T }, "video:3": { best: 7, total: 8, at: T },
+    "hw:": { best: 1, total: 1, at: T }, "hw:1 2": { best: 1, total: 1, at: T }, "rp:9": { best: 3, total: 0, at: T }, "homework:1": { best: 1, total: 1, at: T },
+  } }, T + 1000);
+  assert.deepEqual(Object.keys(s.quiz).sort(), ["day:1", "grammar:to-be", "hw:-3", "hw:12", "rp:7", "video:3"]);
+  const m = merge({ ...EMPTY(), quiz: { "hw:12": { best: 12, total: 20, at: T } } }, { ...EMPTY(), quiz: { "hw:12": { best: 18, total: 20, at: T - 5 } } });
+  assert.equal(m.quiz["hw:12"].best, 18, "the best homework score wins");
+});
+
 test("sanitize rejects timestamps from the future and before 2024", () => {
   const s = sanitize({ days: { 1: { s: { words: T + 30 * 86400000 } }, 2: { s: { words: 1000 } } } }, T);
   assert.deepEqual(s.days, {});
