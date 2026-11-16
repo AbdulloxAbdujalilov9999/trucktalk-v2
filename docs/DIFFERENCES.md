@@ -22,7 +22,7 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | Admin | Dashboards load the whole user list live | Server-side search and filters, payments (incl. unmatched), Telegram leads, audit log of every change, marketing links |
 | Weak signal | Waits for the network with no time limit | Falls back to the saved copy after 3.5 seconds |
 | Security headers | No Content-Security-Policy | Strict CSP, no inline scripts (checked automatically) |
-| Practising outside lessons | Spaced review | Spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear) and conversation practice with an AI officer, dispatcher, broker and others |
+| Practice | Inside each lesson: flip cards, fill in the blank, word matching, a role-play spoken into the mic | A Practice tab beside the lessons: spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear) and conversation practice with an AI officer, dispatcher, broker and others |
 | Tests | 7 test files, no CI | 56 automated tests, a 19-step browser walkthrough at phone size, CI on every push |
 | Trying it | Needs Firebase and keys | `npm run dev` runs everything with nothing set up |
 
@@ -111,6 +111,7 @@ Say which of these you want and they can be added to v2:
   separate `trucktalk-teachers` classroom site is untouched and keeps working; the Pro plan's live classes are meant to
   run there. In v2, teachers can look at every student's progress and quiz results in the admin.
 - **Lesson presentations narrated in Uzbek** (the slide mode where the teacher's voice explains each lesson).
+- **Fill in the blank.** v2's games are listen and choose, match the pairs, build the sentence and say it.
 - **Manager role, approval queue and calendar.** v2 has student, teacher and admin, and no approval step: free lessons
   are open, paid ones need a plan.
 - **The Android app.** v2 installs from the browser as an app (home-screen icon, works offline).
