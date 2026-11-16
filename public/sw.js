@@ -5,10 +5,11 @@
  * - /api is never touched here: lessons a student opened are kept by the app itself, and played audio lives in its own cache
  *   ("tt2-voice-v1", managed by audio.js), which this worker never deletes.
  * scripts/check.mjs fails the build if a file the app needs is missing from SHELL. */
-const CACHE = "tt2-shell-v3";
+const CACHE = "tt2-shell-v4";
 const SHELL = [
   "/", "/app.html", "/404.html", "/manifest.webmanifest",
   "/css/app.css",
+  "/fonts/inter-latin-wght-normal.woff2", "/fonts/inter-cyrillic-wght-normal.woff2", "/fonts/oswald-latin-wght-normal.woff2", "/fonts/oswald-cyrillic-wght-normal.woff2",
   "/data/catalog.json", "/data/videos.json",
   "/icons/icon-192.png", "/icons/icon-512.png", "/icons/favicon-32.png", "/icons/apple-touch-icon.png",
   "/js/landing.js",
@@ -18,7 +19,7 @@ const SHELL = [
   "/js/app/views/home.js", "/js/app/views/listen.js", "/js/app/views/practice.js", "/js/app/views/pricing.js", "/js/app/views/profile.js",
   "/js/app/views/review.js", "/js/app/views/signin.js", "/js/app/views/talk.js", "/js/app/views/teacher.js", "/js/app/views/video.js",
   "/js/app/views/videos.js", "/js/app/views/words.js",
-  "/js/shared/drills.js", "/js/shared/plans.js", "/js/shared/progress.js", "/js/shared/scenes.js", "/js/shared/text.js", "/js/shared/videos.js",
+  "/js/shared/drills.js", "/js/shared/lesson.js", "/js/shared/plans.js", "/js/shared/progress.js", "/js/shared/scenes.js", "/js/shared/text.js", "/js/shared/videos.js",
 ];
 const TIMEOUT_MS = 3500;
 
@@ -68,5 +69,5 @@ self.addEventListener("fetch", (e) => {
     e.respondWith(fresh(req, isApp ? "/app.html" : url.pathname === "/" || url.pathname === "/index.html" ? "/" : undefined));
     return;
   }
-  if (/^\/(js|css|data|icons)\//.test(url.pathname) || url.pathname === "/manifest.webmanifest") e.respondWith(fresh(req));
+  if (/^\/(js|css|data|icons|fonts)\//.test(url.pathname) || url.pathname === "/manifest.webmanifest") e.respondWith(fresh(req));
 });

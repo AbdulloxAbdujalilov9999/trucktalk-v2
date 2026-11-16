@@ -83,7 +83,7 @@ export default async function profile(root) {
       <div class="pagehead"><h1>${esc(t("profile.title"))}</h1></div>
       <div class="stack-lg">
         <section class="card row" style="align-items:center">
-          <div style="width:54px;height:54px;border-radius:16px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:900;font-size:1.3rem;flex:none">${esc((name || "?").trim().charAt(0).toUpperCase() || "?")}</div>
+          <div class="avatar">${esc((name || "?").trim().charAt(0).toUpperCase() || "?")}</div>
           <div class="grow" style="min-width:0">
             ${a.signedIn ? (editing
               ? `<form class="row" id="nameForm"><input class="input" id="nameIn" maxlength="60" value="${esc(name)}" aria-label="${esc(t("profile.name"))}" autocomplete="name"><button class="btn primary sm">${esc(t("save"))}</button></form>`
@@ -111,10 +111,10 @@ export default async function profile(root) {
 
         <section>
           <h2>${esc(t("profile.badges"))}</h2>
-          <div class="grid grid-3">${badges.map((b) => `
-            <div class="card tight row" style="${b.on ? "" : "opacity:.45;filter:grayscale(1)"}">
-              <span style="width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;background:${b.on ? "var(--accent-soft)" : "var(--surface-2)"};color:${b.on ? "#8a5a00" : "var(--faint)"}">${icon(b.ic, "ico")}</span>
-              <b class="small">${esc(t(b.k))}</b>
+          <div class="badge-grid">${badges.map((b) => `
+            <div class="bdg ${b.on ? "" : "off"}">
+              <span class="bi">${icon(b.ic, "ico")}</span>
+              <b>${esc(t(b.k))}</b>
             </div>`).join("")}</div>
         </section>
 

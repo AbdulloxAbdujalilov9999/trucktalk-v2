@@ -134,6 +134,20 @@ generated once. A daily character budget caps new audio.
   8. Every line also counts against `ai/_all`. Structured output (verdict, correction, note, reply, translation,
   suggestions, done). Demo mode answers with each scene's own lines.
 
+## Inside a lesson (public/js/app/views/day.js; public/js/shared/lesson.js)
+
+- Word practice uses only the day's own words. `blankRound()` finds each word in its example sentence (whole words,
+  endings such as -s, -ed, -ing and 's, quotes around signs, a hyphen where the word has a space), cuts it out and
+  offers three other words of the day, written to fit the gap: capitalised at the start of a sentence, lower-case
+  otherwise, except acronyms, "I ..." phrases and names, which keep their capitals. Options that look like the answer are
+  picked first, so a capital letter never gives it away (the tests check this for every word of the course).
+- Role-play: the student picks a part (`defaultSpeaker()`: the driver, else the second speaker). The other part plays in
+  the natural voice, one line at a time; the student's line is heard by the phone's speech recognition and scored with
+  `compareSpeech()`. Each run has its own token from `audio.newRun()`, so Stop or leaving the page ends it cleanly, and
+  the mic silences any voice before it listens. Phones without speech recognition get "I said it".
+- Finishing the words step puts the day's words into the review deck. A day is done when all its steps are; it is then
+  marked and a celebration shows the XP earned, the streak and how many words went into review.
+
 ## Telegram (lib/telegram.js)
 
 Login links are HMAC-signed with `SESSION_SECRET`, expire in 10 minutes and are single use (`loginTokens/`). Linking an

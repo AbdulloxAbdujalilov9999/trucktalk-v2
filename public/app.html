@@ -5,10 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TruckTalk — trakchilar uchun ingliz tili</title>
 <meta name="description" content="Amerikada ishlayotgan trakchilar uchun ingliz tili: 50 ta bepul video dars, 60 kunlik kurs, AI oʻqituvchi.">
-<meta name="theme-color" content="#0f2742">
+<meta name="theme-color" content="#10325a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1d36" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/app.css">
 <link rel="modulepreload" href="/js/app/main.js">
 <script type="module" src="/js/app/main.js"></script>
@@ -16,7 +19,7 @@
 <body>
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="/app" data-link><span class="mark">TT</span><span>TruckTalk</span></a>
+    <a class="brand" href="/app" data-link aria-label="TruckTalk"><img class="logo" src="/icons/icon-192.png" alt="" width="36" height="36"><span class="brand-txt"><b>TRUCK TALK</b><small id="brandsub">Yoʻl uchun ingliz tili</small></span></a>
     <nav class="topnav" id="topnav" aria-label="Main"></nav>
     <span class="spacer"></span>
     <span id="planchip"></span>

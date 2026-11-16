@@ -76,7 +76,7 @@ function hub(root) {
         <p class="muted" style="margin:0">${esc(t("talk.sub", { n: SCENES.length }))}</p>
       </a>
       <a class="card link stack" href="/app/review" data-link>
-        <div class="row">${icon("repeat")}<h3 class="grow" style="margin:0">${esc(t("nav.review"))}</h3>${due ? `<span class="badge warn">${due}</span>` : ""}</div>
+        <div class="row"><span class="mi amber">${icon("repeat")}</span><h3 class="grow" style="margin:0">${esc(t("nav.review"))}</h3>${due ? `<span class="badge warn">${due}</span>` : ""}</div>
         <p class="muted" style="margin:0">${esc(due ? t("home.reviewReady", { n: due }) : total ? t("practice.reviewLater") : t("home.reviewNone"))}</p>
       </a>
     </section>
@@ -85,7 +85,7 @@ function hub(root) {
       <div class="grid grid-2">
         ${games().map((g) => `
         <a class="card link stack" href="/app/practice/${g.id}" data-link>
-          <div class="row">${icon(g.ic)}<h3 style="margin:0">${esc(g.title)}</h3></div>
+          <div class="row"><span class="mi">${icon(g.ic)}</span><h3 style="margin:0">${esc(g.title)}</h3></div>
           <p class="muted small" style="margin:0">${esc(g.sub)}</p>
         </a>`).join("")}
       </div>

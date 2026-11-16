@@ -22,8 +22,9 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | Admin | Dashboards load the whole user list live | Server-side search and filters, payments (incl. unmatched), Telegram leads, audit log of every change, marketing links |
 | Weak signal | Waits for the network with no time limit | Falls back to the saved copy after 3.5 seconds |
 | Security headers | No Content-Security-Policy | Strict CSP, no inline scripts (checked automatically) |
-| Practice | Inside each lesson: flip cards, fill in the blank, word matching, a role-play spoken into the mic | A Practice tab beside the lessons: spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear) and conversation practice with an AI officer, dispatcher, broker and others |
-| Tests | 7 test files, no CI | 56 automated tests, a 19-step browser walkthrough at phone size, CI on every push |
+| Look | TruckTalk brand and a mile-marker progress map | The TruckTalk logo with a navy and amber look and road-sign details, fonts served by the app itself, light and dark themes, a highway with 12 exits on the home screen and a course map that opens week by week |
+| Practice | Inside each lesson: flip cards, fill in the blank, word matching, a role-play spoken into the mic | The same inside each lesson (flip cards, match the pairs, fill in the blank, a spoken role-play where you pick your part and can hide your lines), plus a Practice tab: spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear) and conversation practice with an AI officer, dispatcher, broker and others |
+| Tests | 7 test files, no CI | 63 automated tests, a 19-step browser walkthrough at phone size, CI on every push |
 | Trying it | Needs Firebase and keys | `npm run dev` runs everything with nothing set up |
 
 ## Every finding from the review, and what v2 does
@@ -52,9 +53,28 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | L3 | Staff can fake who did a reset | The server writes the audit log with the caller's own account |
 | L4 | The Android app bundles an old copy of the site | v2 installs as a web app from the browser and always runs the current version |
 | L5 | Stale branches | Fresh repository |
-| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 56 tests cover access, payments, webhooks, grading, sync, practice and the HTTP server; CI runs them plus the browser walkthrough |
+| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 63 tests cover access, payments, webhooks, grading, sync, practice, lesson games and the HTTP server; CI runs them plus the browser walkthrough |
 
 ## New in v2
+
+**A new look, and lessons that teach more** (second round, 16 Nov 2026):
+
+- **Home**: a greeting, a progress ring, the next lesson with one big Continue button, the streak, today's XP against
+  the daily goal and the words waiting for review, then the highway: a road with the truck where the student is and
+  12 exit signs, one per week, that turn green as the weeks are done.
+- **Course map**: the same road and the next lesson on top, then orientation and the 12 weeks; a week opens to its
+  five days, finished days show their quiz score, and the current week is open.
+- **Inside each lesson**: a header with the week, the time it takes and progress through the five steps. Words come
+  as flip cards (word on the front; meaning, example and its translation on the back) or a list, with "listen to
+  all". Under them, **match the pairs** and **fill in the blank**: the day's own example sentences with the word left
+  out, four choices, and the whole sentence read aloud after the answer (it works for 984 of the 1,020 words, keeps
+  names and acronyms capitalised, and never lets a capital letter give the answer away).
+- **Role-play** under every dialogue: pick your part (the driver by default), optionally hide your lines, then the
+  other person speaks in a natural voice and you answer into the mic; each line is scored word by word, and at the end
+  you can swap parts. Phones without speech recognition get an "I said it" button instead.
+- **Finishing a day** gets a celebration with the XP earned, the streak and how many words went into review.
+- **Brand and type**: the truck logo and "Truck Talk: English for the road" in the top bar, Oswald for headings and
+  Inter for text (both served by the app, so they work offline and in Uzbek and Russian), a proper dark theme.
 
 **Practice for drivers** (the Practice tab; added 16 Nov 2026):
 
@@ -111,11 +131,11 @@ Say which of these you want and they can be added to v2:
   separate `trucktalk-teachers` classroom site is untouched and keeps working; the Pro plan's live classes are meant to
   run there. In v2, teachers can look at every student's progress and quiz results in the admin.
 - **Lesson presentations narrated in Uzbek** (the slide mode where the teacher's voice explains each lesson).
-- **Fill in the blank.** v2's games are listen and choose, match the pairs, build the sentence and say it.
 - **Manager role, approval queue and calendar.** v2 has student, teacher and admin, and no approval step: free lessons
   are open, paid ones need a plan.
 - **The Android app.** v2 installs from the browser as an app (home-screen icon, works offline).
-- **The mile-marker progress map.** v2 shows the course by weeks with progress bars and stats.
+- **Homework**: the current app's word sessions between lessons. In v2 the review deck and the Practice tab do that job.
+- **A separate progress page.** v2 shows progress on the home screen, the course map and the profile.
 
 ## If you decide to switch to v2
 

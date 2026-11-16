@@ -257,7 +257,7 @@ await step("progress is saved to the account (a new phone gets it back)", async 
   const p2 = await phone2.newPage();
   watch(p2);
   await p2.goto(BASE + "/app/course");
-  await p2.waitForSelector(".day.done", { timeout: 10000 });
+  await p2.waitForSelector(".drow.done", { state: "attached", timeout: 10000 });
   await phone2.close();
 });
 

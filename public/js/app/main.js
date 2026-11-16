@@ -118,6 +118,8 @@ function renderShell(name) {
     (staff ? `<a href="/admin">${esc(t("nav.admin"))}</a>` : "");
   const tier = state.me.access && state.me.access.tier;
   document.getElementById("planchip").innerHTML = tier && tier !== "anon" && tier !== "free" ? `<span class="chip-plan ${esc(tier)}">${esc(planLabel(state.me.access))}</span>` : "";
+  const sub = document.getElementById("brandsub");
+  if (sub) sub.textContent = t("brand.sub");
   document.getElementById("langsw").innerHTML = ["uz", "ru", "en"].map((l) => `<button data-lang="${l}" class="${l === lang() ? "on" : ""}" aria-pressed="${l === lang()}">${l.toUpperCase()}</button>`).join("");
 }
 

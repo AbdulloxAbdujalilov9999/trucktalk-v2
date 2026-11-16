@@ -39,7 +39,7 @@ Free without paying: the orientation days, days 1–3, the first grammar units a
 ```bash
 npm run dev            # demo mode on :3000
 npm start              # production server (Render or any Node host); Vercel uses api/ directly
-npm test               # 56 unit and integration tests (node:test), incl. the real HTTP server in demo mode
+npm test               # 63 unit and integration tests (node:test), incl. the real HTTP server in demo mode
 npm run check          # content files up to date, offline list complete, no inline scripts, every UI string translated
 npm run e2e            # phone-size browser walkthrough with screenshots (needs Playwright; see e2e/run.mjs)
 npm run build:content  # rebuild content/ and public/data/ from sources/ (course, grammar, 50 video scripts)
