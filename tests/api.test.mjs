@@ -135,6 +135,22 @@ test("admin: students are refused, admins can manage, nobody can change their ow
   assert.equal((await call("admin?view=payments", { token: teacher })).status, 403);
 });
 
+test("conversation practice over HTTP: an account is needed, the conversation goes on with its id", async () => {
+  const body = { action: "roleplay", scene: "broker", text: "Hi, is the Dallas load still available?", lang: "ru" };
+  assert.equal((await call("ai", { method: "POST", body })).status, 401);
+  const tok = await login("student", "talker1");
+  const a = await call("ai", { method: "POST", token: tok, body });
+  assert.equal(a.status, 200);
+  assert.match(a.data.convo, /^[a-f0-9]{16}$/);
+  assert.equal(typeof a.data.reply, "string");
+  const history = [{ r: "me", t: body.text }, { r: "them", t: a.data.reply }];
+  const b = await call("ai", { method: "POST", token: tok, body: { ...body, text: "My MC number is 123456.", history, convo: a.data.convo } });
+  assert.deepEqual([b.status, b.data.turn, b.data.left], [200, 2, undefined]);
+  assert.equal((await call("ai", { method: "POST", token: tok, body: { ...body, scene: "space" } })).status, 400);
+  // the app routes for the new screens are served (the browser app takes them from there)
+  for (const p of ["/app/practice", "/app/practice/numbers", "/app/listen", "/app/talk", "/app/talk/police"]) assert.equal((await fetch(BASE + p)).status, 200, p);
+});
+
 test("webhooks and voice files refuse anything unsigned or off-list", async () => {
   assert.equal((await call("webhooks?src=whop", { method: "POST", body: { type: "payment.succeeded" } })).status, 503, "no secret set: refuse");
   assert.equal((await call("webhooks?src=telegram", { method: "POST", body: {} })).status, 503);

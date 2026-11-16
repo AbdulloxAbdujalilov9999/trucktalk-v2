@@ -18,6 +18,9 @@ const views = {
   videos: () => import("./views/videos.js"),
   video: () => import("./views/video.js"),
   review: () => import("./views/review.js"),
+  practice: () => import("./views/practice.js"),
+  listen: () => import("./views/listen.js"),
+  talk: () => import("./views/talk.js"),
   words: () => import("./views/words.js"),
   teacher: () => import("./views/teacher.js"),
   profile: () => import("./views/profile.js"),
@@ -34,6 +37,11 @@ const ROUTES = [
   [/^\/app\/videos\/?$/, "videos"],
   [/^\/(?:app\/videos|v)\/(\d{1,2})\/?$/, "video"],
   [/^\/app\/review\/?$/, "review"],
+  [/^\/app\/practice\/?$/, "practice"],
+  [/^\/app\/practice\/(numbers|listen|match|build|say)\/?$/, "practice"],
+  [/^\/app\/listen\/?$/, "listen"],
+  [/^\/app\/talk\/?$/, "talk"],
+  [/^\/app\/talk\/([a-z]{2,20})\/?$/, "talk"],
   [/^\/app\/words\/?$/, "words"],
   [/^\/app\/teacher\/?$/, "teacher"],
   [/^\/app\/profile\/?$/, "profile"],
@@ -41,8 +49,10 @@ const ROUTES = [
   [/^\/app\/signin\/?$/, "signin"],
   [/^\/app\/certificate\/?$/, "certificate"],
 ];
-const TABS = [["home", "/app", "home"], ["course", "/app/course", "book"], ["videos", "/app/videos", "video"], ["review", "/app/review", "repeat"], ["profile", "/app/profile", "user"]];
-const TOP = [["home", "/app"], ["course", "/app/course"], ["videos", "/app/videos"], ["grammar", "/app/grammar"], ["review", "/app/review"], ["words", "/app/words"], ["teacher", "/app/teacher"], ["profile", "/app/profile"]];
+const TABS = [["home", "/app", "home"], ["course", "/app/course", "book"], ["videos", "/app/videos", "video"], ["practice", "/app/practice", "target"], ["profile", "/app/profile", "user"]];
+const TOP = [["home", "/app"], ["course", "/app/course"], ["videos", "/app/videos"], ["practice", "/app/practice"], ["grammar", "/app/grammar"], ["review", "/app/review"], ["words", "/app/words"], ["teacher", "/app/teacher"], ["profile", "/app/profile"]];
+// which tab lights up for a screen that has no tab of its own
+const TAB_OF = { video: "videos", day: "course", review: "practice", listen: "practice", talk: "practice" };
 
 // ---------------------------------------------------------------- shared helpers for views
 let catalogP = null, videosP = null;
@@ -98,11 +108,13 @@ export function planLabel(access) {
 
 // ---------------------------------------------------------------- shell
 function renderShell(name) {
+  const tab = TAB_OF[name] || name;
   document.getElementById("tabbar").innerHTML = TABS.map(([k, href, ic]) =>
-    `<a href="${href}" data-link class="${k === name || (k === "videos" && name === "video") ? "on" : ""}">${icon(ic)}<span>${esc(t("nav." + k))}</span></a>`).join("");
+    `<a href="${href}" data-link class="${k === tab ? "on" : ""}">${icon(ic)}<span>${esc(t("nav." + k))}</span></a>`).join("");
   const staff = state.me.access && state.me.access.staff;
+  const top = TOP.some(([k]) => k === name) ? name : tab;
   document.getElementById("topnav").innerHTML = TOP.map(([k, href]) =>
-    `<a href="${href}" data-link class="${k === name || (k === "videos" && name === "video") ? "on" : ""}">${esc(t("nav." + k))}</a>`).join("") +
+    `<a href="${href}" data-link class="${k === top ? "on" : ""}">${esc(t("nav." + k))}</a>`).join("") +
     (staff ? `<a href="/admin">${esc(t("nav.admin"))}</a>` : "");
   const tier = state.me.access && state.me.access.tier;
   document.getElementById("planchip").innerHTML = tier && tier !== "anon" && tier !== "free" ? `<span class="chip-plan ${esc(tier)}">${esc(planLabel(state.me.access))}</span>` : "";
@@ -145,7 +157,7 @@ document.addEventListener("click", (e) => {
     return;
   }
   const s = e.target.closest('[data-act="say"]');
-  if (s) { e.preventDefault(); play(s.dataset.t, { lang: s.dataset.lang || "en", gender: s.dataset.g || undefined }); return; }
+  if (s) { e.preventDefault(); play(s.dataset.t, { lang: s.dataset.lang || "en", gender: s.dataset.g || undefined, device: s.dataset.device === "1" }); return; }
   const l = e.target.closest("#langsw [data-lang]");
   if (l) { setLang(l.dataset.lang); render(); if (currentUser()) api("me", { method: "POST", body: { action: "update", lang: l.dataset.lang } }).catch(() => {}); }
 });

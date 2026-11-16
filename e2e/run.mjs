@@ -143,6 +143,71 @@ await step("AI teacher checks a sentence and counts the daily limit", async () =
   await shot(page, "09-ai-teacher");
 });
 
+await step("practice: trucking numbers are read aloud, typed and checked", async () => {
+  await page.goto(BASE + "/app/practice");
+  await expectText(page, /Yoʻlda tinglash/);
+  await shot(page, "14-practice");
+  await page.click('a[href="/app/practice/numbers"]');
+  await page.click('[data-act="kind"][data-k="time"]');
+  await page.click('[data-act="start"]');
+  await page.fill("#ans", "1");
+  await page.click('#drillForm button[type="submit"]');
+  await page.waitForSelector(".answer");
+  await expectText(page, /Aytilgani/);
+  await shot(page, "15-numbers");
+  await page.click('[data-act="next"]');
+  await page.waitForSelector("#ans:not([disabled])");
+});
+
+await step("practice: match the pairs, then build a sentence from the lesson's words", async () => {
+  await page.goto(BASE + "/app/practice/match?set=day:1");
+  await page.waitForSelector(".pairs");
+  const ks = await page.$$eval('.pairs [data-act="l"]', (els) => els.map((e) => e.dataset.k));
+  await page.click(`[data-act="l"][data-k="${ks[0]}"]`);
+  await page.click(`[data-act="r"][data-k="${ks[0]}"]`);
+  await page.waitForSelector(`[data-act="l"][data-k="${ks[0]}"].right`);
+  await shot(page, "16-match");
+  for (const k of ks.slice(1)) { await page.click(`[data-act="l"][data-k="${k}"]`); await page.click(`[data-act="r"][data-k="${k}"]`); }
+  await expectText(page, /5 tadan 5 ta toʻgʻri/);
+  await page.goto(BASE + "/app/practice/build?set=day:1");
+  await page.waitForSelector(".tiles");
+  while (await page.$('.tiles button.tile')) await page.click('.tiles button.tile >> nth=0');
+  await page.click('[data-act="check"]');
+  await page.waitForSelector(".answer-line.ok, .answer-line.bad");
+  await shot(page, "17-build");
+});
+
+await step("listen in the truck: the hands-free player steps through a phrase", async () => {
+  await page.goto(BASE + "/app/listen?set=video:1");
+  await page.waitForSelector(".player");
+  await expectText(page, /Haydashdan oldin/);
+  await page.click('[data-act="toggle"]');
+  await page.waitForSelector(".player-steps span.on");
+  await shot(page, "18-listen");
+  await page.click('[data-act="next"]');
+  await page.waitForFunction(() => /^2 \//.test(document.querySelector(".player .muted").innerText));
+  await page.click('[data-act="toggle"]');
+  await page.waitForSelector('.player [data-act="toggle"] svg rect', { state: "detached" });
+});
+
+await step("conversation practice: the AI officer answers and coaches each line", async () => {
+  await page.goto(BASE + "/app/talk");
+  await page.waitForSelector(".scene");
+  await page.click('a[href="/app/talk/police"]');
+  await expectText(page, /Do you know why I stopped you/);
+  await page.click('[data-act="sugg"] >> nth=0');
+  await page.click('[data-act="send"]');
+  await page.waitForSelector(".feedback");
+  await expectText(page, /license, registration and insurance/);
+  await shot(page, "19-talk");
+  for (const line of ["Here is my license and registration.", "I am going to Dallas with a load of paper."]) {
+    await page.fill("#msg", line);
+    await page.click('[data-act="send"]');
+    await page.waitForFunction((n) => document.querySelectorAll(".feedback").length >= n, line.startsWith("Here") ? 2 : 3);
+  }
+  await expectText(page, /Suhbat tugadi/);
+});
+
 await step("buying a plan (demo checkout) opens it at once", async () => {
   await page.goto(BASE + "/app/pricing");
   await page.waitForSelector(".plans");

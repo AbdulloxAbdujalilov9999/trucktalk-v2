@@ -1,4 +1,4 @@
-/* Home: where you left off, today's goal, review, the next video lesson, and the trial/plan offer. */
+/* Home: where you left off, today's goal, practice for the road, review, the next video lesson, and the trial offer. */
 import { t, pick, fmtDate } from "../i18n.js";
 import { esc, icon, bar, onAct } from "../ui.js";
 import { state, xpToday, goal } from "../store.js";
@@ -49,6 +49,23 @@ export default async function home(root) {
       <div class="stat"><b>${due}</b><span>${esc(t("home.toReview"))}</span></div>
     </section>
     ${xp >= g ? `<div class="card flat center"><b>${esc(t("home.goalDone"))}</b></div>` : ""}
+    <section class="stack">
+      <div class="row"><h2 class="grow" style="margin:0">${esc(t("home.practice"))}</h2><a href="/app/practice" data-link class="small">${esc(t("home.allPractice"))}</a></div>
+      <div class="grid grid-3">
+        <a class="card link stack hub-main" href="/app/listen" data-link>
+          <div class="row">${icon("headphones")}<h3 style="margin:0">${esc(t("listen.title"))}</h3></div>
+          <p class="muted small" style="margin:0">${esc(t("home.listenSub"))}</p>
+        </a>
+        <a class="card link stack hub-main" href="/app/talk" data-link>
+          <div class="row">${icon("chat")}<h3 class="grow" style="margin:0">${esc(t("talk.title"))}</h3><span class="badge info">AI</span></div>
+          <p class="muted small" style="margin:0">${esc(t("home.talkSub"))}</p>
+        </a>
+        <a class="card link stack" href="/app/practice/numbers" data-link>
+          <div class="row">${icon("hash")}<h3 style="margin:0">${esc(t("game.numbers"))}</h3></div>
+          <p class="muted small" style="margin:0">${esc(t("home.numbersSub"))}</p>
+        </a>
+      </div>
+    </section>
     <section class="grid grid-2">
       <a class="card link stack" href="/app/review" data-link>
         <div class="row">${icon("repeat")}<h3 style="margin:0">${esc(t("nav.review"))}</h3></div>

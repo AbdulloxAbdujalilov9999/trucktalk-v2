@@ -6,8 +6,9 @@
  * Writes:
  *   content/course.json        full days incl. quiz answers         (server only: never served as a file)
  *   content/grammar.json       full grammar units incl. answers     (server only)
- *   content/phrases-en.json    { phrase: spokenText } natural-voice allowlist (English)
- *   content/phrases-uz.json    { phrase: 1 } natural-voice allowlist (the Uzbek narrator lines of the video lessons)
+ *   content/phrases-en.json    { phrase: spokenText } natural-voice allowlist (English, incl. the conversation openings)
+ *   content/phrases-uz.json    { phrase: 1 } natural-voice allowlist (Uzbek: the narrator lines of the video lessons and
+ *                              the translations the "Listen in the truck" player reads out)
  *   public/data/catalog.json   titles, order and free/locked flags (public)
  *   public/data/videos.json    the 50 video lessons (public: they are free)
  *   public/index.html          the landing page: the lesson list and plan cards, and its Uzbek text from public/js/app/i18n.js
@@ -19,6 +20,8 @@ import { fileURLToPath } from "node:url";
 import { normalize, spoken } from "../public/js/shared/text.js";
 import { dayIsFree, freeGrammarIds, PLANS, FEATURES } from "../public/js/shared/plans.js";
 import { parseVideoScript, checkVideo, uzQuotes } from "./lib/video-script.mjs";
+import { videoItems } from "../public/js/shared/videos.js";
+import { SCENES } from "../public/js/shared/scenes.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "sources");
@@ -140,12 +143,16 @@ function phrasesEn(course, grammar, videos) {
     v.recap.forEach((r) => add(r.en, r.say));
     v.cards.forEach((c) => add(c.en, c.say));
   }
+  for (const sc of SCENES) add(sc.opening.en);   // the first line of each conversation practice
   return sortObj(out);
 }
-function phrasesUz(videos) {
+function phrasesUz(course, videos) {
   const out = {};
   const add = (t) => { const k = normalize(t); if (k && k.length <= 600) out[k] = 1; };
   for (const v of videos) { add(v.intro); add(v.outro); v.recap.forEach((r) => r.note && add(r.note)); v.cards.forEach((c) => c.note && add(c.note)); }
+  // the meanings the "Listen in the truck" player reads out after each English phrase (see public/js/app/items.js)
+  for (const v of videos) videoItems(v).forEach((it) => add(it.uz));
+  for (const d of [...course.orientation, ...course.days]) d.words.forEach((w) => { add(w.uz); add(w.ex.uz); });
   return sortObj(out);
 }
 const sortObj = (o) => Object.fromEntries(Object.keys(o).sort().map((k) => [k, o[k]]));
@@ -268,7 +275,7 @@ function main() {
     "content/course.json": course,
     "content/grammar.json": grammar,
     "content/phrases-en.json": phrasesEn(course, grammar, videos),
-    "content/phrases-uz.json": phrasesUz(videos),
+    "content/phrases-uz.json": phrasesUz(course, videos),
     "public/data/catalog.json": catalog(course, grammar, videos, freeGrammar),
     "public/data/videos.json": videos,
   };

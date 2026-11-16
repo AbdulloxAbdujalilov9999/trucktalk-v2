@@ -22,7 +22,8 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | Admin | Dashboards load the whole user list live | Server-side search and filters, payments (incl. unmatched), Telegram leads, audit log of every change, marketing links |
 | Weak signal | Waits for the network with no time limit | Falls back to the saved copy after 3.5 seconds |
 | Security headers | No Content-Security-Policy | Strict CSP, no inline scripts (checked automatically) |
-| Tests | 7 test files, no CI | 43 automated tests, a 15-step browser walkthrough at phone size, CI on every push |
+| Practising outside lessons | Spaced review | Spaced review, hands-free listening for the road, five practice games (incl. trucking numbers and spelling by ear) and conversation practice with an AI officer, dispatcher, broker and others |
+| Tests | 7 test files, no CI | 56 automated tests, a 19-step browser walkthrough at phone size, CI on every push |
 | Trying it | Needs Firebase and keys | `npm run dev` runs everything with nothing set up |
 
 ## Every finding from the review, and what v2 does
@@ -51,9 +52,34 @@ found in the 15 Nov 2026 review by changing how the app is built rather than pat
 | L3 | Staff can fake who did a reset | The server writes the audit log with the caller's own account |
 | L4 | The Android app bundles an old copy of the site | v2 installs as a web app from the browser and always runs the current version |
 | L5 | Stale branches | Fresh repository |
-| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 43 tests cover access, payments, webhooks, grading, sync and the HTTP server; CI runs them plus the browser walkthrough |
+| Tests | No database-rules tests, no CI | Rules are deny-all (nothing to test per path); 56 tests cover access, payments, webhooks, grading, sync, practice and the HTTP server; CI runs them plus the browser walkthrough |
 
 ## New in v2
+
+**Practice for drivers** (the Practice tab; added 16 Nov 2026):
+
+- **Listen in the truck.** A hands-free player for the road: the English phrase, its meaning (the Uzbek teacher's
+  natural voice, or the phone's Russian voice), a pause to say it out loud, then the English again a little slower.
+  Any video lesson, course day or the student's own review words; shuffle, loop, longer pauses. Keeps the screen on
+  and answers headphone and steering-wheel buttons where the phone allows it. A safety note says to set it up before
+  driving.
+- **Numbers and spelling by ear.** The voice reads what dispatchers, brokers and officers actually say (load and PO
+  numbers, phone numbers, appointment times, weights, bridge heights, rates per mile, mile markers, reefer
+  temperatures, addresses, the radio alphabet) and the student types it. The check forgives how it's typed ("2:30 pm",
+  "14:30", "13 6", "80k") but not a wrong number, then shows the sentence and how it was said.
+- **Conversation practice.** 11 situations from a driver's week: a police stop, a DOT inspection, checking in at a
+  shipper, arriving late at a receiver, calling dispatch, negotiating with a broker, a breakdown call, the repair shop,
+  the DOT physical, a truck stop, a job interview. Claude plays the other person in simple spoken English and, after
+  every line, says whether it was right, gives the smallest fix and why (in Uzbek or Russian), and suggests what to say
+  next. Speak or type. A conversation counts as one AI use; the server keeps its line count (8 at most), so it can't
+  be stretched into free AI calls. Corrections are listed at the end to practise.
+- **Four quick games** from what the student can already open: listen and choose, match the pairs, build the
+  sentence, and say it (the phone's speech recognition shows which words came through). A phrase the student gets
+  wrong goes into their review deck, so it comes back at the right time.
+- The tab bar has **Practice** in place of Review (review is inside Practice and on the home screen), and the home
+  screen has a "Practice for the road" row.
+
+**Everything else new:**
 
 - **A front door for video viewers.** The landing page explains the course in Uzbek, Russian or English, lists all 50
   video lessons, and has a box: type the number from the video, land in that lesson. Each lesson page plays every line
@@ -85,7 +111,6 @@ Say which of these you want and they can be added to v2:
   separate `trucktalk-teachers` classroom site is untouched and keeps working; the Pro plan's live classes are meant to
   run there. In v2, teachers can look at every student's progress and quiz results in the admin.
 - **Lesson presentations narrated in Uzbek** (the slide mode where the teacher's voice explains each lesson).
-- **Practice games** (fill in the blank, word matching). v2 has the quiz, speaking practice and spaced review instead.
 - **Manager role, approval queue and calendar.** v2 has student, teacher and admin, and no approval step: free lessons
   are open, paid ones need a plan.
 - **The Android app.** v2 installs from the browser as an app (home-screen icon, works offline).

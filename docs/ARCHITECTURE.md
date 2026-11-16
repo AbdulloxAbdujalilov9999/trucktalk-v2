@@ -114,6 +114,26 @@ Public, but only for the exact canonical URL of a phrase on the course's allowli
 gets a 400 that is never cached. Audio is cached for a year (`immutable`) by the CDN and the phone, so each phrase is
 generated once. A daily character budget caps new audio.
 
+## Practice (public/js/app/views/practice.js, listen.js, talk.js; public/js/shared/drills.js, scenes.js)
+
+- The games and the listening player use only what the student can already open (`public/js/app/items.js`): the free
+  video lessons, the words and example sentences of the days returned by `content?kind=words`, and their review cards.
+  Quiz answers never come into it. A wrong answer puts the phrase's card (`w:` or `v:`) back at the start of the review
+  deck.
+- `drills.js` has no screen attached, so the tests run the same code: numbers spoken the American way, drills, the
+  forgiving answer check, the speech comparison (longest common subsequence over normalised words), tiles and rounds.
+  Drills are random text, so they always use the phone's voice (`play(text, { device: true })`).
+- Listening: English through the natural voice when it's on; Uzbek meanings through the Uzbek natural voice (the
+  allowlist now includes the translations of every word, example and video phrase, about 80,000 characters, generated
+  once each); Russian meanings through the phone's Russian voice. The phone's voice has a time limit, so a phone that
+  never reports the end of an utterance can't stall the player. Screen Wake Lock and Media Session where supported.
+- Conversation practice: `POST /api/ai {action: "roleplay"}` (`roleplay()` in `lib/tutor.js`). The AI's instructions
+  are built on the server from `scenes.js`; the browser sends only the scene id, the conversation so far (checked:
+  `me`/`them` lines of at most 300 characters, at most 16) and the new line. The first line of a conversation takes one
+  AI use and gets an id; later lines with that id are free, but `usage/<day>/talk/<uid>/<id>` counts them and stops at
+  8. Every line also counts against `ai/_all`. Structured output (verdict, correction, note, reply, translation,
+  suggestions, done). Demo mode answers with each scene's own lines.
+
 ## Telegram (lib/telegram.js)
 
 Login links are HMAC-signed with `SESSION_SECRET`, expire in 10 minutes and are single use (`loginTokens/`). Linking an
